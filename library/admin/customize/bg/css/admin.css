@@ -1,0 +1,44 @@
+#customize-control-whimsy_backgrounds_customize_options .layout {
+    width: 32%;
+}
+#customize-control-whimsy_backgrounds_customize_options .icon {
+    padding-top: 4em;
+    height: 90px;
+    background-color: #a8adaf;
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: left center;
+}
+.customize-control-layout .radios .layout[data-value="arrow-hearts"] .icon {
+	background-image: url(../img/whimsy-bg-arrow-hearts.png);
+}
+.customize-control-layout .radios .layout[data-value="dots"] .icon {
+	background-image: url(../img/whimsy-bg-dots.png);
+}
+.customize-control-layout .radios .layout[data-value="feathered"] .icon {
+	background-image: url(../img/whimsy-bg-feathered.png);
+}
+.customize-control-layout .radios .layout[data-value="floral-mural"] .icon {
+	background-image: url(../img/whimsy-bg-floral-mural.png);
+}
+.customize-control-layout .radios .layout[data-value="honeycomb"] .icon {
+	background-image: url(../img/whimsy-bg-honeycomb.png);
+}
+.customize-control-layout .radios .layout[data-value="quatrefoil"] .icon {
+	background-image: url(../img/whimsy-bg-quatrefoil.png);
+}
+.customize-control-layout .radios .layout[data-value="sketchy-clouds"] .icon {
+	background-image: url(../img/whimsy-bg-sketchy-clouds.png);
+}
+.customize-control-layout .radios .layout[data-value="sketchy-lines"] .icon {
+	background-image: url(../img/whimsy-bg-sketchy-lines.png);
+}
+.customize-control-layout .radios .layout[data-value="sketchy-ribbons"] .icon {
+	background-image: url(../img/whimsy-bg-sketchy-ribbons.png);
+}
+.customize-control-layout .radios .layout[data-value="vertical-ribbons"] .icon {
+	background-image: url(../img/whimsy-bg-sketchy-vertical-ribbons.png);
+}
+.customize-control-layout .radios .layout[data-value="fabric"] .icon {
+	background-image: url(../img/whimsy-bg-woven-fabric.png);
+}
