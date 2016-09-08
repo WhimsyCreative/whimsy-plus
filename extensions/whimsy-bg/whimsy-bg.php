@@ -140,12 +140,12 @@ if ( !class_exists( 'WhimsyBackgrounds' ) ) {
 
             $whimsy_bg_color = get_theme_mod( 'whimsy_bg_color' );
             if( get_theme_mod( 'whimsy_bg_color' ) == true ) { 
-                echo 'body { background-color: ' . esc_html($whimsy_bg_color) . ' }';
+                echo 'body.custom-background { background-color: ' . esc_html($whimsy_bg_color) . ' }';
             }
             
             $whimsy_backgrounds_customize_options = get_theme_mod( 'whimsy_backgrounds_customize_options' );
             if( get_theme_mod( 'whimsy_backgrounds_customize_options' ) == true ) { 
-                echo 'body { background-image: url( '. plugin_dir_url( __FILE__ ) . 'img/whimsy-bg-' . esc_html( $whimsy_backgrounds_customize_options ) . '.png) }';
+                echo 'body.custom-background { background-image: url( '. plugin_dir_url( __FILE__ ) . 'img/whimsy-bg-' . esc_html( $whimsy_backgrounds_customize_options ) . '.png) }';
             }
             echo '</style>';
         }
