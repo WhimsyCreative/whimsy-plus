@@ -1,7 +1,7 @@
 <?php
 
 // include the custom post type class
-include_once( WHIMSY_EXTEND_INC . 'post-types.php' );
+include_once( WHIMSY_PLUS_INC . 'post-types.php' );
 
 
 // create a Portfolio custom post type

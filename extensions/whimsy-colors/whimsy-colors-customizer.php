@@ -10,7 +10,7 @@
     
     // Add our new Colors section.
 	$wp_customize->add_section(
-		'whimsy_extend_colors_section',
+		'WHIMSY_PLUS_colors_section',
 		array(
 			'title'      => __( 'Colors', 'whimsy-extend' ),
 			'priority'   => 40,
@@ -32,7 +32,7 @@
 	        'whimsy_link_color',
 	        array(
 	            'label' 	=> __( 'Link Color', 'whimsy-framework' ),
-	            'section' 	=> 'whimsy_extend_colors_section',
+	            'section' 	=> 'WHIMSY_PLUS_colors_section',
 	            'settings' 	=> 'whimsy_link_color'
 	        )
 	    )
@@ -52,7 +52,7 @@
 	        'whimsy_link_hover_color',
 	        array(
 	            'label' 	=> __( 'Link Hover Color', 'whimsy-framework' ),
-	            'section' 	=> 'whimsy_extend_colors_section',
+	            'section' 	=> 'WHIMSY_PLUS_colors_section',
 	            'settings' 	=> 'whimsy_link_hover_color'
 	        )
 	    )
@@ -72,7 +72,7 @@
 	        'whimsy_alt_color',
 	        array(
 	            'label' 	=> __( 'Highlight Color', 'whimsy-framework' ),
-	            'section' 	=> 'whimsy_extend_colors_section',
+	            'section' 	=> 'WHIMSY_PLUS_colors_section',
 	            'settings' 	=> 'whimsy_alt_color'
 	        )
 	    )
@@ -91,7 +91,7 @@
 	        'whimsy_body_color',
 	        array(
 	            'label' 	=> __( 'Body Text Color', 'whimsy-framework' ),
-	            'section' 	=> 'whimsy_extend_colors_section',
+	            'section' 	=> 'WHIMSY_PLUS_colors_section',
 	            'settings' 	=> 'whimsy_body_color'
 	        )
 	    )
@@ -113,7 +113,7 @@
             'whimsy_menu_background_color',
             array(
                 'label'     => __( 'Menu Background Color', 'whimsy-framework' ),
-                'section'   => 'whimsy_extend_colors_section',
+                'section'   => 'WHIMSY_PLUS_colors_section',
                 'settings'  => 'whimsy_menu_background_color'
             )
         )
@@ -133,7 +133,7 @@
             'whimsy_menu_link_color',
             array(
                 'label'     => __( 'Menu link color', 'whimsy-framework' ),
-                'section'   => 'whimsy_extend_colors_section',
+                'section'   => 'WHIMSY_PLUS_colors_section',
                 'settings'  => 'whimsy_menu_link_color'
             )
         )
@@ -153,7 +153,7 @@
             'whimsy_menu_link_hover_color',
             array(
                 'label'     => __( 'Menu link hover color', 'whimsy-framework' ),
-                'section'   => 'whimsy_extend_colors_section',
+                'section'   => 'WHIMSY_PLUS_colors_section',
                 'settings'  => 'whimsy_menu_link_hover_color'
             )
         )
@@ -174,7 +174,7 @@
             'whimsy_submenu_background_color',
             array(
                 'label'     => __( 'Sub-menu background color', 'whimsy-framework' ),
-                'section'   => 'whimsy_extend_colors_section',
+                'section'   => 'WHIMSY_PLUS_colors_section',
                 'settings'  => 'whimsy_submenu_background_color'
             )
         )
@@ -194,7 +194,7 @@
             'whimsy_submenu_link_color',
             array(
                 'label'     => __( 'Sub-Menu link color', 'whimsy-framework' ),
-                'section'   => 'whimsy_extend_colors_section',
+                'section'   => 'WHIMSY_PLUS_colors_section',
                 'settings'  => 'whimsy_submenu_link_color'
             )
         )
@@ -214,7 +214,7 @@
             'whimsy_header_container_bg_color',
             array(
                 'label'     => __( 'Header container background color', 'whimsy-framework' ),
-                'section'   => 'whimsy_extend_colors_section',
+                'section'   => 'WHIMSY_PLUS_colors_section',
                 'settings'  => 'whimsy_header_container_bg_color'
             )
         )
@@ -234,7 +234,7 @@
             'whimsy_masthead_bg_color',
             array(
                 'label'     => __( 'Masthead background color', 'whimsy-framework' ),
-                'section'   => 'whimsy_extend_colors_section',
+                'section'   => 'WHIMSY_PLUS_colors_section',
                 'settings'  => 'whimsy_masthead_bg_color'
             )
         )
@@ -254,7 +254,7 @@
 	        'whimsy_site_title_color',
 	        array(
 	            'label' 	=> __( 'Site Title color', 'whimsy-framework' ),
-	            'section' 	=> 'whimsy_extend_colors_section',
+	            'section' 	=> 'WHIMSY_PLUS_colors_section',
 	            'settings' 	=> 'whimsy_site_title_color'
 	        )
 	    )
@@ -274,7 +274,7 @@
 	        'whimsy_site_desc_color',
 	        array(
 	            'label' 	=> __( 'Site Description Color', 'whimsy-framework' ),
-	            'section' 	=> 'whimsy_extend_colors_section',
+	            'section' 	=> 'WHIMSY_PLUS_colors_section',
 	            'settings' 	=> 'whimsy_site_desc_color'
 	        )
 	    )
@@ -294,7 +294,7 @@
             'whimsy_masthead_text_color',
             array(
                 'label'     => __( 'Masthead text color', 'whimsy-framework' ),
-                'section'   => 'whimsy_extend_colors_section',
+                'section'   => 'WHIMSY_PLUS_colors_section',
                 'settings'  => 'whimsy_masthead_text_color'
             )
         )

@@ -8,13 +8,13 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * Whimsy_Extend_Options Class
+ * WHIMSY_PLUS_Options Class
  *
  * A general class for About and Credits page.
  *
  * @since 1.4
  */
-class Whimsy_Extend_Options {
+class WHIMSY_PLUS_Options {
 
 	/**
 	 * @var string The capability users should have to view the page
@@ -113,7 +113,7 @@ class Whimsy_Extend_Options {
 	 * @since 2.5
 	 * @return void
 	 */
-	public function welcome_message() {
+	public function welcome() {
 		list( $display_version ) = explode( '-', WHIMSY_VERSION );
 		?>
 		<div id="whimsy-header">
@@ -355,4 +355,4 @@ class Whimsy_Extend_Options {
 	}
 
 }
-new Whimsy_Extend_Options();
+new WHIMSY_PLUS_Options();
