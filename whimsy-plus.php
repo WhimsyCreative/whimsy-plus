@@ -85,8 +85,13 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
 
 			// Include Whimsy extensions.
             //require_once WHIMSY_PLUS_EXT . 'whimsy-portfolio/whimsy-portfolio.php';
-            require_once WHIMSY_PLUS_EXT . 'whimsy-colors/whimsy-colors.php';
-            require_once WHIMSY_PLUS_EXT . 'whimsy-bg/whimsy-bg.php';
+            
+            include_once WHIMSY_PLUS_ADMIN . 'customize/kirki/kirki.php';
+            
+            require_once WHIMSY_PLUS_EXT . 'whimsy-shortcodes/whimsy-shortcodes.php';
+            require_once WHIMSY_PLUS_EXT . 'whimsy-customizer-colors/whimsy-customizer-colors.php';
+            require_once WHIMSY_PLUS_EXT . 'whimsy-customizer-bg/whimsy-customizer-bg.php';
+            require_once WHIMSY_PLUS_EXT . 'whimsy-customizer-layout/whimsy-customizer-layout.php';
             require_once WHIMSY_PLUS_LIB_PATH . 'admin/welcome.php';
             
         }
