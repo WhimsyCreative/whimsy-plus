@@ -8,9 +8,19 @@
 
 if ( class_exists( 'Kirki' ) ) { 
     
+    Kirki::add_section( 'layout', array(
+        'title'          => __( 'Layout' ),
+        'description'    => __( 'Add custom CSS here' ),
+        'panel'          => '', // Not typically needed.
+        'priority'       => 160,
+        'capability'     => 'edit_theme_options',
+        'theme_supports' => '', // Rarely needed.
+    ) );
+    
 	/**
 	 * Add the configuration.
 	 */
+    
 	Kirki::add_config( 'whimsy_box_customizer', array(
 		'capability'    => 'edit_theme_options',
 		'option_type'   => 'theme_mod',
@@ -43,14 +53,14 @@ if ( class_exists( 'Kirki' ) ) {
         ),
         'output'      => array(
             array(
-                'element'  => '.box-layout',
+                'element'  => '.layout',
                 'property' => 'background-color',
             ),
         ),
 		'transport'   => 'postMessage',
         'js_vars'     => array(
             array(
-                'element'  => '.box-layout',
+                'element'  => '.layout',
                 'function' => 'css',
                 'property' => 'background-color',
             ),
@@ -74,14 +84,14 @@ if ( class_exists( 'Kirki' ) ) {
         ),
         'output'      => array(
             array(
-                'element'  => '.box-layout',
+                'element'  => '.layout',
                 'property' => 'margin',
             ),
         ),
 		'transport'   => 'postMessage',
 		'js_vars'     => array(
 			array(
-				'element'  => '.box-layout',
+				'element'  => '.layout',
 				'property' => 'margin',
 				'function' => 'css',
 			),
@@ -105,7 +115,7 @@ if ( class_exists( 'Kirki' ) ) {
         ),
         'output'      => array(
             array(
-                'element'  => '.box-layout',
+                'element'  => '.layout',
                 'property' => 'border-radius',
                 'units'    => 'px',
             ),
@@ -113,7 +123,7 @@ if ( class_exists( 'Kirki' ) ) {
 		'transport'    => 'postMessage',
 		'js_vars'      => array(
 			array(
-				'element'  => '.box-layout',
+				'element'  => '.layout',
 				'property' => 'border-radius',
 				'units'    => 'px',
 				'function' => 'css',

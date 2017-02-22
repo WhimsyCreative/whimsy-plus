@@ -2,8 +2,8 @@
 /*
  * Plugin Name: Whimsy+
  * Version: 1.0.0
- * Plugin URI: http://www.whimsycreative.co/whimsy/extend
- * Description: A plugin loaded with new features for the Whimsy Framework.
+ * Plugin URI: http://www.whimsycreative.co/framework/plus
+ * Description: A plugin packed with awesome features for Whimsy Framework.
  * Author: Whimsy Creative Co.
  * Author URI: http://www.whimsycreative.co
  * Requires at least: 4.0
@@ -88,7 +88,8 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
             
             include_once WHIMSY_PLUS_ADMIN . 'customize/kirki/kirki.php';
             
-            require_once WHIMSY_PLUS_EXT . 'whimsy-shortcodes/whimsy-shortcodes.php';
+            //require_once WHIMSY_PLUS_EXT . 'whimsy-shortcodes/whimsy-shortcodes.php';
+            
             require_once WHIMSY_PLUS_EXT . 'whimsy-customizer-colors/whimsy-customizer-colors.php';
             require_once WHIMSY_PLUS_EXT . 'whimsy-customizer-bg/whimsy-customizer-bg.php';
             require_once WHIMSY_PLUS_EXT . 'whimsy-customizer-layout/whimsy-customizer-layout.php';

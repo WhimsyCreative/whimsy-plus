@@ -1,0 +1,262 @@
+/*--------------------------------------------------------------
+Whimsy Shortcodes
+Author: The Fanciful
+Website: www.thefanciful.com
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+Table of Contents
+	1.0 Buttons
+	2.0 Columns
+	3.0 Boxes
+	4.0 Accordion
+	5.0 Dividers
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+1.0 Buttons
+--------------------------------------------------------------*/
+a.btn-shortcode {
+	display: inline-block;
+	border: 2px solid #000;
+	border-radius: 6px;
+	background: transparent;
+	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
+	font-size: 1em;
+	line-height: 1;
+	padding: 1% 2%;
+	margin: 0 1% 1% 0;
+	font-weight: 700;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+	transition: all 0.238s ease 0s;
+}
+a.btn-shortcode:hover {
+	border-color: #000;
+}
+a.btn-shortcode:focus,
+a.btn-shortcode:active{
+}
+/* Pink Button */
+a.btn-shortcode.pink {
+	color: rgba(236,69,165,0.8);
+	border: 2px solid rgba(236,69,165,0.8);
+}
+a.btn-shortcode.pink:hover {
+	color: #fff;
+	background: rgba(236,69,165,0.8);
+	border: 2px solid rgba(236,69,165,1);
+	text-shadow: 0 1px 0 rgba(236,69,165,1);
+}
+/* Violet Button */
+a.btn-shortcode.violet {
+	color: rgba(202,19,229,0.8);
+	border: 2px solid rgba(202,19,229,0.8);
+}
+a.btn-shortcode.violet:hover {
+	color: #fff;
+	background: rgba(202,19,229,0.8);
+	border: 2px solid rgba(202,19,229,1);
+	text-shadow: 0 1px 0 rgba(202,19,229,1);
+}
+/* Purple Button */
+a.btn-shortcode.purple {
+	color: rgba(139,62,242,0.8);
+	border: 2px solid rgba(139,62,242,0.8);
+}
+a.btn-shortcode.purple:hover {
+	color: #fff;
+	background: rgba(139,62,242,0.8);
+	border: 2px solid rgba(139,62,242,1);
+	text-shadow: 0 1px 0 rgba(139,62,242,1);
+}
+/* Aqua Button */
+a.btn-shortcode.aqua {
+	color: rgba(40,217,233,0.8);
+	border: 2px solid rgba(40,217,233,0.8);
+}
+a.btn-shortcode.aqua:hover {
+	color: #fff;
+	background: rgba(40,217,233,0.8);
+	border: 2px solid rgba(40,217,233,1);
+	text-shadow: 0 1px 0 rgba(40,217,233,1);
+}
+/* Green Button */
+a.btn-shortcode.green {
+	color: rgba(40,217,233,0.8);
+	border: 2px solid rgba(40,217,233,0.8);
+}
+a.btn-shortcode.green:hover {
+	color: #fff;
+	background: rgba(40,217,233,0.8);
+	border: 2px solid rgba(40,217,233,1);
+	text-shadow: 0 1px 0 rgba(40,217,233,1);
+}
+/* Yellow Button */
+a.btn-shortcode.yellow {
+	color: rgba(203,215,6,0.8);
+	border: 2px solid rgba(203,215,6,0.8);
+}
+a.btn-shortcode.yellow:hover {
+	color: #fff;
+	background: rgba(203,215,6,0.8);
+	border: 2px solid rgba(203,215,6,1);
+	text-shadow: 0 1px 0 rgba(203,215,6,1);
+}
+/* Yellow Button */
+a.btn-shortcode.orange {
+	color: rgba(224,152,13,0.8);
+	border: 2px solid rgba(224,152,13,0.8);
+}
+a.btn-shortcode.orange:hover {
+	color: #fff;
+	background: rgba(224,152,13,0.8);
+	border: 2px solid rgba(224,152,13,1);
+	text-shadow: 0 1px 0 rgba(224,152,13,1);
+}
+/* Red Button */
+a.btn-shortcode.red {
+	color: rgba(175,35,44,0.8);
+	border: 2px solid rgba(175,35,44,0.8);
+}
+a.btn-shortcode.red:hover {
+	color: #fff;
+	background: rgba(175,35,44,0.8);
+	border: 2px solid rgba(175,35,44,1);
+	text-shadow: 0 1px 0 rgba(175,35,44,1);
+}
+/* XL Button */
+a.btn-shortcode.xl {
+	font-size: 200%;
+}
+/* XL Button */
+a.btn-shortcode.large {
+	font-size: 150%;
+}
+/* XL Button */
+a.btn-shortcode.small {
+	font-size: 75%;
+}
+/*--------------------------------------------------------------
+2.0 Columns
+--------------------------------------------------------------*/
+/* Note: Column widths are definited by the 
+ * universal Whimsy grid system found in css/grid.css
+ * Editing grid.css is not recommended and will 
+ * cause changes throughout. */
+.whimsy-row {
+  	clear: both;
+}
+.whimsy-column {
+	margin-bottom: 4%;
+}
+.whimsy-row div:last-child {
+	padding-right:0;
+}
+/*--------------------------------------------------------------
+3.0 Boxes
+--------------------------------------------------------------*/
+.whimsy-box {
+	padding: 2%;
+	margin: 1em 0;
+	border-radius: 6px;
+	font-size: 80%;
+	box-shadow: 0px 1px 2px 0px rgba(16, 21, 22, 0.1);
+	line-height: 1.5em;
+	text-shadow: 0px 1px 0px rgba(255, 255, 255,0.1);
+	overflow: hidden;
+}
+.whimsy-box:before {
+    position:relative;
+    font-family: FontAwesome;
+    float: right;
+	display: block;
+	font-size: 145%;
+	margin-right: -85px;
+	margin-top: -90px;
+	transform: rotate(20deg);
+	background: rgba(255,255,255,0.2);
+	padding: 55px 70px 10px 240px;
+}
+.whimsy-box:after {
+    clear: both;
+}
+.whimsy-box-content {
+	margin: 0 2em 0 1em;
+	display: block;
+}
+.whimsy-box-default {
+	border: 1px solid rgba(216,216,216,0.4);
+	background: rgba(216,216,216,0.6);
+}
+.whimsy-box-info {
+	border: 1px solid rgba(107, 206, 222,0.4);
+	background: rgba(107, 206, 222,0.6);
+}
+.whimsy-box-info:before {
+    content: "\f129"; 
+	color: rgba(255,255,255,0.2);
+	text-shadow: 0px 1px 0px rgba(36, 188, 213,0.8);
+}
+.whimsy-box-warning {
+	border: 1px solid rgba(236, 150, 78,0.4);
+	background: rgba(236, 150, 78,0.6);
+}
+.whimsy-box-warning:before {
+    content: "\f071"; 
+	color: rgba(255,255,255,0.2);
+	text-shadow: 0px 1px 0px rgba(240, 132, 40,0.8);
+}
+.whimsy-box-download {
+	border: 1px solid rgba(155, 227, 129,0.4);
+	background: rgba(155, 227, 129,0.6);
+}
+.whimsy-box-download:before {
+    content: "\f019"; 
+	color: rgba(255,255,255,0.2);
+	text-shadow: 0px 1px 0px rgba(90, 215, 44,0.8);
+}
+.whimsy-box-tick {
+	border: 1px solid rgba(142,107,222,0.4);
+	background: rgba(142,107,222,0.6);
+}
+.whimsy-box-tick:before {
+    content: "\f00c"; 
+	color: rgba(255,255,255,0.2);
+	text-shadow: 0px 1px 0px rgba(132, 69, 222,0.8);
+}
+.whimsy-box-heart {
+	border: 1px solid rgba(249,175,209,0.4);
+	background: rgba(249,175,209,0.6);
+}
+.whimsy-box-heart:before {
+    content: "\f08a"; 
+	color: rgba(255,255,255,0.2);
+	text-shadow: 0px 1px 0px rgba(239, 113, 193,0.8);
+}
+.whimsy-box-content > a.btn-shortcode  {
+	margin: 0 1em;
+}
+/*--------------------------------------------------------------
+4.0 Accordion
+--------------------------------------------------------------*/
+dt.whimsy-accordion-intro {
+	border-bottom: 1px solid rgba(216,216,216,0.8);
+	padding: 0.6em 0;
+	display: block;
+}
+dt.whimsy-accordion-intro a {
+	display: block;
+}
+/*--------------------------------------------------------------
+5.0 Dividers
+--------------------------------------------------------------*/
+.whimsy-divider {
+	width: 100%;
+	display: block;
+	clear: both;
+	height: 1px;
+	border-bottom: 1px solid rgba(16, 21, 22, 0.2);
+}
+.whimsy-divider-fancy {
+	border-bottom: none;
+	height: 1px;
+	box-shadow: 0px 1px 2px 0px rgba(16, 21, 22, 0.2);
+}
