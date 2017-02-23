@@ -1,0 +1,33 @@
+/*--------------------------------------------------------------
+Plugin Name: Whimsy+
+Plugin URI: http://whimsycreative.co/framework/plus
+Author: Whimsy Creative Co.
+Author URI: http://whimsycreative.co
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+Table of Contents
+	1.0 Header
+	2.0 Columns
+	3.0 Boxes
+	4.0 Accordion
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+Header
+--------------------------------------------------------------*/
+.desktop-logo-image {
+    margin: 0;
+}
+
+.centered-logo {
+    margin: 0 auto;
+}
+
+.header-bg-image {
+    background-size: cover;
+    background-position: top center;
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;   
+}
