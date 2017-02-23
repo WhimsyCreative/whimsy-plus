@@ -8,7 +8,7 @@
 /**
  * Add the theme configuration
  */
-Kirki::add_config( 'whimsy_customizer', array(
+Kirki::add_config( 'whimsy_customizer_advanced', array(
 	'option_type' => 'theme_mod',
 	'capability'  => 'edit_theme_options',
 ) );
@@ -67,7 +67,7 @@ Kirki::add_section( 'advanced', array(
 
 /* Colors */
 
-Kirki::add_field( 'whimsy_customizer', array(
+Kirki::add_field( 'whimsy_customizer_advanced', array(
     'type'        => 'color-alpha',
     'settings'    => 'color_site_title',
     'label'       => __( 'Site Title Color', 'whimsy-plus' ),
@@ -91,7 +91,7 @@ Kirki::add_field( 'whimsy_customizer', array(
 
 ) );
 
-Kirki::add_field( 'whimsy_customizer', array(
+Kirki::add_field( 'whimsy_customizer_advanced', array(
     'type'        => 'color-alpha',
     'settings'    => 'color_link',
     'label'       => __( 'Link Color', 'whimsy-plus' ),
@@ -115,7 +115,7 @@ Kirki::add_field( 'whimsy_customizer', array(
 
 ) );
 
-Kirki::add_field( 'whimsy_customizer', array(
+Kirki::add_field( 'whimsy_customizer_advanced', array(
     'type'        => 'color-alpha',
     'settings'    => 'color_h1',
     'label'       => __( 'H1 Color', 'whimsy-plus' ),
@@ -139,7 +139,7 @@ Kirki::add_field( 'whimsy_customizer', array(
 
 ) );
 
-Kirki::add_field( 'whimsy_customizer', array(
+Kirki::add_field( 'whimsy_customizer_advanced', array(
     'type'        => 'color-alpha',
     'settings'    => 'color_h2',
     'label'       => __( 'H2 Color', 'whimsy-plus' ),
@@ -163,7 +163,7 @@ Kirki::add_field( 'whimsy_customizer', array(
 
 ) );
 
-Kirki::add_field( 'whimsy_customizer', array(
+Kirki::add_field( 'whimsy_customizer_advanced', array(
     'type'        => 'color-alpha',
     'settings'    => 'color_h3',
     'label'       => __( 'H3 Color', 'whimsy-plus' ),
@@ -187,7 +187,7 @@ Kirki::add_field( 'whimsy_customizer', array(
 
 ) );
 
-Kirki::add_field( 'whimsy_customizer', array(
+Kirki::add_field( 'whimsy_customizer_advanced', array(
     'type'        => 'color-alpha',
     'settings'    => 'color_h1',
     'label'       => __( 'H4 Color', 'whimsy-plus' ),
@@ -211,7 +211,7 @@ Kirki::add_field( 'whimsy_customizer', array(
 
 ) );
 
-Kirki::add_field( 'whimsy_customizer', array(
+Kirki::add_field( 'whimsy_customizer_advanced', array(
     'type'        => 'color-alpha',
     'settings'    => 'color_h5',
     'label'       => __( 'H5 Color', 'whimsy-plus' ),
@@ -235,7 +235,7 @@ Kirki::add_field( 'whimsy_customizer', array(
 
 ) );
 
-Kirki::add_field( 'whimsy_customizer', array(
+Kirki::add_field( 'whimsy_customizer_advanced', array(
     'type'        => 'color-alpha',
     'settings'    => 'color_h6',
     'label'       => __( 'H6 Color', 'whimsy-plus' ),
@@ -261,7 +261,7 @@ Kirki::add_field( 'whimsy_customizer', array(
 
 /* Logo */
 
-Kirki::add_field( 'whimsy_customizer', array(
+Kirki::add_field( 'whimsy_customizer_advanced', array(
     'type'        => 'image',
     'settings'     => 'desktop_logo',
     'label'       => __( 'Desktop Logo', 'whimsy-plus' ),
@@ -271,7 +271,7 @@ Kirki::add_field( 'whimsy_customizer', array(
     'priority'    => 50,
 ) );
 
-Kirki::add_field( 'whimsy_customizer', array(
+Kirki::add_field( 'whimsy_customizer_advanced', array(
     'type'        => 'image',
     'settings'     => 'mobile_logo',
     'label'       => __( 'Mobile Logo', 'whimsy-plus' ),
@@ -281,7 +281,7 @@ Kirki::add_field( 'whimsy_customizer', array(
     'priority'    => 51,
 ) );
 
-Kirki::add_field( 'whimsy_customizer', array(
+Kirki::add_field( 'whimsy_customizer_advanced', array(
     'type'        => 'toggle',
     'settings'    => 'centered_desktop_logo',
     'label'       => __( 'Center desktop logo?', 'whimsy-plus' ),
@@ -290,7 +290,7 @@ Kirki::add_field( 'whimsy_customizer', array(
     'priority'    => 52,
 ) );
 
-Kirki::add_field( 'whimsy_customizer', array(
+Kirki::add_field( 'whimsy_customizer_advanced', array(
     'type'        => 'toggle',
     'settings'    => 'centered_mobile_logo',
     'label'       => __( 'Center mobile logo?', 'whimsy-plus' ),
@@ -299,7 +299,7 @@ Kirki::add_field( 'whimsy_customizer', array(
     'priority'    => 53,
 ) );
 
-Kirki::add_field( 'whimsy_customizer', array(
+Kirki::add_field( 'whimsy_customizer_advanced', array(
     'type'        => 'slider',
     'settings'    => 'logo_padding',
     'label'       => __( 'Logo Padding', 'whimsy-plus' ),
@@ -330,37 +330,11 @@ Kirki::add_field( 'whimsy_customizer', array(
     )
 ) );
 
-/* Layout */
 
-Kirki::add_field( 'whimsy_customizer', array(
-    'type'        => 'slider',
-    'settings'    => 'layout_size',
-    'label'       => __( 'Site Width', 'whimsy-plus' ),
-    'description' => __( 'Set the width of the whole body of the site in %.', 'whimsy-plus' ),
-    'section'     => 'layout',
-    'default'     => '100',
-    'priority'    => 1,
-    'output'      => array(
-        array(
-            'element'  => '#page',
-            'units'    => '%',
-            'property' => 'width',
-        ),
-    ),
-    'transport'   => 'postMessage',
-    'js_vars'     => array(
-        array(
-            'element'  => '#page',
-            'property' => 'width',
-            'units'    => '%',
-            'function' => 'css',
-        ),
-    ),
-) );
 
 /* Nav */
 
-Kirki::add_field( 'whimsy_customizer', array(
+Kirki::add_field( 'whimsy_customizer_advanced', array(
     'type'        => 'color-alpha',
     'settings'    => 'nav_bar_bg',
     'label'       => __( 'Navigation Bar Background Color', 'whimsy-plus' ),
@@ -386,7 +360,7 @@ Kirki::add_field( 'whimsy_customizer', array(
 
 /* Header */
 
-Kirki::add_field( 'whimsy_customizer', array(
+Kirki::add_field( 'whimsy_customizer_advanced', array(
     'type'        => 'color-alpha',
     'settings'    => 'full_header_bg',
     'label'       => __( 'Header Background Color', 'whimsy-plus' ),
@@ -409,89 +383,9 @@ Kirki::add_field( 'whimsy_customizer', array(
     ),
 ) );
 
-Kirki::add_field( 'whimsy_customizer', array(
-    'type'        => 'switch',
-    'settings'    => 'header_as_bg',
-    'label'       => __( 'Use Header Image as a background?', 'whimsy-plus' ),
-    'help'        => __( 'The Header Image will be used as a full-screen background, placed behind the menus and titles.', 'whimsy-plus' ),
-    'section'     => 'header_image',
-    'default'     => 0,
-    'priority'    => 10,
-) );
-
-Kirki::add_field( 'whimsy_customizer', array(
-    'type'        => 'dimension',
-    'settings'    => 'header_as_bg_height',
-    'label'       => __( 'Header Height', 'whimsy-plus' ),
-    'help'        => __( 'Use the height of your header image in pixels.', 'whimsy-plus' ),
-    'section'     => 'header_image',
-    'default'     => '250px',
-    'priority'    => 10,
-    'required'    => array(
-        array(
-            'setting'  => 'header_as_bg',
-            'operator' => '==',
-            'value'    => 1,
-        ),
-    ),
-    'output'      => array(
-        array(
-            'element'  => '.header-bg-image',
-            'property' => 'height',
-            'units'    => 'px',
-        ),
-    ),
-    'transport'    => 'postMessage',
-    'js_vars'      => array(
-        array(
-            'element'  => '.header-bg-image',
-            'property' => 'height',
-            'units'    => 'px',
-            'function' => 'css',
-        ),
-    )
-) );
-
-Kirki::add_field( 'whimsy_customizer', array(
-    'type'        => 'radio-buttonset',
-    'settings'    => 'header_as_bg_size',
-    'label'       => __( 'Background-Size', 'whimsy-plus' ),
-    'description' => __( 'This controls how the background is sized.', 'whimsy-plus' ),
-    'section'     => 'header_image',
-    'default'     => 'cover',
-    'priority'    => 15,
-    'choices'     => array(
-        'normal'    => __( 'Normal', 'whimsy-plus' ),
-        'contain'   => __( 'Contain', 'whimsy-plus' ),
-        'cover'     => __( 'Cover', 'whimsy-plus' ),
-        '100%'    => __( '100%', 'whimsy-plus' )
-    ),
-    'required'    => array(
-        array(
-            'setting'  => 'header_as_bg',
-            'operator' => '==',
-            'value'    => 1,
-        ),
-    ),
-    'output'      => array(
-        array(
-            'element'  => '.header-bg-image',
-            'property' => 'background-size'
-        ),
-    ),
-    'transport'    => 'postMessage',
-    'js_vars'      => array(
-        array(
-            'element'  => '.header-bg-image',
-            'property' => 'background-size',
-            'function' => 'css',
-        ),
-    )
-) );
-
 /* Typography */
 
-Kirki::add_field( 'whimsy_customizer', array(
+Kirki::add_field( 'whimsy_customizer_advanced', array(
 	'type'        => 'typography',
 	'settings'    => 'headline_font',
 	'label'       => __( 'Headline Font', 'whimsy-plus' ),
@@ -514,7 +408,7 @@ Kirki::add_field( 'whimsy_customizer', array(
 	),
 ) );
 
-Kirki::add_field( 'whimsy_customizer', array(
+Kirki::add_field( 'whimsy_customizer_advanced', array(
 	'type'        => 'typography',
 	'settings'    => 'body_font',
 	'label'       => __( 'Body Font', 'whimsy-plus' ),
@@ -539,7 +433,7 @@ Kirki::add_field( 'whimsy_customizer', array(
 
 /* Advanced */
 
-Kirki::add_field( 'whimsy_customizer', array(
+Kirki::add_field( 'whimsy_customizer_advanced', array(
     'type'        => 'toggle',
     'settings'    => 'enable_breadcrumbs',
     'label'       => __( 'Enable breadcrumbs?', 'whimsy-plus' ),

@@ -86,18 +86,27 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
 		 */
         function includes() {
 
-			// Include Whimsy extensions.
-            //require_once WHIMSY_PLUS_EXT . 'whimsy-portfolio/whimsy-portfolio.php';
+			// Include Whimsy Customizer extensions
             
-            include_once WHIMSY_PLUS_ADMIN . 'customize/kirki/kirki.php';
+            include_once WHIMSY_PLUS_CUSTOMIZE . 'kirki/kirki.php';
+            include_once WHIMSY_PLUS_CUSTOMIZE . 'config.php';
+            include_once WHIMSY_PLUS_CUSTOMIZE . 'sections.php';
+            include_once WHIMSY_PLUS_CUSTOMIZE . 'layout.php';
+            //include_once WHIMSY_PLUS_CUSTOMIZE . 'menu.php';
+            include_once WHIMSY_PLUS_CUSTOMIZE . 'header.php';
+            //include_once WHIMSY_PLUS_CUSTOMIZE . 'content.php';
+            //include_once WHIMSY_PLUS_CUSTOMIZE . 'sidebar.php';
+            //include_once WHIMSY_PLUS_CUSTOMIZE . 'footer.php';
+            //include_once WHIMSY_PLUS_CUSTOMIZE . 'mosaic.php';
+            //include_once WHIMSY_PLUS_CUSTOMIZE . 'forms.php';
+            
             
             //require_once WHIMSY_PLUS_EXT . 'whimsy-shortcodes/whimsy-shortcodes.php';
-            
             //require_once WHIMSY_PLUS_EXT . 'whimsy-customizer-colors/whimsy-customizer-colors.php';
-            require_once WHIMSY_PLUS_EXT . 'whimsy-customizer-bg/whimsy-customizer-bg.php';
-            require_once WHIMSY_PLUS_EXT . 'whimsy-customizer-layout/whimsy-customizer-layout.php';
-            require_once WHIMSY_PLUS_EXT . 'whimsy-advanced-options/whimsy-advanced-options.php';
-            require_once WHIMSY_PLUS_LIB_PATH . 'admin/welcome.php';
+            //require_once WHIMSY_PLUS_EXT . 'whimsy-customizer-bg/whimsy-customizer-bg.php';
+            //require_once WHIMSY_PLUS_EXT . 'whimsy-customizer-layout/whimsy-customizer-layout.php';
+            //require_once WHIMSY_PLUS_EXT . 'whimsy-advanced-options/whimsy-advanced-options.php';
+            //require_once WHIMSY_PLUS_LIB_PATH . 'admin/welcome.php';
             
         }
         

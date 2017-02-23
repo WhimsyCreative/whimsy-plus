@@ -31,7 +31,7 @@ function whimsy_get_advanced_header() {
 
 		</header><!-- #header -->
 
-    <?php elseif ( get_header_image() && Kirki::get_option( 'header_as_bg' ) == true ) : // If there's a header image and Header as a Background is ENABLED then the header image should be displayed as a background style. ?>
+    <?php elseif ( get_header_image() && Kirki::get_theme_mod( 'header_as_bg' ) == true ) : // If there's a header image and Header as a Background is ENABLED then the header image should be displayed as a background style. ?>
         
         <header class="header-bg-image" style="background-image: url(<?php header_image(); ?>)" id="header">
             
@@ -39,7 +39,7 @@ function whimsy_get_advanced_header() {
             
 		</header><!-- #header -->
 
-    <?php elseif ( get_header_image() && Kirki::get_option( 'header_as_bg' ) == false ) : // If there's a header image and the Header as a Background option is DISABLED, it should be displayed as an image block under the site title. ?>
+    <?php elseif ( get_header_image() && Kirki::get_theme_mod( 'header_as_bg' ) == false ) : // If there's a header image and the Header as a Background option is DISABLED, it should be displayed as an image block under the site title. ?>
         
         <header id="header">
             
@@ -63,12 +63,12 @@ endif;
 if ( ! function_exists( 'whimsy_mobile_branding' ) ) :
 function whimsy_mobile_branding() {
     
-    if ( Kirki::get_option( 'mobile_logo' ) ) : ?>
+    if ( Kirki::get_theme_mod( 'mobile_logo' ) ) : ?>
             
         <div class="mobile-site-branding"><!-- Does not display on screens larger than 980px -->
 
             <div class="site-logo">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php echo esc_url( Kirki::get_option( 'mobile_logo' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" class="mobile-logo-image <?php whimsy_centered_logo(); ?>"></a>
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php echo esc_url( Kirki::get_theme_mod( 'mobile_logo' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" class="mobile-logo-image <?php whimsy_centered_logo(); ?>"></a>
             </div>
 
         </div><!-- /.mobile-site-branding -->
@@ -96,14 +96,14 @@ endif; // End function_exists mobile logo check.
 if ( ! function_exists( 'whimsy_desktop_branding' ) ) :
 function whimsy_desktop_branding() { 
     
-    if ( Kirki::get_option( 'desktop_logo' ) ) : ?>
+    if ( Kirki::get_theme_mod( 'desktop_logo' ) ) : ?>
 
             
             <div class="site-branding"><!-- Does not display on screens smaller than 980px -->
                         
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
                     
-                    <img src="<?php echo esc_url( Kirki::get_option( 'desktop_logo' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" class="desktop-logo-image <?php whimsy_centered_logo(); ?>">
+                    <img src="<?php echo esc_url( Kirki::get_theme_mod( 'desktop_logo' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" class="desktop-logo-image <?php whimsy_centered_logo(); ?>">
                 
                 </a>
                         				

@@ -53,14 +53,14 @@ if ( class_exists( 'Kirki' ) ) {
         ),
         'output'      => array(
             array(
-                'element'  => '.layout',
+                'element'  => '#page',
                 'property' => 'background-color',
             ),
         ),
 		'transport'   => 'postMessage',
         'js_vars'     => array(
             array(
-                'element'  => '.layout',
+                'element'  => '#page',
                 'function' => 'css',
                 'property' => 'background-color',
             ),
@@ -84,14 +84,14 @@ if ( class_exists( 'Kirki' ) ) {
         ),
         'output'      => array(
             array(
-                'element'  => '.layout',
+                'element'  => '#page',
                 'property' => 'margin',
             ),
         ),
 		'transport'   => 'postMessage',
 		'js_vars'     => array(
 			array(
-				'element'  => '.layout',
+				'element'  => '#page',
 				'property' => 'margin',
 				'function' => 'css',
 			),
@@ -115,7 +115,7 @@ if ( class_exists( 'Kirki' ) ) {
         ),
         'output'      => array(
             array(
-                'element'  => '.layout',
+                'element'  => '#page',
                 'property' => 'border-radius',
                 'units'    => 'px',
             ),
@@ -123,7 +123,7 @@ if ( class_exists( 'Kirki' ) ) {
 		'transport'    => 'postMessage',
 		'js_vars'      => array(
 			array(
-				'element'  => '.layout',
+				'element'  => '#page',
 				'property' => 'border-radius',
 				'units'    => 'px',
 				'function' => 'css',
