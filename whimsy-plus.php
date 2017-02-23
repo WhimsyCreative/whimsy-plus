@@ -90,7 +90,7 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
             
             //require_once WHIMSY_PLUS_EXT . 'whimsy-shortcodes/whimsy-shortcodes.php';
             
-            require_once WHIMSY_PLUS_EXT . 'whimsy-customizer-colors/whimsy-customizer-colors.php';
+            //require_once WHIMSY_PLUS_EXT . 'whimsy-customizer-colors/whimsy-customizer-colors.php';
             require_once WHIMSY_PLUS_EXT . 'whimsy-customizer-bg/whimsy-customizer-bg.php';
             require_once WHIMSY_PLUS_EXT . 'whimsy-customizer-layout/whimsy-customizer-layout.php';
             require_once WHIMSY_PLUS_LIB_PATH . 'admin/welcome.php';
