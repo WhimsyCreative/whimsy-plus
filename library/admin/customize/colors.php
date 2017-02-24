@@ -5,146 +5,80 @@
  * @return void
  */
 
-
 Kirki::add_field( 'whimsy_plus', array(
-    'type'        => 'color-alpha',
-    'settings'    => 'color_h1',
-    'label'       => __( 'H1 Color', 'whimsy-plus' ),
-    'section'     => 'basic',
-    'default'     => '#333333',
-    'priority'    => 13,
+	'type'        => 'color',
+	'settings'    => 'whimsy_plus_body_link',
+	'label'       => __( 'Link Color', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_colors',
+	'default'     => '#52b0c1',
+	'priority'    => 10,
+	'choices'     => array(
+		'alpha' => true,
+	),
     'output'      => array(
         array(
-            'element'  => 'h1',
-            'property' => 'color',
+            'element'  => 'a, a:visited',
+            'property' => 'color'
         ),
     ),
-    'transport'   => 'postMessage',
-    'js_vars'     => array(
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
         array(
-            'element'  => 'h1',
-            'function' => 'css',
+            'element'  => 'a, a:visited',
             'property' => 'color',
+            'function' => 'style',
         ),
-    ),
-
-) );
-Kirki::add_field( 'whimsy_plus', array(
-    'type'        => 'color-alpha',
-    'settings'    => 'color_h2',
-    'label'       => __( 'H2 Color', 'whimsy-plus' ),
-    'section'     => 'basic',
-    'default'     => '#333333',
-    'priority'    => 14,
-    'output'      => array(
-        array(
-            'element'  => 'h2',
-            'property' => 'color',
-        ),
-    ),
-    'transport'   => 'postMessage',
-    'js_vars'     => array(
-        array(
-            'element'  => 'h2',
-            'function' => 'css',
-            'property' => 'color',
-        ),
-    ),
-
+    )
 ) );
 
 Kirki::add_field( 'whimsy_plus', array(
-    'type'        => 'color-alpha',
-    'settings'    => 'color_h3',
-    'label'       => __( 'H3 Color', 'whimsy-plus' ),
-    'section'     => 'basic',
-    'default'     => '#333333',
-    'priority'    => 15,
+	'type'        => 'color',
+	'settings'    => 'whimsy_plus_body_link_hover',
+	'label'       => __( 'Hover Color', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_colors',
+	'default'     => '#333333',
+	'priority'    => 11,
+	'choices'     => array(
+		'alpha' => true,
+	),
     'output'      => array(
         array(
-            'element'  => 'h3',
-            'property' => 'color',
+            'element'  => 'a:hover',
+            'property' => 'color'
         ),
     ),
-    'transport'   => 'postMessage',
-    'js_vars'     => array(
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
         array(
-            'element'  => 'h1',
-            'function' => 'css',
+            'element'  => 'a:hover',
             'property' => 'color',
+            'function' => 'style',
         ),
-    ),
-
+    )
 ) );
 
 Kirki::add_field( 'whimsy_plus', array(
-    'type'        => 'color-alpha',
-    'settings'    => 'color_h1',
-    'label'       => __( 'H4 Color', 'whimsy-plus' ),
-    'section'     => 'basic',
-    'default'     => '#333333',
-    'priority'    => 16,
+	'type'        => 'color',
+	'settings'    => 'whimsy_plus_body_link_active',
+	'label'       => __( 'Active Color', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_colors',
+	'default'     => '#aaaaaa',
+	'priority'    => 12,
+	'choices'     => array(
+		'alpha' => true,
+	),
     'output'      => array(
         array(
-            'element'  => 'h4',
-            'property' => 'color',
+            'element'  => 'a:hover',
+            'property' => 'color'
         ),
     ),
-    'transport'   => 'postMessage',
-    'js_vars'     => array(
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
         array(
-            'element'  => 'h4',
-            'function' => 'css',
+            'element'  => 'a:active,a:focus',
             'property' => 'color',
+            'function' => 'style',
         ),
-    ),
-
-) );
-
-Kirki::add_field( 'whimsy_plus', array(
-    'type'        => 'color-alpha',
-    'settings'    => 'color_h5',
-    'label'       => __( 'H5 Color', 'whimsy-plus' ),
-    'section'     => 'basic',
-    'default'     => '#333333',
-    'priority'    => 17,
-    'output'      => array(
-        array(
-            'element'  => 'h5',
-            'property' => 'color',
-        ),
-    ),
-    'transport'   => 'postMessage',
-    'js_vars'     => array(
-        array(
-            'element'  => 'h5',
-            'function' => 'css',
-            'property' => 'color',
-        ),
-    ),
-
-) );
-
-Kirki::add_field( 'whimsy_plus', array(
-    'type'        => 'color-alpha',
-    'settings'    => 'color_h6',
-    'label'       => __( 'H6 Color', 'whimsy-plus' ),
-    'section'     => 'basic',
-    'default'     => '#333333',
-    'priority'    => 18,
-    'output'      => array(
-        array(
-            'element'  => 'h6',
-            'property' => 'color',
-        ),
-    ),
-    'transport'   => 'postMessage',
-    'js_vars'     => array(
-        array(
-            'element'  => 'h6',
-            'function' => 'css',
-            'property' => 'color',
-        ),
-    ),
-
+    )
 ) );

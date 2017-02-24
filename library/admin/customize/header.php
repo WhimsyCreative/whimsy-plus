@@ -10,7 +10,7 @@ Kirki::add_field( 'whimsy_plus', array(
     'settings'    => 'header_as_bg_width',
     'label'       => __( 'Header Width', 'whimsy-plus' ),
     'help'        => __( 'Specify width of your header in %, px, or em.', 'whimsy-plus' ),
-    'section'     => 'header',
+    'section'     => 'whimsy_plus_header',
     'default'     => '100%',
     'priority'    => 10,
     'output'      => array(
@@ -34,7 +34,7 @@ Kirki::add_field( 'whimsy_plus', array(
     'settings'    => 'header_as_bg_height',
     'label'       => __( 'Header Height', 'whimsy-plus' ),
     'help'        => __( 'Use the height of your header image in pixels.', 'whimsy-plus' ),
-    'section'     => 'header',
+    'section'     => 'whimsy_plus_header',
     'default'     => '210px',
     'priority'    => 10,
     'output'      => array(
@@ -53,11 +53,11 @@ Kirki::add_field( 'whimsy_plus', array(
     )
 ) );
 Kirki::add_field( 'whimsy_plus', array(
-    'type'        => 'switch',
+    'type'        => 'toggle',
     'settings'    => 'header_as_bg',
-    'label'       => __( 'Use Header Image as a background?', 'whimsy-plus' ),
-    'help'        => __( 'The Header Image will be used as a full-screen background, placed behind the menus and titles.', 'whimsy-plus' ),
-    'section'     => 'header',
+    'label'       => __( 'Add a background to the header?', 'whimsy-plus' ),
+    'help'        => __( 'The image will be used as a full-screen background, placed behind the menus and titles.', 'whimsy-plus' ),
+    'section'     => 'whimsy_plus_header',
     'default'     => 0,
     'priority'    => 10,
 ) );
@@ -66,7 +66,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'image',
 	'settings'    => 'header_background_image',
 	'label'       => __( 'Header Background Image', 'whimsy-plus' ),
-	'section'     => 'header',
+	'section'     => 'whimsy_plus_header',
 	'default'     => '',
 	'priority'    => 10,
     'required'    => array(
@@ -97,7 +97,7 @@ Kirki::add_field( 'whimsy_plus', array(
     'settings'    => 'header_as_bg_size',
     'label'       => __( 'Background-Size', 'whimsy-plus' ),
     'description' => __( 'This controls how the background is sized.', 'whimsy-plus' ),
-    'section'     => 'header',
+    'section'     => 'whimsy_plus_header',
     'default'     => 'cover',
     'priority'    => 15,
     'choices'     => array(
@@ -134,7 +134,7 @@ Kirki::add_field( 'whimsy_plus', array(
     'settings'    => 'header_as_bg_position',
     'label'       => __( 'Background-Position', 'whimsy-plus' ),
     'description' => __( 'This controls where the background is positioned.', 'whimsy-plus' ),
-    'section'     => 'header',
+    'section'     => 'whimsy_plus_header',
     'default'     => 'center center',
     'priority'    => 25,
     'choices'     => array(

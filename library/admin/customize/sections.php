@@ -5,79 +5,60 @@
  * @return void
  */
 
-
 /**
  * Add sections
  */
 
-Kirki::add_section( 'basic', array(
+Kirki::add_panel( 'whimsy_plus_basic', array(
     'title'          => esc_html__( 'Basic', 'whimsy-plus' ),
-    'panel'          => 'whimsy_framework_whimsy_plus_panel',
-    'priority'       => 22,
+    'priority'       => 30,
     'capability'     => 'edit_theme_options',
 ) ); 
-Kirki::add_section( 'layout', array(
-    'title'          => esc_html__( 'Layout', 'whimsy-plus' ),
-    'panel'          => 'whimsy_framework_whimsy_plus_panel',
-    'priority'       => 22,
-    'capability'     => 'edit_theme_options',
-) ); 
-Kirki::add_section( 'menu', array(
-    'title'          => esc_html__( 'Layout', 'whimsy-plus' ),
-    'panel'          => 'whimsy_framework_whimsy_plus_panel',
-    'priority'       => 22,
+Kirki::add_section( 'whimsy_plus_colors', array(
+    'title'          => __( 'Colors', 'whimsy-plus' ),
+    //'panel'          => 'whimsy_plus_basic',
+    'priority'       => 30,
     'capability'     => 'edit_theme_options',
 ) );
-Kirki::add_section( 'header', array(
-    'title'          => esc_html__( 'Header', 'whimsy-plus' ),
-    'panel'          => 'whimsy_framework_whimsy_plus_panel',
-    'priority'       => 22,
-    'capability'     => 'edit_theme_options',
-) );
-Kirki::add_section( 'content', array(
-    'title'          => esc_html__( 'Layout', 'whimsy-plus' ),
-    'panel'          => 'whimsy_framework_whimsy_plus_panel',
-    'priority'       => 22,
-    'capability'     => 'edit_theme_options',
-) );
-Kirki::add_section( 'sidebar', array(
-    'title'          => esc_html__( 'Layout', 'whimsy-plus' ),
-    'panel'          => 'whimsy_framework_whimsy_plus_panel',
-    'priority'       => 22,
+Kirki::add_section( 'whimsy_plus_fonts', array(
+    'title'          => __( 'Fonts', 'whimsy-plus' ),
+    //'panel'          => 'whimsy_plus_basic',
+    'priority'       => 31,
     'capability'     => 'edit_theme_options',
 ) );    
+Kirki::add_section( 'whimsy_plus_layout', array(
+    'title'          => esc_html__( 'Layout', 'whimsy-plus' ),
 
-Kirki::add_section( 'menu', array(
-    'title'          => __( 'Menu', 'whimsy-plus' ),
-    'panel'          => 'whimsy_framework_whimsy_plus_panel',
-    'priority'       => 41,
+    'priority'       => 31,
     'capability'     => 'edit_theme_options',
-) );   
+) ); 
+Kirki::add_section( 'whimsy_plus_menu', array(
+    'title'          => esc_html__( 'Menu', 'whimsy-plus' ),
 
-Kirki::add_section( 'typography', array(
-    'title'          => __( 'Typography', 'whimsy-plus' ),
-    'panel'          => 'whimsy_framework_whimsy_plus_panel',
-    'priority'       => 50,
+    'priority'       => 32,
     'capability'     => 'edit_theme_options',
-) );  
+) );
+Kirki::add_section( 'whimsy_plus_header', array(
+    'title'          => esc_html__( 'Header', 'whimsy-plus' ),
 
-Kirki::add_section( 'content', array(
-    'title'          => __( 'Content Display', 'whimsy-plus' ),
-    'panel'          => 'whimsy_framework_whimsy_plus_panel',
-    'priority'       => 51,
+    'priority'       => 33,
     'capability'     => 'edit_theme_options',
-) );     
+) );
+Kirki::add_section( 'whimsy_plus_content', array(
+    'title'          => esc_html__( 'Layout', 'whimsy-plus' ),
 
-Kirki::add_section( 'sidebar', array(
-    'title'          => __( 'Sidebar Display', 'whimsy-plus' ),
-    'panel'          => 'whimsy_framework_whimsy_plus_panel',
-    'priority'       => 52,
+    'priority'       => 33,
     'capability'     => 'edit_theme_options',
-) );     
+) );
+Kirki::add_section( 'whimsy_plus_sidebar', array(
+    'title'          => esc_html__( 'Layout', 'whimsy-plus' ),
 
-Kirki::add_section( 'advanced', array(
+    'priority'       => 33,
+    'capability'     => 'edit_theme_options',
+) );
+Kirki::add_section( 'whimsy_plus_advanced', array(
     'title'          => __( 'Advanced Options', 'whimsy-plus' ),
-    'panel'          => 'whimsy_framework_whimsy_plus_panel',
-    'priority'       => 90,
+
+    'priority'       => 39,
     'capability'     => 'edit_theme_options',
 ) );  

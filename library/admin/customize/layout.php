@@ -14,7 +14,7 @@ Kirki::add_field( 'whimsy_plus', array(
     'settings'    => 'layout_size',
     'label'       => __( 'Site Width', 'whimsy-plus' ),
     'description' => __( 'Set the width of the whole body of the site in %.', 'whimsy-plus' ),
-    'section'     => 'layout',
+    'section'     => 'whimsy_plus_layout',
     'default'     => '100',
     'priority'    => 1,
     'output'      => array(
@@ -39,7 +39,7 @@ Kirki::add_field( 'whimsy_plus', array(
     'type'        => 'switch',
     'settings'    => 'box_layout',
     'label'       => __( 'Enable Box-Style layout?', 'whimsy-plus' ),
-    'section'     => 'layout',
+    'section'     => 'whimsy_plus_layout',
     'default'     => false,
     'priority'    => 10,
 ) );
@@ -48,7 +48,7 @@ Kirki::add_field( 'whimsy_plus', array(
     'type'        => 'color-alpha',
     'settings'    => 'color_box_bg',
     'label'       => __( 'Box Background Color', 'whimsy-plus' ),
-    'section'     => 'layout',
+    'section'     => 'whimsy_plus_layout',
     'default'     => '#ffffff',
     'priority'    => 11,
     'required'  => array(
@@ -79,7 +79,7 @@ Kirki::add_field( 'whimsy_plus', array(
     'settings'    => 'box_layout_margin',
     'label'       => __( 'Margin', 'whimsy-plus' ),
     'description' => __( 'This controls how much blank space is between the sides of the browser window and your content.', 'whimsy-plus' ),
-    'section'     => 'layout',
+    'section'     => 'whimsy_plus_layout',
     'default'     => '0 auto',
     'priority'    => 13,
     'required'  => array(
@@ -110,7 +110,7 @@ Kirki::add_field( 'whimsy_plus', array(
     'settings'    => 'box_layout_border_radius',
     'label'       => __( 'Border Radius', 'whimsy-plus' ),
     'description' => __( 'This will curve the corners of the box layout.', 'whimsy-plus' ),
-    'section'     => 'layout',
+    'section'     => 'whimsy_plus_layout',
     'default'     => '0',
     'priority'    => 14,
     'required'  => array(
