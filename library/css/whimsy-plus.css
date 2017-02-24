@@ -17,11 +17,9 @@ Table of Contents
 /*--------------------------------------------------------------
 Header
 --------------------------------------------------------------*/
-.header-bg-image {
+#header-container {
     background-size: cover;
     background-position: top center;
-    z-index: 0;
-    top: 0;
     width: 100%;   
 }
 
@@ -29,7 +27,7 @@ Header
     margin: 0;
 }
 
-#whimsy-header,
+#header-container,
 .site-branding,
 .centered-logo {
     margin: 0 auto;

@@ -101,11 +101,10 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
             //include_once WHIMSY_PLUS_CUSTOMIZE . 'footer.php';
             //include_once WHIMSY_PLUS_CUSTOMIZE . 'mosaic.php';
             //include_once WHIMSY_PLUS_CUSTOMIZE . 'forms.php';
+            include_once WHIMSY_PLUS_CUSTOMIZE . 'advanced.php';
             
             
             include_once WHIMSY_PLUS_INC . 'whimsy-header.php';
-            remove_action( 'whimsy_header', 'whimsy_get_header', 10 );
-            add_action( 'whimsy_header', 'whimsy_get_advanced_header', 45 );
             
             //require_once WHIMSY_PLUS_EXT . 'whimsy-shortcodes/whimsy-shortcodes.php';
             //require_once WHIMSY_PLUS_EXT . 'whimsy-customizer-colors/whimsy-customizer-colors.php';

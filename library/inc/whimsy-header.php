@@ -6,6 +6,10 @@
  * @access public
  * @return void
  */
+/*
+//remove_action( 'whimsy_header', 'whimsy_get_header', 20 );
+//add_action( 'whimsy_header', 'whimsy_get_advanced_header', 15 );
+
 
 if ( ! function_exists( 'whimsy_get_advanced_header' ) ) :
 function whimsy_get_advanced_header() {
@@ -20,5 +24,16 @@ function whimsy_get_advanced_header() {
 
     <?php endif; // End check for header image. 
 }
-endif;
+endif;*/
 
+add_action( 'whimsy_header', 'whimsy_switch_primary_menu_position', 1 );
+
+if ( ! function_exists( 'whimsy_switch_primary_menu_position' ) ) :
+function whimsy_switch_primary_menu_position() {
+    
+    if ( Kirki::get_option( 'switch_primary_menu_position' ) == true ) { 
+            remove_action( 'whimsy_header', 'whimsy_primary_menu', 10 );
+            add_action( 'whimsy_header', 'whimsy_primary_menu', 50 );
+    }
+}
+endif;

@@ -15,14 +15,14 @@ Kirki::add_field( 'whimsy_plus', array(
     'priority'    => 10,
     'output'      => array(
         array(
-            'element'  => '.header-bg-image',
+            'element'  => '#header-container',
             'property' => 'width',
         ),
     ),
     'transport'    => 'postMessage',
     'js_vars'      => array(
         array(
-            'element'  => '.header-bg-image',
+            'element'  => '#header-container',
             'property' => 'width',
             'function' => 'css',
         ),
@@ -35,18 +35,18 @@ Kirki::add_field( 'whimsy_plus', array(
     'label'       => __( 'Header Height', 'whimsy-plus' ),
     'help'        => __( 'Use the height of your header image in pixels.', 'whimsy-plus' ),
     'section'     => 'header',
-    'default'     => '250',
+    'default'     => '210px',
     'priority'    => 10,
     'output'      => array(
         array(
-            'element'  => '.header-bg-image',
+            'element'  => '#header-container',
             'property' => 'height',
         ),
     ),
     'transport'    => 'postMessage',
     'js_vars'      => array(
         array(
-            'element'  => '.header-bg-image',
+            'element'  => '#header-container',
             'property' => 'height',
             'function' => 'css',
         ),
@@ -76,6 +76,20 @@ Kirki::add_field( 'whimsy_plus', array(
             'value'    => 1,
         ),
     ),
+    'output'      => array(
+        array(
+            'element'  => '#header-container',
+            'property' => 'background-image'
+        ),
+    ),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => '#header-container',
+            'property' => 'background-image',
+            'function' => 'css',
+        ),
+    )
 ) );
 
 Kirki::add_field( 'whimsy_plus', array(
@@ -101,14 +115,14 @@ Kirki::add_field( 'whimsy_plus', array(
     ),
     'output'      => array(
         array(
-            'element'  => '.header-bg-image',
+            'element'  => '#header-container',
             'property' => 'background-size'
         ),
     ),
     'transport'    => 'postMessage',
     'js_vars'      => array(
         array(
-            'element'  => '.header-bg-image',
+            'element'  => '#header-container',
             'property' => 'background-size',
             'function' => 'css',
         ),
@@ -143,14 +157,14 @@ Kirki::add_field( 'whimsy_plus', array(
     ),
     'output'      => array(
         array(
-            'element'  => '.header-bg-image',
+            'element'  => '#header-container',
             'property' => 'background-position'
         ),
     ),
     'transport'    => 'postMessage',
     'js_vars'      => array(
         array(
-            'element'  => '.header-bg-image',
+            'element'  => '#header-container',
             'property' => 'background-position',
             'function' => 'css',
         ),
