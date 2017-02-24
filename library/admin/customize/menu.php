@@ -9,6 +9,15 @@
 
 Kirki::add_field( 'whimsy_plus', array(
     'type'        => 'toggle',
+    'settings'    => 'whimsy_plus_sticky_menu',
+    'label'       => __( 'Make menu sticky?', 'whimsy-plus' ),
+    'help'        => __( 'The menu will stay visible at the top of screens on scroll.', 'whimsy-plus' ),
+    'section'     => 'whimsy_plus_menu',
+    'default'     => 0,
+    'priority'    => 10,
+) );
+Kirki::add_field( 'whimsy_plus', array(
+    'type'        => 'toggle',
     'settings'    => 'switch_primary_menu_position',
     'label'       => __( 'Show menu below Site Identity?', 'whimsy-plus' ),
     'help'        => __( 'The menu will appear beneath your Site Identity and Header.', 'whimsy-plus' ),

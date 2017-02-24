@@ -61,7 +61,6 @@ Kirki::add_field( 'whimsy_plus', array(
     'default'     => 0,
     'priority'    => 10,
 ) );
-
 Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'image',
 	'settings'    => 'header_background_image',
