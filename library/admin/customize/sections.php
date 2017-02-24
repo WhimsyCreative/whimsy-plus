@@ -5,6 +5,7 @@
  * @return void
  */
 
+
 /**
  * Add sections
  */
@@ -28,7 +29,7 @@ Kirki::add_section( 'menu', array(
     'capability'     => 'edit_theme_options',
 ) );
 Kirki::add_section( 'header', array(
-    'title'          => esc_html__( 'Layout', 'whimsy-plus' ),
+    'title'          => esc_html__( 'Header', 'whimsy-plus' ),
     'panel'          => 'whimsy_framework_whimsy_plus_panel',
     'priority'       => 22,
     'capability'     => 'edit_theme_options',
@@ -46,14 +47,8 @@ Kirki::add_section( 'sidebar', array(
     'capability'     => 'edit_theme_options',
 ) );    
 
-Kirki::add_section( 'header_layout', array(
-    'title'          => __( 'Header Layout', 'whimsy-plus' ),
-    'priority'       => 61,
-    'capability'     => 'edit_theme_options',
-) );   
-
-Kirki::add_section( 'nav_color', array(
-    'title'          => __( 'Navigation Colors', 'whimsy-plus' ),
+Kirki::add_section( 'menu', array(
+    'title'          => __( 'Menu', 'whimsy-plus' ),
     'panel'          => 'whimsy_framework_whimsy_plus_panel',
     'priority'       => 41,
     'capability'     => 'edit_theme_options',

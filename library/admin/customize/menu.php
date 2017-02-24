@@ -5,103 +5,51 @@
  * @return void
  */
 
-    // Menu bg color
-    $wp_customize->add_setting(
-        'whimsy_menu_background_color',
-        array(
-            'default' => '',
-            'sanitize_callback' => 'sanitize_hex_color'
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Color_Control(
-            $wp_customize,
-            'whimsy_menu_background_color',
-            array(
-                'label'     => __( 'Menu Background Color', 'whimsy-customizer-colors' ),
-                'section'   => 'whimsy_extend_menu_colors_section',
-                'settings'  => 'whimsy_menu_background_color'
-            )
-        )
-    );	
+/* Nav */
 
-    // Menu link color
-    $wp_customize->add_setting(
-        'whimsy_menu_link_color',
+Kirki::add_field( 'whimsy_plus', array(
+    'type'        => 'color-alpha',
+    'settings'    => 'nav_bar_bg',
+    'label'       => __( 'Menu Background Color', 'whimsy-plus' ),
+    'section'     => 'menu',
+    'default'     => 'rgba(255,255,255,1)',
+    'priority'    => 18,
+    'output'      => array(
         array(
-            'default' => '',
-            'sanitize_callback' => 'sanitize_hex_color'
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Color_Control(
-            $wp_customize,
-            'whimsy_menu_link_color',
-            array(
-                'label'     => __( 'Menu link color', 'whimsy-customizer-colors' ),
-                'section'   => 'whimsy_extend_menu_colors_section',
-                'settings'  => 'whimsy_menu_link_color'
-            )
-        )
-    );  
-
-    // Menu link color :hover
-    $wp_customize->add_setting(
-        'whimsy_menu_link_hover_color',
+            'element'  => '#site-navigation',
+            'property' => 'background-color',
+        ),
+    ),
+    'transport'   => 'postMessage',
+    'js_vars'     => array(
         array(
-            'default' => '',
-            'sanitize_callback' => 'sanitize_hex_color'
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Color_Control(
-            $wp_customize,
-            'whimsy_menu_link_hover_color',
-            array(
-                'label'     => __( 'Menu link hover color', 'whimsy-customizer-colors' ),
-                'section'   => 'whimsy_extend_menu_colors_section',
-                'settings'  => 'whimsy_menu_link_hover_color'
-            )
-        )
-    );  
+            'element'  => '#site-navigation',
+            'function' => 'css',
+            'property' => 'background-color',
+        ),
+    ),
 
-
-    // Submenu bg color
-    $wp_customize->add_setting(
-        'whimsy_submenu_background_color',
+) );
+Kirki::add_field( 'whimsy_plus', array(
+    'type'        => 'color-alpha',
+    'settings'    => 'nav_bar_link_color',
+    'label'       => __( 'Menu Link Color', 'whimsy-plus' ),
+    'section'     => 'menu',
+    'default'     => '#52b0c1',
+    'priority'    => 18,
+    'output'      => array(
         array(
-            'default' => '',
-            'sanitize_callback' => 'sanitize_hex_color'
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Color_Control(
-            $wp_customize,
-            'whimsy_submenu_background_color',
-            array(
-                'label'     => __( 'Sub-menu background color', 'whimsy-customizer-colors' ),
-                'section'   => 'whimsy_extend_menu_colors_section',
-                'settings'  => 'whimsy_submenu_background_color'
-            )
-        )
-    );  
-
-    // Submenu link color
-    $wp_customize->add_setting(
-        'whimsy_submenu_link_color',
+            'element'  => '#site-navigation a', '.sub-collapser',
+            'property' => 'color',
+        ),
+    ),
+    'transport'   => 'postMessage',
+    'js_vars'     => array(
         array(
-            'default' => '',
-            'sanitize_callback' => 'sanitize_hex_color'
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Color_Control(
-            $wp_customize,
-            'whimsy_submenu_link_color',
-            array(
-                'label'     => __( 'Sub-Menu link color', 'whimsy-customizer-colors' ),
-                'section'   => 'whimsy_extend_menu_colors_section',
-                'settings'  => 'whimsy_submenu_link_color'
-            )
-        )
-    ); 
+            'element'  => '#site-navigation a', '.sub-collapser',
+            'function' => 'css',
+            'property' => 'color',
+        ),
+    ),
+
+) );

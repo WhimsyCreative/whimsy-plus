@@ -11,23 +11,26 @@ Table of Contents
 	3.0 Boxes
 	4.0 Accordion
 --------------------------------------------------------------*/
-
+.customize-control-kirki-radio-buttonset .buttonset .switch-label {
+    border: 0;
+}
 /*--------------------------------------------------------------
 Header
 --------------------------------------------------------------*/
-.desktop-logo-image {
-    margin: 0;
-}
-
-.centered-logo {
-    margin: 0 auto;
-}
-
 .header-bg-image {
     background-size: cover;
     background-position: top center;
     z-index: 0;
-    position: absolute;
     top: 0;
     width: 100%;   
+}
+
+.desktop-logo-image {
+    margin: 0;
+}
+
+#whimsy-header,
+.site-branding,
+.centered-logo {
+    margin: 0 auto;
 }

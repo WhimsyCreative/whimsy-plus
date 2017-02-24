@@ -5,7 +5,54 @@
  * @return void
  */
 
-Kirki::add_field( 'whimsy-plus', array(
+Kirki::add_field( 'whimsy_plus', array(
+    'type'        => 'dimension',
+    'settings'    => 'header_as_bg_width',
+    'label'       => __( 'Header Width', 'whimsy-plus' ),
+    'help'        => __( 'Specify width of your header in %, px, or em.', 'whimsy-plus' ),
+    'section'     => 'header',
+    'default'     => '100%',
+    'priority'    => 10,
+    'output'      => array(
+        array(
+            'element'  => '.header-bg-image',
+            'property' => 'width',
+        ),
+    ),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => '.header-bg-image',
+            'property' => 'width',
+            'function' => 'css',
+        ),
+    )
+) );
+
+Kirki::add_field( 'whimsy_plus', array(
+    'type'        => 'dimension',
+    'settings'    => 'header_as_bg_height',
+    'label'       => __( 'Header Height', 'whimsy-plus' ),
+    'help'        => __( 'Use the height of your header image in pixels.', 'whimsy-plus' ),
+    'section'     => 'header',
+    'default'     => '250',
+    'priority'    => 10,
+    'output'      => array(
+        array(
+            'element'  => '.header-bg-image',
+            'property' => 'height',
+        ),
+    ),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => '.header-bg-image',
+            'property' => 'height',
+            'function' => 'css',
+        ),
+    )
+) );
+Kirki::add_field( 'whimsy_plus', array(
     'type'        => 'switch',
     'settings'    => 'header_as_bg',
     'label'       => __( 'Use Header Image as a background?', 'whimsy-plus' ),
@@ -15,14 +62,13 @@ Kirki::add_field( 'whimsy-plus', array(
     'priority'    => 10,
 ) );
 
-Kirki::add_field( 'whimsy-plus', array(
-    'type'        => 'dimension',
-    'settings'    => 'header_as_bg_height',
-    'label'       => __( 'Header Height', 'whimsy-plus' ),
-    'help'        => __( 'Use the height of your header image in pixels.', 'whimsy-plus' ),
-    'section'     => 'header',
-    'default'     => '250px',
-    'priority'    => 10,
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'image',
+	'settings'    => 'header_background_image',
+	'label'       => __( 'Header Background Image', 'whimsy-plus' ),
+	'section'     => 'header',
+	'default'     => '',
+	'priority'    => 10,
     'required'    => array(
         array(
             'setting'  => 'header_as_bg',
@@ -30,25 +76,9 @@ Kirki::add_field( 'whimsy-plus', array(
             'value'    => 1,
         ),
     ),
-    'output'      => array(
-        array(
-            'element'  => '.header-bg-image',
-            'property' => 'height',
-            'units'    => 'px',
-        ),
-    ),
-    'transport'    => 'postMessage',
-    'js_vars'      => array(
-        array(
-            'element'  => '.header-bg-image',
-            'property' => 'height',
-            'units'    => 'px',
-            'function' => 'css',
-        ),
-    )
 ) );
 
-Kirki::add_field( 'whimsy-plus', array(
+Kirki::add_field( 'whimsy_plus', array(
     'type'        => 'radio-buttonset',
     'settings'    => 'header_as_bg_size',
     'label'       => __( 'Background-Size', 'whimsy-plus' ),
@@ -60,7 +90,7 @@ Kirki::add_field( 'whimsy-plus', array(
         'normal'    => __( 'Normal', 'whimsy-plus' ),
         'contain'   => __( 'Contain', 'whimsy-plus' ),
         'cover'     => __( 'Cover', 'whimsy-plus' ),
-        '100%'    => __( '100%', 'whimsy-plus' )
+        '100%'    => __( '100%', 'whimsy_plus' )
     ),
     'required'    => array(
         array(
@@ -80,6 +110,48 @@ Kirki::add_field( 'whimsy-plus', array(
         array(
             'element'  => '.header-bg-image',
             'property' => 'background-size',
+            'function' => 'css',
+        ),
+    )
+) );
+
+Kirki::add_field( 'whimsy_plus', array(
+    'type'        => 'radio-buttonset',
+    'settings'    => 'header_as_bg_position',
+    'label'       => __( 'Background-Position', 'whimsy-plus' ),
+    'description' => __( 'This controls where the background is positioned.', 'whimsy-plus' ),
+    'section'     => 'header',
+    'default'     => 'center center',
+    'priority'    => 25,
+    'choices'     => array(
+        'center top'        => __( 'center top', 'whimsy-plus' ),
+        'center center'     => __( 'center center', 'whimsy-plus' ),
+        'center bottom'     => __( 'center bottom', 'whimsy-plus' ),
+        'left top'          => __( 'left top', 'whimsy-plus' ),
+        'left center'       => __( 'left center', 'whimsy-plus' ),
+        'left bottom'       => __( 'left bottom', 'whimsy-plus' ),
+        'right top'         => __( 'right top', 'whimsy-plus' ),
+        'right center'      => __( 'right center', 'whimsy-plus' ),
+        'right bottom'      => __( 'right bottom', 'whimsy-plus' ),
+    ),
+    'required'    => array(
+        array(
+            'setting'  => 'header_as_bg',
+            'operator' => '==',
+            'value'    => 1,
+        ),
+    ),
+    'output'      => array(
+        array(
+            'element'  => '.header-bg-image',
+            'property' => 'background-position'
+        ),
+    ),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => '.header-bg-image',
+            'property' => 'background-position',
             'function' => 'css',
         ),
     )

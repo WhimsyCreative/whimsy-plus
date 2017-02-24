@@ -44,7 +44,7 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
 			add_action( 'init', array( $this, 'includes' ), 2 );
             
 			/* Enqueue necessary scripts and CSS files for the skins . */
-            add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ), 45 );
+            add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ), 200 );
             
         }
    
@@ -78,7 +78,7 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
 			define( 'WHIMSY_PLUS_CSS', trailingslashit( WHIMSY_PLUS_LIB_URI . 'css' ) );
 			define( 'WHIMSY_PLUS_JS',  trailingslashit( WHIMSY_PLUS_LIB_URI . 'js'  ) );
         }
-        
+            
 		/**
 		 * @since  1.0.0
 		 * @access public
@@ -86,13 +86,15 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
 		 */
         function includes() {
 
+            
 			// Include Whimsy Customizer extensions
             
             include_once WHIMSY_PLUS_CUSTOMIZE . 'kirki/kirki.php';
             include_once WHIMSY_PLUS_CUSTOMIZE . 'config.php';
             include_once WHIMSY_PLUS_CUSTOMIZE . 'sections.php';
+            include_once WHIMSY_PLUS_CUSTOMIZE . 'basic.php';
             include_once WHIMSY_PLUS_CUSTOMIZE . 'layout.php';
-            //include_once WHIMSY_PLUS_CUSTOMIZE . 'menu.php';
+            include_once WHIMSY_PLUS_CUSTOMIZE . 'menu.php';
             include_once WHIMSY_PLUS_CUSTOMIZE . 'header.php';
             //include_once WHIMSY_PLUS_CUSTOMIZE . 'content.php';
             //include_once WHIMSY_PLUS_CUSTOMIZE . 'sidebar.php';
@@ -100,6 +102,10 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
             //include_once WHIMSY_PLUS_CUSTOMIZE . 'mosaic.php';
             //include_once WHIMSY_PLUS_CUSTOMIZE . 'forms.php';
             
+            
+            include_once WHIMSY_PLUS_INC . 'whimsy-header.php';
+            remove_action( 'whimsy_header', 'whimsy_get_header', 10 );
+            add_action( 'whimsy_header', 'whimsy_get_advanced_header', 45 );
             
             //require_once WHIMSY_PLUS_EXT . 'whimsy-shortcodes/whimsy-shortcodes.php';
             //require_once WHIMSY_PLUS_EXT . 'whimsy-customizer-colors/whimsy-customizer-colors.php';
@@ -119,10 +125,9 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
             //wp_enqueue_script( 'whimsy-plus', WHIMSY_PLUS_JS . 'whimsy-plus.js', array( 'customize-preview' ), WHIMSY_PLUS_VERSION , true );
             
             // Enqueue custom stylesheet
-            wp_enqueue_style( 'whimsy-plus', WHIMSY_PLUS_CSS . 'whimsy-plus.css', array(), WHIMSY_PLUS_VERSION, true );
+            wp_enqueue_style( 'whimsy-plus', WHIMSY_PLUS_CSS . 'whimsy-plus.css', array('whimsy-style'), WHIMSY_PLUS_VERSION );
             
         }
-        
     }
 }
 
