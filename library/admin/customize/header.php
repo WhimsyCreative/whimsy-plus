@@ -99,6 +99,7 @@ Kirki::add_field( 'whimsy_plus', array(
         array(
             'element'  => '#masthead',
             'property' => 'padding',
+            'media_query' => '@media screen and (min-width: 980px)',
         ),
     ),
     'transport'   => 'postMessage',
