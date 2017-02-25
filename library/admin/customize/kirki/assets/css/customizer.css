@@ -1,3 +1,13 @@
+.customize-divider {
+    padding: 3px;
+    font-weight:100;
+    letter-spacing: 0.7px;
+    text-align:center;
+    text-transform:uppercase;
+    background: #fff;
+    border: 1px solid #ddd;
+    cursor: auto;
+}
 #customize-controls #customize-info .accordion-section-title {
   border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
 #customize-controls #customize-theme-controls .accordion-section > .accordion-section-title {
@@ -828,7 +838,8 @@ span.CodeMirror-selectedtext {
   border: 1px solid rgba(0, 0, 0, 0.2);
   padding: 4px 2px;
   margin: 1px;
-  font-size: 12px; }
+    display: inline-block;
+  font-size: 11px; }
   .customize-control-kirki-radio-buttonset .buttonset .switch-label:last-child {
     border-right: none; }
 .customize-control-kirki-radio-buttonset .buttonset .switch-input {

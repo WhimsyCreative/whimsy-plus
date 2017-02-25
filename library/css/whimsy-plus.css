@@ -14,6 +14,12 @@ Table of Contents
 .customize-control-kirki-radio-buttonset .buttonset .switch-label {
     border: 0;
 }
+.customize-divider {
+    padding: 3px;
+    font-weight:bold;
+    text-align:center;
+    text-transform:uppercase;
+}
 /*--------------------------------------------------------------
 Header
 --------------------------------------------------------------*/
@@ -21,6 +27,13 @@ Header
     background-size: cover;
     background-position: top center;
     width: 100%;   
+}
+#content-container {
+    max-width: 100%;
+    width: 100%;   
+}
+#content {
+    width: 90%;   
 }
 
 .desktop-logo-image {

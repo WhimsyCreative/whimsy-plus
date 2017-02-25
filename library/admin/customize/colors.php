@@ -6,6 +6,13 @@
  */
 
 Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'custom',
+	'settings'    => 'whimsy_plus_body_link_divider',
+	'section'     => 'whimsy_plus_colors',
+	'default'     => '<div class="customize-divider">' . esc_html__( 'Link Colors', 'whimsy-plus' ) . '</div>',
+	'priority'    => 10,
+) );
+Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'color',
 	'settings'    => 'whimsy_plus_body_link',
 	'label'       => __( 'Link Color', 'whimsy-plus' ),
@@ -30,7 +37,6 @@ Kirki::add_field( 'whimsy_plus', array(
         ),
     )
 ) );
-
 Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'color',
 	'settings'    => 'whimsy_plus_body_link_hover',
@@ -56,7 +62,6 @@ Kirki::add_field( 'whimsy_plus', array(
         ),
     )
 ) );
-
 Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'color',
 	'settings'    => 'whimsy_plus_body_link_active',
@@ -69,7 +74,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	),
     'output'      => array(
         array(
-            'element'  => 'a:hover',
+            'element'  => 'a:active,a:focus',
             'property' => 'color'
         ),
     ),
@@ -79,6 +84,138 @@ Kirki::add_field( 'whimsy_plus', array(
             'element'  => 'a:active,a:focus',
             'property' => 'color',
             'function' => 'style',
+        ),
+    )
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'custom',
+	'settings'    => 'whimsy_plus_bg_colors_divider',
+	'section'     => 'whimsy_plus_colors',
+	'default'     => '<div class="customize-divider">' . esc_html__( 'Background Colors', 'whimsy-plus' ) . '</div>',
+	'priority'    => 20,
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'color',
+	'settings'    => 'whimsy_plus_page_bg_color',
+	'label'       => __( 'Body Background Color', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_colors',
+	'priority'    => 20,
+    'default'     => '#f8f8f8',
+	'choices'     => array(
+		'alpha' => true,
+	),
+    'output'      => array(
+        array(
+            'element'  => 'body',
+            'property' => 'background-color'
+        ),
+    ),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => 'body',
+            'property' => 'background-color',
+            'function' => 'css',
+        ),
+    )
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'color',
+	'settings'    => 'whimsy_plus_header_bg_color',
+	'label'       => __( 'Header Background Color', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_colors',
+	'priority'    => 20,
+    'default'     => '#f8f8f8',
+	'choices'     => array(
+		'alpha' => true,
+	),
+    'output'      => array(
+        array(
+            'element'  => '#header-container',
+            'property' => 'background-color'
+        ),
+    ),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => '#header-container',
+            'property' => 'background-color',
+            'function' => 'css',
+        ),
+    )
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'color',
+	'settings'    => 'whimsy_plus_content_container_bg_color',
+	'label'       => __( 'Content Container Background Color', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_colors',
+	'priority'    => 20,
+    'default'     => '#f8f8f8',
+	'choices'     => array(
+		'alpha' => true,
+	),
+    'output'      => array(
+        array(
+            'element'  => '#content-container',
+            'property' => 'background-color'
+        ),
+    ),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => '#content-container',
+            'property' => 'background-color',
+            'function' => 'css',
+        ),
+    )
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'color',
+	'settings'    => 'whimsy_plus_sidebar_bg_color',
+	'label'       => __( 'Sidebar Background Color', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_colors',
+	'priority'    => 20,
+    'default'     => '#f8f8f8',
+	'choices'     => array(
+		'alpha' => true,
+	),
+    'output'      => array(
+        array(
+            'element'  => '#secondary',
+            'property' => 'background-color'
+        ),
+    ),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => '#secondary',
+            'property' => 'background-color',
+            'function' => 'css',
+        ),
+    )
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'color',
+	'settings'    => 'whimsy_plus_footer_bg_color',
+	'label'       => __( 'Footer Container Background Color', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_colors',
+	'priority'    => 20,
+    'default'     => '#f8f8f8',
+	'choices'     => array(
+		'alpha' => true,
+	),
+    'output'      => array(
+        array(
+            'element'  => '#footer-container',
+            'property' => 'background-color'
+        ),
+    ),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => '#footer-container',
+            'property' => 'background-color',
+            'function' => 'css',
         ),
     )
 ) );
