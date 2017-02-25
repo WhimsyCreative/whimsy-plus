@@ -70,13 +70,13 @@ Kirki::add_field( 'whimsy_plus', array(
 	'priority'    => 70,
 	'output'      => array(
 		array(
-			'element' => '#site-navigation a',
+			'element' => '#site-navigation, #site-navigation a',
 		),
 	),
     'transport'   => 'postMessage',
     'js_vars'     => array(
         array(
-            'element'  => '#site-navigation a',
+            'element'  => '#site-navigation, #site-navigation a',
             'function' => 'style',
         ),
     ),

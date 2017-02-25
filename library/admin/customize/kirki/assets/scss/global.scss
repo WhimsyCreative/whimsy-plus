@@ -78,7 +78,7 @@
 	-ms-transition: all .2s ease-in-out;
 	-o-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out;
-	font-weight: bold;
+	font-weight: 100;
 	.dashicons {
 		font-size: .8rem;
 		width: .8rem;
@@ -88,7 +88,7 @@
 	}
 	&:hover,
 	&:active {
-		background: #F44336;
+		background: #f43686;
 		color: #fff;
 		font-weight: bold;
 		opacity: 1;

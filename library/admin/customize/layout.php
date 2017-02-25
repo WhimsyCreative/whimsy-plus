@@ -45,7 +45,7 @@ Kirki::add_field( 'whimsy_plus', array(
 ) );
 
 Kirki::add_field( 'whimsy_plus', array(
-    'type'        => 'color-alpha',
+    'type'        => 'color',
     'settings'    => 'color_box_bg',
     'label'       => __( 'Box Background Color', 'whimsy-plus' ),
     'section'     => 'whimsy_plus_layout',

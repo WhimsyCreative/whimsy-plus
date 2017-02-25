@@ -20,3 +20,4 @@ function whimsy_plus_config_styling( $config ) {
 	), $config );
 }
 add_filter( 'kirki/config', 'whimsy_plus_config_styling' );
+

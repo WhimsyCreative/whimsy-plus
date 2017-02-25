@@ -6,6 +6,39 @@
  */
 
 Kirki::add_field( 'whimsy_plus', array(
+    'type'        => 'slider',
+    'settings'    => 'whimsy_plus_header_desktop_logo_size',
+    'label'       => __( 'Desktop Logo Size', 'whimsy-plus' ),
+    'description' => __( 'Change the size of your logo on large screens.', 'whimsy-plus' ),
+    'section'     => 'whimsy_plus_header',
+    'default'     => '100',
+    'priority'    => 1,
+    'output'      => array(
+        array(
+            'element'  => '.site-logo',
+            'units'    => '%',
+            'property' => 'width',
+        ),
+    ),
+    'transport'   => 'postMessage',
+    'js_vars'     => array(
+        array(
+            'element'  => '.site-logo',
+            'property' => 'width',
+            'units'    => '%',
+            'function' => 'css',
+        ),
+    ),
+) );
+Kirki::add_field( 'whimsy_plus', array(
+    'type'        => 'toggle',
+    'settings'    => 'whimsy_plus_header_desktop_logo_center',
+    'label'       => __( 'Center desktop logo?', 'whimsy-plus' ),
+    'section'     => 'whimsy_plus_header',
+    'default'     => true,
+    'priority'    => 10,
+) );
+Kirki::add_field( 'whimsy_plus', array(
     'type'        => 'dimension',
     'settings'    => 'header_as_bg_width',
     'label'       => __( 'Header Width', 'whimsy-plus' ),
@@ -165,6 +198,42 @@ Kirki::add_field( 'whimsy_plus', array(
         array(
             'element'  => '#header-container',
             'property' => 'background-position',
+            'function' => 'css',
+        ),
+    )
+) );
+
+Kirki::add_field( 'whimsy_plus', array(
+    'type'        => 'radio-buttonset',
+    'settings'    => 'header_as_bg_attachment',
+    'label'       => __( 'Background-Attachment', 'whimsy-plus' ),
+    'description' => __( 'This can be used to create a paralax effect.', 'whimsy-plus' ),
+    'section'     => 'whimsy_plus_header',
+    'default'     => 'scroll',
+    'priority'    => 15,
+    'choices'     => array(
+        'scroll'    => __( 'scroll', 'whimsy-plus' ),
+        'fixed'   => __( 'fixed', 'whimsy-plus' ),
+        'initial'     => __( 'initial', 'whimsy-plus' ),
+    ),
+    'required'    => array(
+        array(
+            'setting'  => 'header_as_bg',
+            'operator' => '==',
+            'value'    => 1,
+        ),
+    ),
+    'output'      => array(
+        array(
+            'element'  => '#header-container',
+            'property' => 'background-attachment'
+        ),
+    ),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => '#header-container',
+            'property' => 'background-attachment',
             'function' => 'css',
         ),
     )

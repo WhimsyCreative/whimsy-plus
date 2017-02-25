@@ -133,7 +133,8 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
             // Clear out the original Whimsy Framework section to make way for new stuff.
             $wp_customize->remove_section( 'colors' );
             $wp_customize->remove_section( 'header_image' );
-
+            $wp_customize->remove_control( 'display_header_text' );
+            $wp_customize->remove_control( 'whimsy_framework_logo_center' );
         }
         
         /**

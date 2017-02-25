@@ -28,6 +28,7 @@ endif;*/
 
 add_action( 'whimsy_header', 'whimsy_switch_primary_menu_position', 1 );
 add_action( 'whimsy_header', 'whimsy_plus_is_menu_sticky', 2 );
+add_action( 'whimsy_header', 'whimsy_plus_is_logo_center', 4 );
 
 if ( ! function_exists( 'whimsy_switch_primary_menu_position' ) ) :
 function whimsy_switch_primary_menu_position() {
@@ -49,3 +50,11 @@ function whimsy_plus_is_menu_sticky() {
 }
 endif;
 
+if ( ! function_exists( 'whimsy_plus_is_logo_center' ) ) :
+function whimsy_plus_is_logo_center() {
+    
+    if ( Kirki::get_option( 'whimsy_plus_header_desktop_logo_center' ) == false ) { 
+        wp_enqueue_style( 'whimsy-plus-center-logo', WHIMSY_PLUS_CSS . 'center-logo.css', array(), WHIMSY_PLUS_VERSION );
+    }
+}
+endif;
