@@ -150,7 +150,6 @@ Kirki::add_field( 'whimsy_plus', array(
 	'label'       => __( 'Content Container Background Color', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_colors',
 	'priority'    => 20,
-    'default'     => '#f8f8f8',
 	'choices'     => array(
 		'alpha' => true,
 	),
@@ -175,7 +174,6 @@ Kirki::add_field( 'whimsy_plus', array(
 	'label'       => __( 'Sidebar Background Color', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_colors',
 	'priority'    => 20,
-    'default'     => '#f8f8f8',
 	'choices'     => array(
 		'alpha' => true,
 	),
@@ -200,7 +198,6 @@ Kirki::add_field( 'whimsy_plus', array(
 	'label'       => __( 'Footer Container Background Color', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_colors',
 	'priority'    => 20,
-    'default'     => '#f8f8f8',
 	'choices'     => array(
 		'alpha' => true,
 	),

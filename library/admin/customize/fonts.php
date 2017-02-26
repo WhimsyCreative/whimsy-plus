@@ -48,7 +48,6 @@ Kirki::add_field( 'whimsy_plus', array(
 		'font-size'      => '1em',
 		'line-height'    => '1.5',
 		'letter-spacing' => '0',
-		'subsets'        => array( 'latin-ext' ),
 		'color'          => '#52b0c1',
 		'text-transform' => 'none',
 		'text-align'     => 'center'
@@ -59,6 +58,12 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => 'h1.site-title, h1.site-title a',
 		),
 	),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+			'element' => 'h1.site-title, h1.site-title a',
+        ),
+    ),
 ) );
 Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'typography',
@@ -67,14 +72,13 @@ Kirki::add_field( 'whimsy_plus', array(
 	'tooltip' => __( 'The font properties for the Site Description if a logo is not displayed.', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_fonts',
 	'default'     => array(
-		'font-family'    => 'Abril Fatface',
-		'variant'        => 'regular',
+		'font-family'    => 'Lato',
+		'variant'        => 'bold',
 		'font-size'      => '1em',
 		'line-height'    => '1.5',
 		'letter-spacing' => '0',
-		'subsets'        => array( 'latin-ext' ),
 		'color'          => '#333333',
-		'text-transform' => 'none',
+		'text-transform' => 'uppercase',
 		'text-align'     => 'center'
 	),
 	'priority'    => 10,
@@ -83,6 +87,12 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => 'h2.site-description, h2.site-description a',
 		),
 	),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => 'h2.site-description, h2.site-description a',
+        ),
+    ),
 ) );
 Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'typography',
@@ -93,7 +103,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	'default'     => array(
 		'font-family'    => 'Abril Fatface',
 		'variant'        => 'regular',
-		'font-size'      => '1em',
+		'font-size'      => '1.8em',
 		'line-height'    => '1.5',
 		'letter-spacing' => '0',
 		'subsets'        => array( 'latin-ext' ),
@@ -107,6 +117,12 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => 'h1',
 		),
 	),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => 'h1',
+        ),
+    ),
 ) );
 Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'typography',
@@ -117,7 +133,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	'default'     => array(
 		'font-family'    => 'Abril Fatface',
 		'variant'        => 'regular',
-		'font-size'      => '1em',
+		'font-size'      => '1.7em',
 		'line-height'    => '1.5',
 		'letter-spacing' => '0',
 		'subsets'        => array( 'latin-ext' ),
@@ -131,6 +147,12 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => 'h2',
 		),
 	),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => 'h2',
+        ),
+    ),
 ) );
 Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'typography',
@@ -141,7 +163,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	'default'     => array(
 		'font-family'    => 'Abril Fatface',
 		'variant'        => 'regular',
-		'font-size'      => '1em',
+		'font-size'      => '1.5em',
 		'line-height'    => '1.5',
 		'letter-spacing' => '0',
 		'subsets'        => array( 'latin-ext' ),
@@ -155,6 +177,12 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => 'h3',
 		),
 	),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => 'h3',
+        ),
+    ),
 ) );
 Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'typography',
@@ -165,7 +193,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	'default'     => array(
 		'font-family'    => 'Abril Fatface',
 		'variant'        => 'regular',
-		'font-size'      => '1em',
+		'font-size'      => '1.2em',
 		'line-height'    => '1.5',
 		'letter-spacing' => '0',
 		'subsets'        => array( 'latin-ext' ),
@@ -179,12 +207,48 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => 'h4',
 		),
 	),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => 'h4',
+        ),
+    ),
 ) );
 Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'typography',
 	'settings'    => 'whimsy_plus_h5_font',
-	'label'       => __( 'H4 Font', 'whimsy-plus' ),
+	'label'       => __( 'H5 Font', 'whimsy-plus' ),
 	'tooltip' => __( 'The font properties for the H5 headings.', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_fonts',
+	'default'     => array(
+		'font-family'    => 'Abril Fatface',
+		'variant'        => 'regular',
+		'font-size'      => '1.1em',
+		'line-height'    => '1.5',
+		'letter-spacing' => '0',
+		'subsets'        => array( 'latin-ext' ),
+		'color'          => '#333333',
+		'text-transform' => 'none',
+		'text-align'     => 'left'
+	),
+	'priority'    => 10,
+	'output'      => array(
+		array(
+			'element' => 'h5',
+		),
+	),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => 'h5',
+        ),
+    ),
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'typography',
+	'settings'    => 'whimsy_plus_h6_font',
+	'label'       => __( 'H6 Font', 'whimsy-plus' ),
+	'tooltip' => __( 'The font properties for the H6 headings.', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_fonts',
 	'default'     => array(
 		'font-family'    => 'Abril Fatface',
@@ -200,7 +264,13 @@ Kirki::add_field( 'whimsy_plus', array(
 	'priority'    => 10,
 	'output'      => array(
 		array(
-			'element' => 'h5',
+			'element' => 'h6',
 		),
 	),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => 'h6',
+        ),
+    ),
 ) );

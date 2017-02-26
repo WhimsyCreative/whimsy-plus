@@ -95,6 +95,7 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
 			// Include Whimsy Customizer extensions
             include_once WHIMSY_PLUS_CUSTOMIZE . 'kirki/kirki.php';
             include_once WHIMSY_PLUS_CUSTOMIZE . 'config.php';
+            include_once WHIMSY_PLUS_CUSTOMIZE . 'panels.php';
             include_once WHIMSY_PLUS_CUSTOMIZE . 'sections.php';
             include_once WHIMSY_PLUS_CUSTOMIZE . 'colors.php';
             include_once WHIMSY_PLUS_CUSTOMIZE . 'fonts.php';
@@ -111,6 +112,10 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
 			// Include Whimsy Framework modifications
             include_once WHIMSY_PLUS_INC . 'whimsy-header.php';
             include_once WHIMSY_PLUS_INC . 'whimsy-footer.php';
+            
+			// Include advanced extensions
+            include_once WHIMSY_PLUS_INC . 'sharing.php';
+            include_once WHIMSY_PLUS_INC . 'twitter-mentions.php';
             
 			// Remove Whimsy Framework actions
             remove_action( 'init', 'whimsy_customize_style_output', 5 );

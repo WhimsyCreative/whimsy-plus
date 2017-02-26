@@ -4,32 +4,52 @@
  * @access public
  * @return void
  */
-
-//Kirki::add_field( 'whimsy_plus', array(
-//    'type'        => 'slider',
-//    'settings'    => 'whimsy_plus_header_desktop_logo_size',
-//    'label'       => __( 'Desktop Logo Size', 'whimsy-plus' ),
-//    'description' => __( 'Change the size of your logo on large screens.', 'whimsy-plus' ),
-//    'section'     => 'whimsy_plus_header',
-//    'default'     => '100',
-//    'priority'    => 1,
-//    'output'      => array(
-//        array(
-//            'element'  => '.site-logo',
-//            'units'    => '%',
-//            'property' => 'width',
-//        ),
-//    ),
-//    'transport'   => 'postMessage',
-//    'js_vars'     => array(
-//        array(
-//            'element'  => '.site-logo',
-//            'property' => 'width',
-//            'units'    => '%',
-//            'function' => 'css',
-//        ),
-//    ),
-//) );
+Kirki::add_field( 'whimsy_plus', array(
+    'type'        => 'dimension',
+    'settings'    => 'whimsy_plus_header_desktop_logo_size',
+    'label'       => __( 'Desktop Logo Width', 'whimsy-plus' ),
+    'description' => __( 'Change the width of your logo on large screens.', 'whimsy-plus' ),
+    'section'     => 'title_tagline',
+    'default'     => '400px',
+    'priority'    => 11,
+    'output'      => array(
+        array(
+            'element'  => '#desktop-site-logo img',
+            'property' => 'width',
+        ),
+    ),
+    'transport'   => 'postMessage',
+    'js_vars'     => array(
+        array(
+            'element'  => '#desktop-site-logo img',
+            'property' => 'width',
+            'function' => 'css',
+        ),
+    ),
+) );
+Kirki::add_field( 'whimsy_plus', array(
+    'type'        => 'dimension',
+    'settings'    => 'whimsy_plus_header_mobile_logo_size',
+    'label'       => __( 'Mobile Logo Width', 'whimsy-plus' ),
+    'description' => __( 'Change the width of your logo on large screens.', 'whimsy-plus' ),
+    'section'     => 'title_tagline',
+    'default'     => '200px',
+    'priority'    => 25,
+    'output'      => array(
+        array(
+            'element'  => '#mobile-site-logo img',
+            'property' => 'width',
+        ),
+    ),
+    'transport'   => 'postMessage',
+    'js_vars'     => array(
+        array(
+            'element'  => '#mobile-site-logo img',
+            'property' => 'width',
+            'function' => 'css',
+        ),
+    ),
+) );
 Kirki::add_field( 'whimsy_plus', array(
     'type'        => 'dimension',
     'settings'    => 'header_as_bg_width',
@@ -55,17 +75,23 @@ Kirki::add_field( 'whimsy_plus', array(
 ) );
 
 Kirki::add_field( 'whimsy_plus', array(
-    'type'        => 'dimension',
+    'type'        => 'slider',
     'settings'    => 'header_as_bg_height',
     'label'       => __( 'Header Height', 'whimsy-plus' ),
     'help'        => __( 'Use the height of your header image.', 'whimsy-plus' ),
     'section'     => 'whimsy_plus_header',
-    'default'     => 'auto',
+    'default'     => '300',
+	'choices'     => array(
+		'min'  => '0',
+		'max'  => '800',
+		'step' => '1',
+	),
     'priority'    => 10,
     'output'      => array(
         array(
             'element'  => '#header-container',
             'property' => 'height',
+            'units'    => 'px',
         ),
     ),
     'transport'    => 'postMessage',
@@ -73,6 +99,7 @@ Kirki::add_field( 'whimsy_plus', array(
         array(
             'element'  => '#header-container',
             'property' => 'height',
+            'units'    => 'px',
             'function' => 'css',
         ),
     )
@@ -81,9 +108,9 @@ Kirki::add_field( 'whimsy_plus', array(
     'type'        => 'toggle',
     'settings'    => 'whimsy_plus_header_desktop_logo_center',
     'label'       => __( 'Center desktop logo?', 'whimsy-plus' ),
-    'section'     => 'whimsy_plus_header',
+    'section'     => 'title_tagline',
     'default'     => true,
-    'priority'    => 20,
+    'priority'    => 11,
 ) );
 Kirki::add_field( 'whimsy_plus', array(
     'type'        => 'spacing',
@@ -93,6 +120,8 @@ Kirki::add_field( 'whimsy_plus', array(
 	'default'     => array(
 		'top'    => '1.5em',
 		'bottom' => '1.5em',
+		'left'    => '0',
+		'right' => '0',
 	),
     'priority'    => 20,
     'output'      => array(
@@ -127,7 +156,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	'section'     => 'whimsy_plus_header',
 	'default'     => '',
 	'priority'    => 30,
-    'required'    => array(
+    'active_callback'    => array(
         array(
             'setting'  => 'header_as_bg',
             'operator' => '==',
@@ -164,7 +193,7 @@ Kirki::add_field( 'whimsy_plus', array(
         'cover'     => __( 'Cover', 'whimsy-plus' ),
         '100%'    => __( '100%', 'whimsy_plus' )
     ),
-    'required'    => array(
+    'active_callback'    => array(
         array(
             'setting'  => 'header_as_bg',
             'operator' => '==',
@@ -206,7 +235,7 @@ Kirki::add_field( 'whimsy_plus', array(
         'right center'      => __( 'right center', 'whimsy-plus' ),
         'right bottom'      => __( 'right bottom', 'whimsy-plus' ),
     ),
-    'required'    => array(
+    'active_callback'    => array(
         array(
             'setting'  => 'header_as_bg',
             'operator' => '==',
@@ -242,7 +271,7 @@ Kirki::add_field( 'whimsy_plus', array(
         'fixed'   => __( 'fixed', 'whimsy-plus' ),
         'initial'     => __( 'initial', 'whimsy-plus' ),
     ),
-    'required'    => array(
+    'active_callback'    => array(
         array(
             'setting'  => 'header_as_bg',
             'operator' => '==',

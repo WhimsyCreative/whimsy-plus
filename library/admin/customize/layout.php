@@ -36,7 +36,7 @@ Kirki::add_field( 'whimsy_plus', array(
 ) );
 
 Kirki::add_field( 'whimsy_plus', array(
-    'type'        => 'switch',
+    'type'        => 'toggle',
     'settings'    => 'box_layout',
     'label'       => __( 'Enable Box-Style layout?', 'whimsy-plus' ),
     'section'     => 'whimsy_plus_layout',
@@ -51,7 +51,10 @@ Kirki::add_field( 'whimsy_plus', array(
     'section'     => 'whimsy_plus_layout',
     'default'     => '#ffffff',
     'priority'    => 11,
-    'required'  => array(
+	'choices'     => array(
+		'alpha' => true,
+	),
+    'active_callback'  => array(
         array(
         'setting'  => 'box_layout',
         'operator' => '==',
@@ -82,7 +85,7 @@ Kirki::add_field( 'whimsy_plus', array(
     'section'     => 'whimsy_plus_layout',
     'default'     => '0 auto',
     'priority'    => 13,
-    'required'  => array(
+    'active_callback'  => array(
         array(
         'setting'  => 'box_layout',
         'operator' => '==',
@@ -113,7 +116,7 @@ Kirki::add_field( 'whimsy_plus', array(
     'section'     => 'whimsy_plus_layout',
     'default'     => '0',
     'priority'    => 14,
-    'required'  => array(
+    'active_callback'  => array(
         array(
         'setting'  => 'box_layout',
         'operator' => '==',

@@ -65,8 +65,8 @@ Kirki::add_field( 'whimsy_plus', array(
 	'default'     => array(
 		'top'    => '2em',
 		'bottom' => '2em',
-		'left'   => '2em',
-		'right'  => '2em',
+		'left'   => '0',
+		'right'  => '0',
 	),
     'priority'    => 10,
     'output'      => array(
@@ -97,7 +97,6 @@ Kirki::add_field( 'whimsy_plus', array(
 	'label'       => __( 'Post Background Color', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_content',
 	'priority'    => 30,
-    'default'     => '#f8f8f8',
 	'choices'     => array(
 		'alpha' => true,
 	),
@@ -154,7 +153,6 @@ Kirki::add_field( 'whimsy_plus', array(
 	'settings'    => 'whimsy_plus_post_mosaic_bg_color',
 	'label'       => __( 'Mosaic Background Color', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_content',
-    'default'     => '#f8f8f8',
 	'priority'    => 40,
 	'choices'     => array(
 		'alpha' => true,

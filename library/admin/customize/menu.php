@@ -8,30 +8,12 @@
 /* Nav */
 
 Kirki::add_field( 'whimsy_plus', array(
-    'type'        => 'toggle',
-    'settings'    => 'whimsy_plus_sticky_menu',
-    'label'       => __( 'Make menu sticky?', 'whimsy-plus' ),
-    'help'        => __( 'The menu will stay visible at the top of screens on scroll.', 'whimsy-plus' ),
-    'section'     => 'whimsy_plus_menu',
-    'default'     => 0,
-    'priority'    => 10,
-) );
-Kirki::add_field( 'whimsy_plus', array(
-    'type'        => 'toggle',
-    'settings'    => 'switch_primary_menu_position',
-    'label'       => __( 'Show menu below logo?', 'whimsy-plus' ),
-    'help'        => __( 'The menu will appear beneath your Site Identity and Header.', 'whimsy-plus' ),
-    'section'     => 'whimsy_plus_menu',
-    'default'     => 0,
-    'priority'    => 10,
-) );
-Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'color',
 	'settings'    => 'whimsy_plus_nav_bar_bg',
 	'label'       => __( 'Menu Background Color', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_menu',
 	'default'     => '#ffffff',
-	'priority'    => 70,
+	'priority'    => 10,
 	'choices'     => array(
 		'alpha' => true,
 	),
@@ -51,6 +33,41 @@ Kirki::add_field( 'whimsy_plus', array(
     )
 ) );
 Kirki::add_field( 'whimsy_plus', array(
+    'type'        => 'spacing',
+    'settings'    => 'whimsy_plus_menu_bar_padding',
+    'label'       => __( 'Menu Bar Padding', 'whimsy-plus' ),
+    'section'     => 'whimsy_plus_menu',
+	'default'     => array(
+		'top'    => '0',
+		'bottom' => '0',
+		'left'   => '0',
+		'right'  => '0',
+	),
+    'priority'    => 10,
+    'output'      => array(
+        array(
+            'element'  => '#site-navigation',
+            'property' => 'padding',
+            'media_query' => '@media screen and (min-width: 980px)',
+        ),
+    ),
+    'transport'   => 'postMessage',
+    'js_vars'     => array(
+        array(
+            'element'  => '#site-navigation',
+            'property' => 'padding',
+            'function' => 'css',
+        ),
+    ),
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'custom',
+	'settings'    => 'whimsy_plus_primary_menu_divider',
+	'section'     => 'whimsy_plus_menu',
+	'default'     => '<div class="customize-divider">' . esc_html__( 'Primary Menu', 'whimsy-plus' ) . '</div>',
+	'priority'    => 20,
+) );
+Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'typography',
 	'settings'    => 'primary_menu_font',
 	'label'       => __( 'Primary Menu Font', 'whimsy-plus' ),
@@ -67,7 +84,7 @@ Kirki::add_field( 'whimsy_plus', array(
 		'text-transform' => 'uppercase',
 		'text-align'     => 'center'
 	),
-	'priority'    => 70,
+	'priority'    => 20,
 	'output'      => array(
 		array(
 			'element' => '#site-navigation, #site-navigation a',
@@ -88,7 +105,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	'label'       => __( 'Hover Color', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_menu',
 	'default'     => '#333333',
-	'priority'    => 70,
+	'priority'    => 20,
 	'choices'     => array(
 		'alpha' => true,
 	),
@@ -113,7 +130,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	'label'       => __( 'Active Color', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_menu',
 	'default'     => '#aaaaaa',
-	'priority'    => 70,
+	'priority'    => 20,
 	'choices'     => array(
 		'alpha' => true,
 	),
@@ -132,9 +149,235 @@ Kirki::add_field( 'whimsy_plus', array(
         ),
     )
 ) );
+
+/* Border */
+
+Kirki::add_field( 'whimsy_plus', array(
+    'type'        => 'toggle',
+    'settings'    => 'whimsy_plus_add_border_primary_links',
+    'label'       => __( 'Add a border to primary links?', 'whimsy-plus' ),
+    'section'     => 'whimsy_plus_menu',
+    'default'     => 0,
+    'priority'    => 20,
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'select',
+	'settings'    => 'whimsy_plus_add_border_style_primary_links',
+	'label'       => __( 'Border Style', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_menu',
+	'default'     => 'none',
+	'priority'    => 20,
+	'multiple'    => 1,
+	'choices'     => array(
+		'none' => esc_attr__( 'None', 'whimsy-plus' ),
+		'solid' => esc_attr__( 'Solid', 'whimsy-plus' ),
+		'dashed' => esc_attr__( 'Dashed', 'whimsy-plus' ),
+		'double' => esc_attr__( 'Double', 'whimsy-plus' ),
+		'dotted' => esc_attr__( 'Dotted', 'whimsy-plus' ),
+	),
+    'active_callback'    => array(
+        array(
+            'setting'  => 'whimsy_plus_add_border_primary_links',
+            'operator' => '==',
+            'value'    => 1,
+        ),
+    ),
+    'output'      => array(
+        array(
+            'element'  => '#site-navigation a',
+            'property' => 'border-style',
+            'function' => 'css',
+        ),
+    ),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => '#site-navigation a',
+            'property' => 'border-style',
+            'function' => 'css',
+        ),
+    )
+) );
+Kirki::add_field( 'whimsy_plus', array(
+    'type'        => 'dimension',
+    'settings'    => 'whimsy_plus_add_border_size_primary_links',
+    'label'       => __( 'Border Size', 'whimsy-plus' ),
+    'description' => __( 'Change the size of the border on each side.', 'whimsy-plus' ),
+    'section'     => 'whimsy_plus_menu',
+    'default'     => '0px',
+    'priority'    => 20,
+    'active_callback'    => array(
+        array(
+            'setting'  => 'whimsy_plus_add_border_primary_links',
+            'operator' => '==',
+            'value'    => 1,
+        ),
+    ),
+    'output'      => array(
+        array(
+            'element'  => '#site-navigation a',
+            'property' => 'border-width',
+        ),
+    ),
+    'transport'   => 'postMessage',
+    'js_vars'     => array(
+        array(
+            'element'  => '#site-navigation a',
+            'property' => 'border-width',
+            'function' => 'css',
+        ),
+    ),
+) );
+
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'color',
+	'settings'    => 'whimsy_plus_add_border_color',
+	'label'       => __( 'Border Color', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_menu',
+	'default'     => '#ffffff',
+	'priority'    => 20,
+	'choices'     => array(
+		'alpha' => true,
+	),
+    'active_callback'    => array(
+        array(
+            'setting'  => 'whimsy_plus_add_border_primary_links',
+            'operator' => '==',
+            'value'    => 1,
+        ),
+    ),
+    'output'      => array(
+        array(
+            'element'  => '#site-navigation a',
+            'property' => 'border-color',
+            'function' => 'css',
+        ),
+    ),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => '#site-navigation a',
+            'property' => 'border-color',
+            'function' => 'css',
+        ),
+    )
+) );
+
+
+/* Primary Link Background */
+
+Kirki::add_field( 'whimsy_plus', array(
+    'type'        => 'toggle',
+    'settings'    => 'whimsy_plus_add_bg_primary_links',
+    'label'       => __( 'Add a bg to primary links?', 'whimsy-plus' ),
+    'section'     => 'whimsy_plus_menu',
+    'default'     => 0,
+    'priority'    => 20,
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'color',
+	'settings'    => 'whimsy_plus_primary_links_bg_color',
+	'label'       => __( 'Background Color', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_menu',
+	'default'     => '#ffffff',
+	'priority'    => 20,
+	'choices'     => array(
+		'alpha' => true,
+	),
+    'active_callback'    => array(
+        array(
+            'setting'  => 'whimsy_plus_add_bg_primary_links',
+            'operator' => '==',
+            'value'    => 1,
+        ),
+    ),
+    'output'      => array(
+        array(
+            'element'  => '#site-navigation a',
+            'property' => 'background-color',
+            'function' => 'css',
+        ),
+    ),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => '#site-navigation a',
+            'property' => 'background-color',
+            'function' => 'css',
+        ),
+    )
+) );
+
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'color',
+	'settings'    => 'whimsy_plus_primary_links_bg_color_hover',
+	'label'       => __( 'Hover Color', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_menu',
+	'default'     => '#333333',
+	'priority'    => 20,
+	'choices'     => array(
+		'alpha' => true,
+	),
+    'active_callback'    => array(
+        array(
+            'setting'  => 'whimsy_plus_add_bg_primary_links',
+            'operator' => '==',
+            'value'    => 1,
+        ),
+    ),
+    'output'      => array(
+        array(
+            'element'  => '#site-navigation a:hover',
+            'property' => 'background-color'
+        ),
+    ),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => '#site-navigation a:hover',
+            'property' => 'background-color',
+            'function' => 'style',
+        ),
+    )
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'color',
+	'settings'    => 'whimsy_plus_primary_links_bg_color_active',
+	'label'       => __( 'Active Color', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_menu',
+	'default'     => '#aaaaaa',
+	'priority'    => 20,
+	'choices'     => array(
+		'alpha' => true,
+	),
+    'active_callback'    => array(
+        array(
+            'setting'  => 'whimsy_plus_add_bg_primary_links',
+            'operator' => '==',
+            'value'    => 1,
+        ),
+    ),
+    'output'      => array(
+        array(
+            'element'  => '#site-navigation a:hover',
+            'property' => 'background-color'
+        ),
+    ),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => '#site-navigation a:active,#site-navigation a:focus',
+            'property' => 'color',
+            'function' => 'background-style',
+        ),
+    )
+) );
+
+/* Sub-menu */
+
 Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'custom',
-	'settings'    => 'whimsy_plus_nav_bar_bg_submenu_divider',
+	'settings'    => 'whimsy_plus_submenu_divider',
 	'section'     => 'whimsy_plus_menu',
 	'default'     => '<div class="customize-divider">' . esc_html__( 'Sub-Menu', 'whimsy-plus' ) . '</div>',
 	'priority'    => 70,
@@ -206,7 +449,7 @@ Kirki::add_field( 'whimsy_plus', array(
 		'text-transform' => 'uppercase',
 		'text-align'     => 'center'
 	),
-	'priority'    => 80,
+	'priority'    => 70,
 	'output'      => array(
 		array(
 			'element' => '#site-navigation ul.sub-menu, #site-navigation ul.sub-menu a',
@@ -220,14 +463,13 @@ Kirki::add_field( 'whimsy_plus', array(
         ),
     ),
 ) );
-
 Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'color',
 	'settings'    => 'whimsy_plus_nav_link_hover_submenu',
 	'label'       => __( 'Sub-Menu Hover Color', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_menu',
 	'default'     => '#333333',
-	'priority'    => 80,
+	'priority'    => 70,
 	'choices'     => array(
 		'alpha' => true,
 	),
@@ -246,14 +488,13 @@ Kirki::add_field( 'whimsy_plus', array(
         ),
     )
 ) );
-
 Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'color',
 	'settings'    => 'whimsy_plus_nav_link_active_submenu',
 	'label'       => __( 'Sub-menu Active Color', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_menu',
 	'default'     => '#aaaaaa',
-	'priority'    => 81,
+	'priority'    => 70,
 	'choices'     => array(
 		'alpha' => true,
 	),
@@ -267,6 +508,185 @@ Kirki::add_field( 'whimsy_plus', array(
     'js_vars'      => array(
         array(
             'element'  => '#site-navigation ul.sub-menu a:active,#site-navigation ul.sub-menu a:focus',
+            'property' => 'color',
+            'function' => 'style',
+        ),
+    )
+) );
+
+/* Position */
+
+Kirki::add_field( 'whimsy_plus', array(
+    'type'        => 'toggle',
+    'settings'    => 'switch_primary_menu_position',
+    'label'       => __( 'Show menu below logo?', 'whimsy-plus' ),
+    'help'        => __( 'The menu will appear beneath your Site Identity and Header.', 'whimsy-plus' ),
+    'section'     => 'whimsy_plus_menu',
+    'default'     => 0,
+    'priority'    => 80,
+) );
+
+/* Sticky Menu */
+
+Kirki::add_field( 'whimsy_plus', array(
+    'type'        => 'toggle',
+    'settings'    => 'whimsy_plus_sticky_menu',
+    'label'       => __( 'Make menu sticky?', 'whimsy-plus' ),
+    'help'        => __( 'The menu will stay visible at the top of screens on scroll.', 'whimsy-plus' ),
+    'section'     => 'whimsy_plus_menu',
+    'default'     => 0,
+    'priority'    => 90,
+) );
+Kirki::add_field( 'whimsy_plus', array(
+    'type'        => 'spacing',
+    'settings'    => 'whimsy_plus_sticky_menu_padding',
+    'label'       => __( 'Sticky Menu Bar Padding', 'whimsy-plus' ),
+    'section'     => 'whimsy_plus_menu',
+	'default'     => array(
+		'top'    => '0',
+		'bottom' => '0',
+		'left'   => '0',
+		'right'  => '0',
+	),
+    'priority'    => 90,
+    'output'      => array(
+        array(
+            'element'  => '#site-navigation.sticky-menu',
+            'property' => 'padding',
+        ),
+    ),
+    'transport'   => 'postMessage',
+    'js_vars'     => array(
+        array(
+            'element'  => '#site-navigation.sticky-menu',
+            'property' => 'padding',
+            'function' => 'css',
+        ),
+    ),
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'color',
+	'settings'    => 'whimsy_plus_nav_bar_bg_sticky',
+	'label'       => __( 'Sticky Menu Background Color', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_menu',
+	'default'     => '#ffffff',
+	'priority'    => 90,
+	'choices'     => array(
+		'alpha' => true,
+	),
+    'active_callback'    => array(
+        array(
+            'setting'  => 'whimsy_plus_sticky_menu',
+            'operator' => '==',
+            'value'    => 1,
+        ),
+    ),
+    'output'      => array(
+        array(
+            'element'  => '#site-navigation.sticky-menu',
+            'property' => 'background-color'
+        ),
+    ),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => '#site-navigation.sticky-menu',
+            'property' => 'background-color',
+            'function' => 'style',
+        ),
+    )
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'color',
+	'settings'    => 'whimsy_plus_nav_bar_bg_submenu_sticky',
+	'label'       => __( 'Sticky Sub-Menu Background Color', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_menu',
+	'default'     => '#ffffff',
+	'priority'    => 90,
+	'choices'     => array(
+		'alpha' => true,
+	),
+    'active_callback'    => array(
+        array(
+            'setting'  => 'whimsy_plus_sticky_menu',
+            'operator' => '==',
+            'value'    => 1,
+        ),
+    ),
+    'output'      => array(
+        array(
+            'element'  => '#site-navigation.sticky-menu ul.sub-menu a',
+            'property' => 'background'
+        ),
+    ),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => '#site-navigation.sticky-menu ul.sub-menu a',
+            'property' => 'background',
+            'function' => 'style',
+        ),
+    )
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'color',
+	'settings'    => 'whimsy_plus_nav_bar_bg_submenu_hover_sticky',
+	'label'       => __( 'Sticky Background Hover Color', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_menu',
+	'default'     => '#eaeaea',
+	'priority'    => 90,
+	'choices'     => array(
+		'alpha' => true,
+	),
+    'active_callback'    => array(
+        array(
+            'setting'  => 'whimsy_plus_sticky_menu',
+            'operator' => '==',
+            'value'    => 1,
+        ),
+    ),
+    'output'      => array(
+        array(
+            'element'  => '#site-navigation.sticky-menu ul.sub-menu a:hover',
+            'property' => 'background'
+        ),
+    ),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => '#site-navigation.sticky-menu ul.sub-menu a:hover',
+            'property' => 'background',
+            'function' => 'css',
+        ),
+    )
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'color',
+	'settings'    => 'whimsy_plus_nav_link_active_submenu_sticky',
+	'label'       => __( 'Sticky Active Color', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_menu',
+	'default'     => '#aaaaaa',
+	'priority'    => 90,
+	'choices'     => array(
+		'alpha' => true,
+	),
+    'active_callback'    => array(
+        array(
+            'setting'  => 'whimsy_plus_sticky_menu',
+            'operator' => '==',
+            'value'    => 1,
+        ),
+    ),
+    'output'      => array(
+        array(
+            'element'  => '#site-navigation.sticky-menu ul.sub-menu a:active,#site-navigation.sticky-menu ul.sub-menu a:focus',
+            'property' => 'color'
+        ),
+    ),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => '#site-navigation.sticky-menu ul.sub-menu a:active,#site-navigation.sticky-menu ul.sub-menu a:focus',
             'property' => 'color',
             'function' => 'style',
         ),
