@@ -7,15 +7,24 @@
  * @return void
  */
 
-add_action( 'whimsy_post_meta_after', 'whimsy_plus_social_sharing_icons', 4 );
+add_action( 'whimsy_post_meta_after', 'whimsy_plus_social_sharing_icons', 20 );
 
 if ( ! function_exists( 'whimsy_plus_social_sharing_icons' ) ) :
 function whimsy_plus_social_sharing_icons() {
     
     if ( Kirki::get_option( 'whimsy_plus_add_social_sharing_icons' ) == true ) : // If there's a header image and Header as a Background is ENABLED then the header image should be displayed as a background style. ?>
         <div id="social-sharing">
-            <span>Share This:</span>
+            
+        <?php if ( get_theme_mod( 'whimsy_plus_social_sharing_custom' ) ) : ?>
 
+            <span class="social-sharing-title"><?php echo get_theme_mod( 'whimsy_plus_social_sharing_custom' ); ?></span>
+
+        <?php else : // If no custom text is set, display default text. ?>
+
+            <span class="social-sharing-title">Share This:</span>
+
+        <?php endif; // End mobile logo check. ?>
+            
             <span class="sharing-icon facebook-icon">
                 <a href="https://www.facebook.com/sharer/sharer.php?u=<?php if(is_home()){echo home_url();}else{the_permalink();} ?>" target="_blank" title="Share this page on Facebook">
                     <i class="fa fa-facebook"></i>

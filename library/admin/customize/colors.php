@@ -6,6 +6,17 @@
  */
 
 Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'color',
+	'settings'    => 'whimsy_alt_color',
+	'label'       => __( 'Accent Color', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_colors',
+	'default'     => '#52b0c1',
+	'priority'    => 10,
+	'choices'     => array(
+		'alpha' => true,
+	),
+) );
+Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'custom',
 	'settings'    => 'whimsy_plus_body_link_divider',
 	'section'     => 'whimsy_plus_colors',

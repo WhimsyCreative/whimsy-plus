@@ -44,7 +44,7 @@ Kirki::add_section( 'whimsy_plus_content', array(
     'capability'     => 'edit_theme_options',
 ) );
 Kirki::add_section( 'whimsy_plus_sidebar', array(
-    'title'          => esc_html__( 'Layout', 'whimsy-plus' ),
+    'title'          => esc_html__( 'Sidebar', 'whimsy-plus' ),
 
     'priority'       => 33,
     'capability'     => 'edit_theme_options',
