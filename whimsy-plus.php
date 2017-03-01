@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Whimsy+
- * Version: 1.0.0
+ * Version: 0.1.0
  * Plugin URI: http://www.whimsycreative.co/framework/plus
  * Description: A plugin packed with awesome features for Whimsy Framework.
  * Author: Whimsy Creative Co.
@@ -32,10 +32,10 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
 		 */
 		function __construct() {
         
-			global $extend;
+			global $whimsyplus;
 
-			/* Set up an empty class for the global $extend object. */
-			$extend = new stdClass;
+			/* Set up an empty class for the global $whimsyplus object. */
+			$whimsyplus = new stdClass;
 
 			/* Define framework, parent theme, and child theme constants. */
 			add_action( 'init', array( $this, 'constants' ), 1 );
@@ -62,7 +62,7 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
 		function constants() {
 
 			/* Sets the framework version number. */
-			define( 'WHIMSY_PLUS_VERSION', '1.0.0'            );
+			define( 'WHIMSY_PLUS_VERSION', '0.1.0'            );
 
 			/* Sets the path to the plugin directory. */
             define( 'WHIMSY_PLUS_PATH',      plugin_dir_path( __FILE__ )  );
