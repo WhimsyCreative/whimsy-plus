@@ -1,6 +1,7 @@
 .customize-divider {
     padding: 3px;
-    font-weight:100;
+    font-size: 0.8em;
+    font-weight:bold;
     letter-spacing: 0.7px;
     text-align:center;
     text-transform:uppercase;

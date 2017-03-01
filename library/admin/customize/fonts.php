@@ -41,7 +41,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	'settings'    => 'whimsy_plus_site_title_font',
 	'label'       => __( 'Site Title Font', 'whimsy-plus' ),
 	'tooltip' => __( 'The font properties for the Site Title if a logo is not displayed.', 'whimsy-plus' ),
-	'section'     => 'whimsy_plus_fonts',
+	'section'     => 'title_tagline',
 	'default'     => array(
 		'font-family'    => 'Playfair Display',
 		'variant'        => 'regular',
@@ -70,12 +70,12 @@ Kirki::add_field( 'whimsy_plus', array(
 	'settings'    => 'whimsy_plus_site_desc_font',
 	'label'       => __( 'Site Description Font', 'whimsy-plus' ),
 	'tooltip' => __( 'The font properties for the Site Description if a logo is not displayed.', 'whimsy-plus' ),
-	'section'     => 'whimsy_plus_fonts',
+	'section'     => 'title_tagline',
 	'default'     => array(
 		'font-family'    => 'Lato',
 		'variant'        => 'bold',
-		'font-size'      => '1em',
-		'line-height'    => '1.5',
+		'font-size'      => '0.8em',
+		'line-height'    => '1',
 		'letter-spacing' => '0',
 		'color'          => '#333333',
 		'text-transform' => 'uppercase',
@@ -84,13 +84,13 @@ Kirki::add_field( 'whimsy_plus', array(
 	'priority'    => 10,
 	'output'      => array(
 		array(
-			'element' => 'h2.site-description, h2.site-description a',
+			'element' => '.site-branding > h2.site-description, .site-branding > h2.site-description a',
 		),
 	),
     'transport'    => 'postMessage',
     'js_vars'      => array(
         array(
-            'element'  => 'h2.site-description, h2.site-description a',
+            'element'  => '.site-branding > h2.site-description, .site-branding > h2.site-description a',
         ),
     ),
 ) );

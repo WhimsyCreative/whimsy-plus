@@ -6,21 +6,10 @@
  */
 
 Kirki::add_field( 'whimsy_plus', array(
-	'type'        => 'color',
-	'settings'    => 'whimsy_alt_color',
-	'label'       => __( 'Accent Color', 'whimsy-plus' ),
-	'section'     => 'whimsy_plus_colors',
-	'default'     => '#52b0c1',
-	'priority'    => 10,
-	'choices'     => array(
-		'alpha' => true,
-	),
-) );
-Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'custom',
-	'settings'    => 'whimsy_plus_body_link_divider',
+	'settings'    => 'whimsy_plus_body_global_divider',
 	'section'     => 'whimsy_plus_colors',
-	'default'     => '<div class="customize-divider">' . esc_html__( 'Link Colors', 'whimsy-plus' ) . '</div>',
+	'default'     => '<div class="customize-divider">' . esc_html__( 'Global Colors', 'whimsy-plus' ) . '</div>',
 	'priority'    => 10,
 ) );
 Kirki::add_field( 'whimsy_plus', array(
@@ -35,15 +24,55 @@ Kirki::add_field( 'whimsy_plus', array(
 	),
     'output'      => array(
         array(
-            'element'  => 'a, a:visited',
-            'property' => 'color'
+            'element'  => 'a, a:visited, ul.whimsy-nav li a:hover, ul.whimsy-nav li a:focus, .entry-title a',
+            'property' => 'color',
+            'function' => 'css',
+        ),
+        array(
+            'element'  => 'a.btn-shortcode, button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span',
+            'property' => 'border-color',
+            'function' => 'css',
         ),
     ),
     'transport'    => 'postMessage',
     'js_vars'      => array(
         array(
-            'element'  => 'a, a:visited',
+            'element'  => 'a, a:visited,ul.whimsy-nav li a:hover, ul.whimsy-nav li a:focus, .entry-title a',
             'property' => 'color',
+            'function' => 'css',
+        ),
+        array(
+            'element'  => 'a.btn-shortcode, button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span',
+            'property' => 'border-color',
+            'function' => 'css',
+        ),
+    )
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'color',
+	'settings'    => 'whimsy_plus_accent_color',
+	'label'       => __( 'Accent Color', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_colors',
+	'default'     => '#333333',
+	'priority'    => 12,
+	'choices'     => array(
+		'alpha' => true,
+	),
+    'output'      => array(
+        array(
+            'element'  => '::selection,.collapse-button:hover, .collapse-button:focus',
+            'property' => 'background'
+        ),
+        array(
+            'element'  => 'a.btn-shortcode:hover, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover',
+            'property' => 'border-color'
+        ),
+    ),
+    'transport'    => 'refresh',
+    'js_vars'      => array(
+        array(
+            'element'  => '::selection,.collapse-button:hover, .collapse-button:focus',
+            'property' => 'background',
             'function' => 'style',
         ),
     )
@@ -60,14 +89,15 @@ Kirki::add_field( 'whimsy_plus', array(
 	),
     'output'      => array(
         array(
-            'element'  => 'a:hover',
+            'element'  => 'a:hover, a:focus, a:active, .collapse-button, #site-navigation ul.sub-menu a:hover, ul.whimsy-nav li a, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover,.entry-posted-on a:hover,.entry-posted-on a:focus,.entry-posted-on a:active',
             'property' => 'color'
         ),
     ),
     'transport'    => 'postMessage',
     'js_vars'      => array(
         array(
-            'element'  => 'a:hover',
+            'element'  => 'a:hover, a:focus, a:active, .collapse-button, #site-navigation ul.sub-menu a:hover, ul.whimsy-nav li a, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover,
+.entry-posted-on a:hover,.entry-posted-on a:focus,.entry-posted-on a:active',
             'property' => 'color',
             'function' => 'style',
         ),
@@ -136,7 +166,6 @@ Kirki::add_field( 'whimsy_plus', array(
 	'label'       => __( 'Header Background Color', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_colors',
 	'priority'    => 20,
-    'default'     => '#f8f8f8',
 	'choices'     => array(
 		'alpha' => true,
 	),
