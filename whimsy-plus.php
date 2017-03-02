@@ -17,6 +17,9 @@
  * @since 1.0.0
  */
 
+// Include tracking 
+require_once plugin_dir_path( __FILE__ ) . '/library/inc/tracking.php';
+
 if ( !class_exists( 'WhimsyPlus' ) ) {
 
 	/**

@@ -29,8 +29,8 @@ add_action('admin_menu', 'welcome_screen_pages');
 
 function welcome_screen_pages() {
   add_dashboard_page(
-    'Welcome To Welcome Screen',
-    'Welcome To Welcome Screen',
+    'Welcome To Whimsy+',
+    'Welcome To Whimsy+',
     'read',
     'welcome-screen-about',
     'welcome_screen_content'

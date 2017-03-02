@@ -8,13 +8,13 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * WHIMSY_PLUS_Options Class
+ * Whimsy_Plus_Admin Class
  *
  * A general class for About and Credits page.
  *
  * @since 1.4
  */
-class WHIMSY_PLUS_Options {
+class Whimsy_Plus_Admin {
 
 	/**
 	 * @var string The capability users should have to view the page
@@ -43,8 +43,8 @@ class WHIMSY_PLUS_Options {
 	public function admin_menus() {
 		// About Page
 		add_dashboard_page(
-			__( 'Welcome to Whimsy+Extend', 'whimsy-framework' ),
-			__( 'Welcome to Whimsy+Extend', 'whimsy-framework' ),
+			__( 'Welcome to Whimsy+', 'whimsy-plus' ),
+			__( 'Welcome to Whimsy+', 'whimsy-plus' ),
 			$this->minimum_capability,
 			'whimsy-about',
 			array( $this, 'about_screen' )
@@ -52,8 +52,8 @@ class WHIMSY_PLUS_Options {
 
 		// Changelog Page
 		add_dashboard_page(
-			__( 'Whimsy Framework Changelog', 'whimsy-framework' ),
-			__( 'Whimsy Framework Changelog', 'whimsy-framework' ),
+			__( 'Whimsy+ Changelog', 'whimsy-plus' ),
+			__( 'Whimsy+ Changelog', 'whimsy-plus' ),
 			$this->minimum_capability,
 			'whimsy-changelog',
 			array( $this, 'changelog_screen' )
@@ -61,8 +61,8 @@ class WHIMSY_PLUS_Options {
 
 		// Getting Started Page
 		add_dashboard_page(
-			__( 'Getting started with Whimsy Framework', 'whimsy-framework' ),
-			__( 'Getting started with Whimsy Framework', 'whimsy-framework' ),
+			__( 'Getting started with Whimsy Framework', 'whimsy-plus' ),
+			__( 'Getting started with Whimsy Framework', 'whimsy-plus' ),
 			$this->minimum_capability,
 			'whimsy-getting-started',
 			array( $this, 'getting_started_screen' )
@@ -117,10 +117,10 @@ class WHIMSY_PLUS_Options {
 		list( $display_version ) = explode( '-', WHIMSY_VERSION );
 		?>
 		<div id="whimsy-header">
-			<img class="whimsy-badge" src="<?php echo THEME_URI . '/library/img/the-fanciful.png'; ?>" alt="<?php _e( 'Whimsy Framework', 'whimsy-framework' ); ?>" / >
-			<h1><?php printf( __( 'Welcome to Whimsy Framework %s', 'whimsy-framework' ), $display_version ); ?></h1>
+			<img class="whimsy-badge" src="<?php echo THEME_URI . '/library/img/the-fanciful.png'; ?>" alt="<?php _e( 'Whimsy Framework', 'whimsy-plus' ); ?>" / >
+			<h1><?php printf( __( 'Welcome to Whimsy Framework %s', 'whimsy-plus' ), $display_version ); ?></h1>
 			<p class="about-text">
-				<?php printf( __( 'Thank you for updating to the latest version! Whimsy Framework %s!', 'whimsy-framework' ), $display_version ); ?>
+				<?php printf( __( 'Thank you for updating to the latest version! Whimsy Framework %s!', 'whimsy-plus' ), $display_version ); ?>
 			</p>
 		</div>
 		<?php
@@ -138,13 +138,13 @@ class WHIMSY_PLUS_Options {
 		?>
 		<h1 class="nav-tab-wrapper">
 			<a class="nav-tab <?php echo $selected == 'whimsy-about' ? 'nav-tab-active' : ''; ?>" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'whimsy-about' ), 'index.php' ) ) ); ?>">
-				<?php _e( "What's New", 'whimsy-framework' ); ?>
+				<?php _e( "What's New", 'whimsy-plus' ); ?>
 			</a>
 			<a class="nav-tab <?php echo $selected == 'whimsy-getting-started' ? 'nav-tab-active' : ''; ?>" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'whimsy-getting-started' ), 'index.php' ) ) ); ?>">
-				<?php _e( 'Getting Started', 'whimsy-framework' ); ?>
+				<?php _e( 'Getting Started', 'whimsy-plus' ); ?>
 			</a>
 			<a class="nav-tab <?php echo $selected == 'whimsy-changelog' ? 'nav-tab-active' : ''; ?>" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'whimsy-changelog' ), 'index.php' ) ) ); ?>">
-				<?php _e( 'Changelog', 'whimsy-framework' ); ?>
+				<?php _e( 'Changelog', 'whimsy-plus' ); ?>
 			</a>
 		</h1>
 		<?php
@@ -166,81 +166,81 @@ class WHIMSY_PLUS_Options {
 				$this->tabs();
 			?>
 			<div class="changelog">
-				<h3><?php _e( 'Customizer Updates', 'whimsy-framework' );?></h3>
+				<h3><?php _e( 'Customizer Updates', 'whimsy-plus' );?></h3>
 				<div class="feature-section">
 					<div class="feature-section-media">
 					</div>
 					<div class="feature-section-content">
-						<p><?php _e( 'The Whimsy Framework Customizer is now more user friendly and has even more options for customizing your website.', 'whimsy-framework' );?></p>
+						<p><?php _e( 'The Whimsy Framework Customizer is now more user friendly and has even more options for customizing your website.', 'whimsy-plus' );?></p>
 
-						<h4><?php _e( 'Multiple footer options', 'whimsy-framework' );?></h4>
-						<p><?php _e( 'Now you can choose between 1-3 widgetized areas in your footer.', 'whimsy-framework' );?></p>
+						<h4><?php _e( 'Multiple footer options', 'whimsy-plus' );?></h4>
+						<p><?php _e( 'Now you can choose between 1-3 widgetized areas in your footer.', 'whimsy-plus' );?></p>
 
-						<h4><?php _e( 'Better Mobile Checkout', 'whimsy-framework' );?></h4>
-						<p><?php _e( 'When purchasing with a debit or credit card from a mobile phone, the card number input field will now properly set the phone’s keyboard to a numerical keyboard.', 'whimsy-framework' );?></p>
+						<h4><?php _e( 'Better Mobile Checkout', 'whimsy-plus' );?></h4>
+						<p><?php _e( 'When purchasing with a debit or credit card from a mobile phone, the card number input field will now properly set the phone’s keyboard to a numerical keyboard.', 'whimsy-plus' );?></p>
 					</div>
 				</div>
 			</div>
 
 			<div class="changelog">
-				<h3><?php _e( 'New Library Class', 'whimsy-framework' );?></h3>
+				<h3><?php _e( 'New Library Class', 'whimsy-plus' );?></h3>
 				<div class="feature-section">
 					<div class="feature-section-media">
 						<img src="<?php echo THEME_DIR . 'assets/images/screenshots/26-import.png'; ?>"/>
 					</div>
 					<div class="feature-section-content">
-						<p><?php _e( 'We believe you should own your data. We also believe that it should be easy to get data out of <em>and</em> into Whimsy Framework. 2.6 introduces native import options for payments and download products.', 'whimsy-framework' );?></p>
+						<p><?php _e( 'We believe you should own your data. We also believe that it should be easy to get data out of <em>and</em> into Whimsy Framework. 2.6 introduces native import options for payments and download products.', 'whimsy-plus' );?></p>
 
-						<h4><?php _e( 'Product Import', 'whimsy-framework' );?></h4>
-						<p><?php _e( 'With the new import options, Whimsy Framework now makes it easy to import products from a CSV file into your store. Whether you wish to import five products or 50,000, Whimsy Framework can now effortlessly handle the import for you.', 'whimsy-framework' );?></p>
+						<h4><?php _e( 'Product Import', 'whimsy-plus' );?></h4>
+						<p><?php _e( 'With the new import options, Whimsy Framework now makes it easy to import products from a CSV file into your store. Whether you wish to import five products or 50,000, Whimsy Framework can now effortlessly handle the import for you.', 'whimsy-plus' );?></p>
 
-						<h4><?php _e( 'Payment Import', 'whimsy-framework' );?></h4>
-						<p><?php _e( 'Sometimes it is necessary to move purchase records from one location to another. Perhaps you are transitioning from another eCommerce system, or from a separate Whimsy Framework store; whatever the reason, Whimsy Framework now allows you to easily import purchase records from a CSV file.', 'whimsy-framework' );?></p>
+						<h4><?php _e( 'Payment Import', 'whimsy-plus' );?></h4>
+						<p><?php _e( 'Sometimes it is necessary to move purchase records from one location to another. Perhaps you are transitioning from another eCommerce system, or from a separate Whimsy Framework store; whatever the reason, Whimsy Framework now allows you to easily import purchase records from a CSV file.', 'whimsy-plus' );?></p>
 					</div>
 				</div>
 			</div>
 
 			<div class="changelog">
-				<h3><?php _e( 'Better Refunds', 'whimsy-framework' );?></h3>
+				<h3><?php _e( 'Better Refunds', 'whimsy-plus' );?></h3>
 				<div class="feature-section">
 					<div class="feature-section-media">
 						<img src="<?php echo whimsy_PLUGIN_URL . 'assets/images/screenshots/26-refund.png'; ?>" class="whimsy-welcome-screenshots alignleft"/>
 					</div>
 					<div class="feature-section-content">
-						<h4><?php _e( 'Refund Processing for PayPal Standard', 'whimsy-framework' );?></h4>
-						<p><?php _e( 'While not usually something store administrators take great pleasure in handling, refunds are a very real part of running an eCommerce store. As much as we would love to, we can’t make the actual refund more enjoyable, but we can make refunds easier to process.', 'whimsy-framework' );?></p>
-						<p><?php _e( 'In Whimsy Framework 2.6, we have added support for processing refunds directly from the View Order Details screen for purchases made through PayPal Standard.', 'whimsy-framework' );?></p>
+						<h4><?php _e( 'Refund Processing for PayPal Standard', 'whimsy-plus' );?></h4>
+						<p><?php _e( 'While not usually something store administrators take great pleasure in handling, refunds are a very real part of running an eCommerce store. As much as we would love to, we can’t make the actual refund more enjoyable, but we can make refunds easier to process.', 'whimsy-plus' );?></p>
+						<p><?php _e( 'In Whimsy Framework 2.6, we have added support for processing refunds directly from the View Order Details screen for purchases made through PayPal Standard.', 'whimsy-plus' );?></p>
 					</div>
 				</div>
 			</div>
 
 			<div class="changelog">
-				<h3><?php _e( 'Additional Updates', 'whimsy-framework' );?></h3>
+				<h3><?php _e( 'Additional Updates', 'whimsy-plus' );?></h3>
 				<div class="feature-section three-col">
 					<div class="col">
-						<h4><?php _e( 'REST API Version 2', 'whimsy-framework' );?></h4>
-						<p><?php _e( 'Version 2 of the REST API offers several improved endpoint options and better data standardization.', 'whimsy-framework' );?></p>
+						<h4><?php _e( 'REST API Version 2', 'whimsy-plus' );?></h4>
+						<p><?php _e( 'Version 2 of the REST API offers several improved endpoint options and better data standardization.', 'whimsy-plus' );?></p>
 					</div>
 					<div class="col">
-						<h4><?php _e( 'Prices on oEmbed', 'whimsy-framework' );?></h4>
-						<p><?php _e( 'When embedding a download product on another site, using WordPress core’s oEmbed feature, the product prices are now shown.', 'whimsy-framework' );?></p>
+						<h4><?php _e( 'Prices on oEmbed', 'whimsy-plus' );?></h4>
+						<p><?php _e( 'When embedding a download product on another site, using WordPress core’s oEmbed feature, the product prices are now shown.', 'whimsy-plus' );?></p>
 					</div>
 					<div class="col">
-						<h4><?php _e( 'Customer Meta', 'whimsy-framework' );?></h4>
-						<p><?php _e( 'The customer database now includes a complete metadata API for storing additional information on customer records.' ,'whimsy-framework' );?></p>
+						<h4><?php _e( 'Customer Meta', 'whimsy-plus' );?></h4>
+						<p><?php _e( 'The customer database now includes a complete metadata API for storing additional information on customer records.' ,'whimsy-plus' );?></p>
 					</div>
 					<div class="clear">
 						<div class="col">
-							<h4><?php _e( 'Improved Accessibility', 'whimsy-framework' );?></h4>
-							<p><?php _e( 'Whimsy Framework is now more accessible to more users thanks to a member of the WordPress accessibility team who helped resolve accessibility issues throughout the administrative interfaces.', 'whimsy-framework' );?></p>
+							<h4><?php _e( 'Improved Accessibility', 'whimsy-plus' );?></h4>
+							<p><?php _e( 'Whimsy Framework is now more accessible to more users thanks to a member of the WordPress accessibility team who helped resolve accessibility issues throughout the administrative interfaces.', 'whimsy-plus' );?></p>
 						</div>
 						<div class="col">
-							<h4><?php _e( 'Resolved Schema Problems', 'whimsy-framework' );?></h4>
-							<p><?php _e( 'Invalid and missing schema microdata has been resolved.', 'whimsy-framework' );?></p>
+							<h4><?php _e( 'Resolved Schema Problems', 'whimsy-plus' );?></h4>
+							<p><?php _e( 'Invalid and missing schema microdata has been resolved.', 'whimsy-plus' );?></p>
 						</div>
 						<div class="col">
-							<h4><?php _e( 'More Actions and Filters', 'whimsy-framework' );?></h4>
-							<p><?php _e( 'Numerous new actions and filters have been added to help make Whimsy Framework more extensible for developers.' ,'whimsy-framework' );?></p>
+							<h4><?php _e( 'More Actions and Filters', 'whimsy-plus' );?></h4>
+							<p><?php _e( 'Numerous new actions and filters have been added to help make Whimsy Framework more extensible for developers.' ,'whimsy-plus' );?></p>
 						</div>
 					</div>
 				</div>
@@ -266,7 +266,7 @@ class WHIMSY_PLUS_Options {
 				$this->tabs();
 			?>
 			<div class="changelog">
-				<h3><?php _e( 'Full Changelog', 'whimsy-framework' );?></h3>
+				<h3><?php _e( 'Full Changelog', 'whimsy-plus' );?></h3>
 
 				<div class="feature-section">
 					<?php echo $this->parse_readme(); ?>
@@ -292,34 +292,34 @@ class WHIMSY_PLUS_Options {
 				$this->welcome_message();
 				$this->tabs();
 			?>
-			<p class="about-description"><?php _e( 'Whimsy Framework is lightweight and easy to customize, even for beginners.', 'whimsy-framework' ); ?></p>
+			<p class="about-description"><?php _e( 'Whimsy Framework is lightweight and easy to customize, even for beginners.', 'whimsy-plus' ); ?></p>
 
 			<div class="changelog">
-				<h3><?php _e( 'Extensions for Everything', 'whimsy-framework' );?></h3>
+				<h3><?php _e( 'Extensions for Everything', 'whimsy-plus' );?></h3>
 				<div class="feature-section two-col">
 					<div class="col">
-						<h4><?php _e( 'Customizable colors','whimsy-framework' );?></h4>
-						<p><?php _e( 'Use the color picker tool to choose colors that will represent your brand throughout your website.', 'whimsy-framework' );?></p>
+						<h4><?php _e( 'Customizable colors','whimsy-plus' );?></h4>
+						<p><?php _e( 'Use the color picker tool to choose colors that will represent your brand throughout your website.', 'whimsy-plus' );?></p>
 					</div>
 					<div class="col">
-						<h4><?php _e( 'Upload your logo', 'whimsy-framework' );?></h4>
-						<p><?php _e( 'Choose a different logo for mobile and desktop versions so your brand looks great on all screens.', 'whimsy-framework' );?></p>
+						<h4><?php _e( 'Upload your logo', 'whimsy-plus' );?></h4>
+						<p><?php _e( 'Choose a different logo for mobile and desktop versions so your brand looks great on all screens.', 'whimsy-plus' );?></p>
 					</div>
 					<div class="col">
-						<h4><?php _e( 'Cool Custom Widgets','whimsy-framework' );?></h4>
-						<p><?php _e( 'Whimsy Framework has two custom widgets: one for easy social media links and the other for your “About Me” section.', 'whimsy-framework' );?></p>
+						<h4><?php _e( 'Cool Custom Widgets','whimsy-plus' );?></h4>
+						<p><?php _e( 'Whimsy Framework has two custom widgets: one for easy social media links and the other for your “About Me” section.', 'whimsy-plus' );?></p>
 					</div>
 					<div class="col">
-						<h4><?php _e( 'Custom Shortcodes', 'whimsy-framework' );?></h4>
-						<p><?php _e( 'Whimsy+Shortcodes is a lightweight shortcode plugin so even if you change themes you won’t lose your shortcode content.', 'whimsy-framework' );?></p>
+						<h4><?php _e( 'Custom Shortcodes', 'whimsy-plus' );?></h4>
+						<p><?php _e( 'Whimsy+Shortcodes is a lightweight shortcode plugin so even if you change themes you won’t lose your shortcode content.', 'whimsy-plus' );?></p>
 					</div>
 					<div class="col">
-						<h4><?php _e( 'Responsive Layout','whimsy-framework' );?></h4>
-						<p><?php _e( 'Your layout dynamically shrinks and expands inside tablets and phones and is designed to look ideal on any resolution, big or small.', 'whimsy-framework' );?></p>
+						<h4><?php _e( 'Responsive Layout','whimsy-plus' );?></h4>
+						<p><?php _e( 'Your layout dynamically shrinks and expands inside tablets and phones and is designed to look ideal on any resolution, big or small.', 'whimsy-plus' );?></p>
 					</div>
 					<div class="col">
-						<h4><?php _e( 'Plugin Integrations', 'whimsy-framework' );?></h4>
-						<p><?php _e( 'Whimsy Framework has been styled and tested for use with popular plugins like WooCommerce, Jetpack, Easy Digital Downloads, WP-Retina, and more.', 'whimsy-framework' );?></p>
+						<h4><?php _e( 'Plugin Integrations', 'whimsy-plus' );?></h4>
+						<p><?php _e( 'Whimsy Framework has been styled and tested for use with popular plugins like WooCommerce, Jetpack, Easy Digital Downloads, WP-Retina, and more.', 'whimsy-plus' );?></p>
 					</div>
 				</div>
 			</div>
@@ -337,7 +337,7 @@ class WHIMSY_PLUS_Options {
 		$file = file_exists( THEME_DIR . '/readme.txt' ) ? THEME_DIR . '/readme.txt' : null;
 
 		if ( ! $file ) {
-			$readme = '<p>' . __( 'No valid changelog was found.', 'whimsy-framework' ) . '</p>';
+			$readme = '<p>' . __( 'No valid changelog was found.', 'whimsy-plus' ) . '</p>';
 		} else {
 			$readme = file_get_contents( $file );
 			$readme = nl2br( esc_html( $readme ) );
@@ -355,4 +355,4 @@ class WHIMSY_PLUS_Options {
 	}
 
 }
-new WHIMSY_PLUS_Options();
+new Whimsy_Plus_Admin();
