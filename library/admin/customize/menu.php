@@ -377,7 +377,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	),
     'output'      => array(
         array(
-            'element'  => '#site-navigation a:hover',
+            'element'  => '#site-navigation a:active,#site-navigation a:focus',
             'property' => 'color'
         ),
     ),

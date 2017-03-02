@@ -32,10 +32,10 @@ if ( !class_exists( 'WhimsySharing' ) ) {
 		 */
 		function __construct() {
         
-			global $extend;
+			global $whimsyplus;
 
 			/* Set up an empty class for the global $whimsy object. */
-			$extend = new stdClass;
+			$whimsyplus = new stdClass;
 
 			/* Define framework, parent theme, and child theme constants. */
 			add_action( 'init', array( $this, 'constants' ), 1 );
