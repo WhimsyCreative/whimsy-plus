@@ -43,10 +43,10 @@ Kirki::add_field( 'whimsy_plus', array(
 	'tooltip' => __( 'The font properties for the Site Title if a logo is not displayed.', 'whimsy-plus' ),
 	'section'     => 'title_tagline',
 	'default'     => array(
-		'font-family'    => 'Playfair Display',
-		'variant'        => 'regular',
+		'font-family'    => 'Lato',
+		'variant'        => '100',
 		'font-size'      => '1em',
-		'line-height'    => '1.5',
+		'line-height'    => '1',
 		'letter-spacing' => '0',
 		'color'          => '#52b0c1',
 		'text-transform' => 'none',
@@ -101,7 +101,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	'tooltip' => __( 'The font properties for the H1 headings.', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_fonts',
 	'default'     => array(
-		'font-family'    => 'Playfair Display',
+		'font-family'    => 'Lato',
 		'variant'        => 'regular',
 		'font-size'      => '1.8em',
 		'line-height'    => '1.5',
@@ -131,7 +131,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	'tooltip' => __( 'The font properties for the H2 headings.', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_fonts',
 	'default'     => array(
-		'font-family'    => 'Playfair Display',
+		'font-family'    => 'Lato',
 		'variant'        => 'regular',
 		'font-size'      => '1.7em',
 		'line-height'    => '1.5',
@@ -161,7 +161,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	'tooltip' => __( 'The font properties for the H3 headings.', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_fonts',
 	'default'     => array(
-		'font-family'    => 'Playfair Display',
+		'font-family'    => 'Lato',
 		'variant'        => 'regular',
 		'font-size'      => '1.5em',
 		'line-height'    => '1.5',
@@ -191,7 +191,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	'tooltip' => __( 'The font properties for the H4 headings.', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_fonts',
 	'default'     => array(
-		'font-family'    => 'Playfair Display',
+		'font-family'    => 'Lato',
 		'variant'        => 'regular',
 		'font-size'      => '1.2em',
 		'line-height'    => '1.5',
@@ -221,7 +221,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	'tooltip' => __( 'The font properties for the H5 headings.', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_fonts',
 	'default'     => array(
-		'font-family'    => 'Playfair Display',
+		'font-family'    => 'Lato',
 		'variant'        => 'regular',
 		'font-size'      => '1.1em',
 		'line-height'    => '1.5',
@@ -251,7 +251,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	'tooltip' => __( 'The font properties for the H6 headings.', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_fonts',
 	'default'     => array(
-		'font-family'    => 'Playfair Display',
+		'font-family'    => 'Lato',
 		'variant'        => 'regular',
 		'font-size'      => '1em',
 		'line-height'    => '1.5',
@@ -281,7 +281,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	'tooltip' => __( 'The font properties for .entry-title.', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_content',
 	'default'     => array(
-		'font-family'    => 'Playfair Display',
+		'font-family'    => 'Lato',
 		'variant'        => 'regular',
 		'font-size'      => '1.8em',
 		'line-height'    => '1.5',
