@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Whimsy+
- * Version: 0.1.0
+ * Version: 0.2.0
  * Plugin URI: http://www.whimsycreative.co/framework/plus
  * Description: A plugin packed with awesome features for Whimsy Framework.
  * Author: Whimsy Creative Co.
@@ -19,6 +19,25 @@
 
 // Include tracking 
 require_once plugin_dir_path( __FILE__ ) . '/library/inc/tracking.php';
+
+function whimsy_plus_init() {
+    if ( ! class_exists( 'Whimsy' ) ) {
+        if ( is_admin() ) {
+        }
+
+        return;
+    }
+
+    // Init Freemius.
+    whimsy_plus_sdk();
+
+    // Init add-on.
+    return new WhimsyPlus();
+}
+
+// Init add-on only after all active plugins code
+// was included to make sure the parent plugin loaded first.
+add_action( 'plugins_loaded', 'whimsy_plus_init' );
 
 if ( !class_exists( 'WhimsyPlus' ) ) {
 
@@ -65,7 +84,7 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
 		function constants() {
 
 			/* Sets the framework version number. */
-			define( 'WHIMSY_PLUS_VERSION', '0.1.0'            );
+			define( 'WHIMSY_PLUS_VERSION', '0.2.0'            );
 
 			/* Sets the path to the plugin directory. */
             define( 'WHIMSY_PLUS_PATH',      plugin_dir_path( __FILE__ )  );
@@ -120,6 +139,11 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
             include_once WHIMSY_PLUS_INC . 'sharing.php';
             include_once WHIMSY_PLUS_INC . 'twitter-mentions.php';
             
+			// Include admin functions
+            //if ( is_admin() ) {
+            //    include_once WHIMSY_ADMIN . 'options.php';
+            //} 
+            
 			// Remove Whimsy Framework actions
             remove_action( 'init', 'whimsy_customize_style_output', 5 );
         }
@@ -160,5 +184,3 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
         }
     }
 }
-
-new WhimsyPlus();
