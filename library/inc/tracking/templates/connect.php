@@ -10,8 +10,11 @@
 		exit;
 	}
 
-	$fs                    = freemius( $VARS['id'] );
-	$slug                  = $fs->get_slug();
+	/**
+	 * @var array $VARS
+	 */
+	$slug                  = $VARS['slug'];
+	$fs                    = freemius( $slug );
 	$is_pending_activation = $fs->is_pending_activation();
 	$is_premium_only       = $fs->is_only_premium();
 	$has_paid_plans        = $fs->has_paid_plan();
@@ -50,44 +53,16 @@
 	$require_license_key = $is_premium_only ||
 	                       ( $is_freemium && $is_premium_code && fs_request_get_bool( 'require_license', true ) );
 
-    if ( $is_pending_activation ) {
-        $require_license_key = false;
-    }
-
-    if ( $require_license_key ) {
-        $fs->_add_license_activation_dialog_box();
-    }
-
-	global $pagenow;
-	$is_theme_page = ( 'themes.php' === $pagenow );
-
-	$is_optin_dialog = ( $is_theme_page && $fs->is_theme() );
-	if ( $is_optin_dialog ) {
-		$show_close_button             = false;
-		$previous_theme_activation_url = '';
-
-		if ( ! $is_premium_code ) {
-			$show_close_button = true;
-		} else if ( $is_premium_only ) {
-			$previous_theme_activation_url = $fs->get_previous_theme_activation_url();
-			$show_close_button = ( ! empty( $previous_theme_activation_url ) );
-		}
+	if ( $is_pending_activation ) {
+		$require_license_key = false;
 	}
-    
-    $fs_user                    = Freemius::_get_user_by_email( $current_user->user_email );
-    $activate_with_current_user = is_object( $fs_user ) && ! $is_pending_activation;
-?>
-<?php
-if ( $is_optin_dialog ) { ?>
-	<div id="fs_theme_connect_wrapper">
-		<?php
-			if ( $show_close_button ) { ?>
-				<button class="close dashicons dashicons-no"><span class="screen-reader-text">Close connect dialog</span></button>
-				<?php
-			}
-		?>
-	<?php
-}
+
+	if ( $require_license_key ) {
+		$fs->_add_license_activation_dialog_box();
+	}
+
+	$fs_user                    = Freemius::_get_user_by_email( $current_user->user_email );
+	$activate_with_current_user = is_object( $fs_user ) && ! $is_pending_activation;
 ?>
 <div id="fs_connect"
      class="wrap<?php if ( ! $fs->is_enable_anonymous() || $is_pending_activation || $require_license_key ) {
@@ -97,7 +72,7 @@ if ( $is_optin_dialog ) { ?>
 		<b class="fs-site-icon"><i class="dashicons dashicons-wordpress"></i></b>
 		<i class="dashicons dashicons-plus fs-first"></i>
 		<?php
-			$vars = array( 'id' => $fs->get_id() );
+			$vars = array( 'slug' => $slug );
 			fs_require_once_template( 'plugin-icon.php', $vars );
 		?>
 		<i class="dashicons dashicons-plus fs-second"></i>
@@ -169,20 +144,20 @@ if ( $is_optin_dialog ) { ?>
 				<input id="fs_license_key" name="fs_key" type="text" required maxlength="32"
 				       placeholder="<?php _efs( 'license-key', $slug ) ?>" tabindex="1"/>
 				<i class="dashicons dashicons-admin-network"></i>
-				<a class="show-license-resend-modal show-license-resend-modal-<?php echo $fs->get_unique_affix() ?>"
+				<a class="show-license-resend-modal show-license-resend-modal-<?php echo $slug; ?>"
 				   href="#"><?php _efs( 'cant-find-license-key' ); ?></a>
 			</div>
 		<?php endif ?>
 	</div>
 	<div class="fs-actions">
 		<?php if ( $fs->is_enable_anonymous() && ! $is_pending_activation && ! $require_license_key ) : ?>
-			<a href="<?php echo fs_nonce_url( $fs->_get_admin_page_url( '', array( 'fs_action' => $fs->get_unique_affix() . '_skip_activation' ) ), $fs->get_unique_affix() . '_skip_activation' ) ?>"
+			<a href="<?php echo fs_nonce_url( $fs->_get_admin_page_url( '', array( 'fs_action' => $slug . '_skip_activation' ) ), $slug . '_skip_activation' ) ?>"
 			   class="button button-secondary" tabindex="2"><?php _efs( 'skip', $slug ) ?></a>
 		<?php endif ?>
 
 		<?php if ( $activate_with_current_user ) : ?>
 			<form action="" method="POST">
-				<input type="hidden" name="fs_action" value="<?php echo $fs->get_unique_affix() ?>_activate_existing">
+				<input type="hidden" name="fs_action" value="<?php echo $slug ?>_activate_existing">
 				<?php wp_nonce_field( 'activate_existing_' . $fs->get_public_key() ) ?>
 				<button class="button button-primary" tabindex="1"
 				        type="submit"<?php if ( $require_license_key ) {
@@ -207,26 +182,26 @@ if ( $is_optin_dialog ) { ?>
 		$permissions = array(
 			'profile' => array(
 				'icon-class' => 'dashicons dashicons-admin-users',
-				'label'      => __fs( 'permissions-profile', $slug ),
-				'desc'       => __fs( 'permissions-profile_desc', $slug ),
+				'label'      => __fs( 'permissions-profile' ),
+				'desc'       => __fs( 'permissions-profile_desc' ),
 				'priority'   => 5,
 			),
 			'site'    => array(
 				'icon-class' => 'dashicons dashicons-admin-settings',
-				'label'      => __fs( 'permissions-site', $slug ),
-				'desc'       => __fs( 'permissions-site_desc', $slug ),
+				'label'      => __fs( 'permissions-site' ),
+				'desc'       => __fs( 'permissions-site_desc' ),
 				'priority'   => 10,
 			),
 			'notices'  => array(
 				'icon-class' => 'dashicons dashicons-testimonial',
-				'label'      => __fs( 'permissions-admin-notices', $slug ),
-				'desc'       => __fs( 'permissions-newsletter_desc', $slug ),
+				'label'      => __fs( 'permissions-admin-notices' ),
+				'desc'       => __fs( 'permissions-newsletter_desc' ),
 				'priority'   => 13,
 			),
 			'events'  => array(
 				'icon-class' => 'dashicons dashicons-admin-plugins',
-				'label'      => sprintf( __fs( 'permissions-events', $slug ), ucfirst( $fs->get_module_type() ) ),
-				'desc'       => __fs( 'permissions-events_desc', $slug ),
+				'label'      => __fs( 'permissions-events' ),
+				'desc'       => __fs( 'permissions-events_desc' ),
 				'priority'   => 20,
 			),
 //			'plugins_themes' => array(
@@ -241,8 +216,8 @@ if ( $is_optin_dialog ) { ?>
 		if ( $fs->is_permission_requested( 'newsletter' ) ) {
 			$permissions['newsletter'] = array(
 				'icon-class' => 'dashicons dashicons-email-alt',
-				'label'      => __fs( 'permissions-newsletter', $slug ),
-				'desc'       => __fs( 'permissions-newsletter_desc', $slug ),
+				'label'      => __fs( 'permissions-newsletter' ),
+				'desc'       => __fs( 'permissions-newsletter_desc' ),
 				'priority'   => 15,
 			);
 		}
@@ -256,12 +231,7 @@ if ( $is_optin_dialog ) { ?>
 		if ( ! empty( $permissions ) ) : ?>
 			<div class="fs-permissions">
 				<?php if ( $require_license_key ) : ?>
-					<p class="fs-license-sync-disclaimer"><?php
-						printf( __fs( 'license-sync-disclaimer', $slug ),
-							$fs->get_module_type(),
-							$freemius_link,
-							$fs->get_module_type()
-						) ?></p>
+					<p class="fs-license-sync-disclaimer"><?php printf( __fs( 'license-sync-disclaimer', $slug ), $freemius_link ) ?></p>
 				<?php endif ?>
 				<a class="fs-trigger" href="#" tabindex="1"><?php _efs( 'what-permissions', $slug ) ?></a>
 				<ul><?php
@@ -300,40 +270,8 @@ if ( $is_optin_dialog ) { ?>
 		<a href="https://freemius.com/terms/" target="_blank" tabindex="1"><?php _efs( 'tos', $slug ) ?></a>
 	</div>
 </div>
-<?php
-	if ( $is_optin_dialog ) { ?>
-		</div>
-		<?php
-	}
-?>
 <script type="text/javascript">
 	(function ($) {
-	    var $html = $( 'html' );
-
-		<?php
-			if ( $is_optin_dialog ) {
-                if ( $show_close_button ) { ?>
-                    var $themeConnectWrapper = $( '#fs_theme_connect_wrapper' );
-
-                    $themeConnectWrapper.find( 'button.close' ).on( 'click', function() {
-                        <?php if ( ! empty( $previous_theme_activation_url ) ) { ?>
-                            location.href = '<?php echo html_entity_decode( $previous_theme_activation_url ); ?>';
-                        <?php } else { ?>
-                            $themeConnectWrapper.remove();
-                            $html.css({overflow: $html.attr( 'fs-optin-overflow' )});
-                        <?php } ?>
-                    });
-                    <?php
-                }
-                ?>
-
-                $html.attr( 'fs-optin-overflow', $html.css( 'overflow' ) );
-                $html.css({overflow: 'hidden'});
-
-                <?php
-			}
-		?>
-
 		var $primaryCta = $('.fs-actions .button.button-primary'),
 		    $form = $('.fs-actions form'),
 		    requireLicenseKey = <?php echo $require_license_key ? 'true' : 'false' ?>,
@@ -373,9 +311,9 @@ if ( $is_optin_dialog ) { ?>
 						url    : ajaxurl,
 						method : 'POST',
 						data   : {
-							action     : '<?php echo $fs->get_action_tag( 'activate_license' ) ?>',
-							license_key: $licenseKeyInput.val(),
-							module_id  : '<?php echo $fs->get_id() ?>'
+							action     : 'fs_activate_license_<?php echo $slug ?>',
+							slug       : '<?php echo $slug ?>',
+							license_key: $licenseKeyInput.val()
 						},
 						success: function (result) {
 							var resultObj = $.parseJSON(result);
@@ -459,18 +397,9 @@ if ( $is_optin_dialog ) { ?>
 		 * @author Vova Feldman (@svovaf)
 		 * @since 1.1.9
 		 */
-		var
-			$connectLicenseModeTrigger = $('#fs_connect .fs-freemium-licensing a'),
-			href = window.location.href;
-
-		if ( href.indexOf( '?' ) > 0 ) {
-			href += '&';
-		} else {
-			href += '?';
-		}
-
+		var $connectLicenseModeTrigger = $('#fs_connect .fs-freemium-licensing a');
 		if ($connectLicenseModeTrigger.length > 0) {
-			$connectLicenseModeTrigger.attr('href', href + 'require_license=' + $connectLicenseModeTrigger.attr('data-require-license'))
+			$connectLicenseModeTrigger.attr('href', window.location.href + '&require_license=' + $connectLicenseModeTrigger.attr('data-require-license'))
 		}
 	})(jQuery);
 </script>

@@ -10,8 +10,11 @@
         exit;
     }
 
-    $fs   = freemius( $VARS['id'] );
-    $slug = $fs->get_slug();
+	/**
+	 * @var array $VARS
+	 */
+    $slug = $VARS['slug'];
+    $fs   = freemius( $slug );
 
     echo __fs( 'contact-support-before-deactivation', $slug )
             . sprintf(" <a href='%s' class='button button-small button-primary'>%s</a>",

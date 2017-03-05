@@ -11,11 +11,13 @@
 	}
 
 	/**
+	 * @var array $VARS
+	 */
+	$slug = $VARS['slug'];
+	/**
 	 * @var Freemius $fs
 	 */
-	$fs   = freemius( $VARS['id'] );
-
-	$slug = $fs->get_slug();
+	$fs = freemius( $slug );
 
 	/**
 	 * @var FS_Plugin_Tag $update
@@ -74,7 +76,7 @@
 						if ( $is_active_subscription ) {
 							echo esc_attr( sprintf( __fs( 'delete-account-x-confirm', $slug ), $plan->title ) );
 						} else {
-							echo sprintf( __fs( 'delete-account-confirm', $slug ), $fs->get_module_type() );
+							_efs( 'delete-account-confirm', $slug );
 						}
 					?>'))  this.parentNode.submit(); return false;"><i
 							class="dashicons dashicons-no"></i> <?php _efs( 'delete-account', $slug ) ?></a>
@@ -102,7 +104,7 @@
 							<?php wp_nonce_field( 'downgrade_account' ) ?>
 							<a href="#"
 							   onclick="if (confirm('<?php printf( __fs( 'downgrade-x-confirm', $slug ), $plan->title, human_time_diff( time(), strtotime( $license->expiration ) ) ) ?> <?php if ( ! $license->is_block_features ) {
-								   printf( __fs( 'after-downgrade-non-blocking', $slug ), $plan->title, $fs->get_module_type() );
+								   printf( __fs( 'after-downgrade-non-blocking', $slug ), $plan->title );
 							   } else {
 								   printf( __fs( 'after-downgrade-blocking', $slug ), $plan->title );
 							   }?> <?php _efs( 'proceed-confirmation', $slug ) ?>')) this.parentNode.submit(); return false;"><i
@@ -130,8 +132,8 @@
 			<li>
 				&nbsp;&bull;&nbsp;
 				<form action="<?php echo $fs->_get_admin_page_url( 'account' ) ?>" method="POST">
-					<input type="hidden" name="fs_action" value="<?php echo $fs->get_unique_affix() ?>_sync_license">
-					<?php wp_nonce_field( $fs->get_unique_affix() . '_sync_license' ) ?>
+					<input type="hidden" name="fs_action" value="<?php echo $slug ?>_sync_license">
+					<?php wp_nonce_field( $slug . '_sync_license' ) ?>
 					<a href="#" onclick="this.parentNode.submit(); return false;"><i
 							class="dashicons dashicons-image-rotate"></i> <?php _efs( 'sync', $slug ) ?></a>
 				</form>
@@ -289,13 +291,13 @@
 									<form action="<?php echo $fs->_get_admin_page_url( 'account' ) ?>"
 									      method="POST" class="button-group">
 										<?php if ( $show_upgrade && $fs->is_premium() ) : ?>
-										<a class="button activate-license-trigger <?php echo $fs->get_unique_affix() ?>" href="#"><?php _efs( 'activate-license', $slug ) ?></a>
+										<a class="button activate-license-trigger <?php echo $slug ?>" href="#"><?php _efs( 'activate-license', $slug ) ?></a>
 										<?php endif ?>
 										<input type="submit" class="button"
 										       value="<?php _efs( 'sync-license', $slug ) ?>">
 										<input type="hidden" name="fs_action"
-										       value="<?php echo $fs->get_unique_affix() ?>_sync_license">
-										<?php wp_nonce_field( $fs->get_unique_affix() . '_sync_license' ) ?>
+										       value="<?php echo $slug ?>_sync_license">
+										<?php wp_nonce_field( $slug . '_sync_license' ) ?>
 										<a href="<?php echo $fs->get_upgrade_url() ?>"
 										   class="button<?php if ( $show_upgrade ) {
 											   echo ' button-primary';
@@ -308,13 +310,11 @@
 								<?php endif ?>
 							</div>
 					<?php elseif ( 'version' === $p['id'] && $fs->has_paid_plan() ) : ?>
-						<?php if ( $fs->has_premium_version() ) : ?>
-							<?php if ( $fs->is_premium() ) : ?>
-								<label
-									class="fs-tag fs-<?php echo $fs->can_use_premium_code() ? 'success' : 'warn' ?>"><?php _efs( 'premium-version' ) ?></label>
-							<?php elseif ( $fs->can_use_premium_code() ) : ?>
-								<label class="fs-tag fs-warn"><?php _efs( 'free-version' ) ?></label>
-							<?php endif ?>
+						<?php if ( $fs->is_premium() ) : ?>
+							<label
+								class="fs-tag fs-<?php echo $fs->can_use_premium_code() ? 'success' : 'warn' ?>"><?php _efs( 'premium-version' ) ?></label>
+						<?php elseif ( $fs->can_use_premium_code() ) : ?>
+							<label class="fs-tag fs-warn"><?php _efs( 'free-version' ) ?></label>
 						<?php endif ?>
 					<?php endif ?>
 				</td>
@@ -329,22 +329,17 @@
 						</form>
 					<?php endif ?>
 					<?php if ( 'version' === $p['id'] ) : ?>
-						<?php if ( $fs->has_release_on_freemius() ) : ?>
 						<div class="button-group">
 							<?php if ( $is_paying || $fs->is_trial() ) : ?>
 								<?php if ( ! $fs->is_allowed_to_install() ) : ?>
 									<a target="_blank" class="button button-primary"
 									   href="<?php echo $fs->_get_latest_download_local_url() ?>"><?php echo sprintf( __fs( 'download-x-version', $slug ), ( $fs->is_trial() ? $trial_plan->title : $site->plan->title ) ) . ( is_object( $update ) ? ' [' . $update->version . ']' : '' ) ?></a>
 								<?php elseif ( is_object( $update ) ) : ?>
-									<?php
-										$module_type = $fs->get_module_type();
-									?>
 									<a class="button button-primary"
-									   href="<?php echo wp_nonce_url( self_admin_url( "update.php?action=upgrade-{$module_type}&{$module_type}=" . $fs->get_plugin_basename() ), "upgrade-{$module_type}_" . $fs->get_plugin_basename() ) ?>"><?php echo __fs( 'install-update-now', $slug ) . ' [' . $update->version . ']' ?></a>
+									   href="<?php echo wp_nonce_url( self_admin_url( 'update.php?action=upgrade-plugin&plugin=' . $fs->get_plugin_basename() ), 'upgrade-plugin_' . $fs->get_plugin_basename() ) ?>"><?php echo __fs( 'install-update-now', $slug ) . ' [' . $update->version . ']' ?></a>
 								<?php endif ?>
 							<?php endif; ?>
 						</div>
-						<?php endif ?>
 					<?php
 					elseif ( in_array( $p['id'], array( 'license_key', 'site_secret_key' ) ) ) : ?>
 						<button class="button button-small"><?php _efs( 'show', $slug ) ?></button>
@@ -356,9 +351,9 @@
 						) ) )
 					) : ?>
 						<form action="<?php echo $fs->_get_admin_page_url( 'account' ) ?>" method="POST"
-						      onsubmit="var val = prompt('<?php printf( __fs( 'what-is-your-x', $slug ), $p['title'] ) ?>', '<?php echo $p['value'] ?>'); if (null == val || '' === val) return false; jQuery('input[name=fs_<?php echo $p['id'] ?>_<?php echo $fs->get_unique_affix() ?>]').val(val); return true;">
+						      onsubmit="var val = prompt('<?php printf( __fs( 'what-is-your-x', $slug ), $p['title'] ) ?>', '<?php echo $p['value'] ?>'); if (null == val || '' === val) return false; jQuery('input[name=fs_<?php echo $p['id'] ?>_<?php echo $slug ?>]').val(val); return true;">
 							<input type="hidden" name="fs_action" value="update_<?php echo $p['id'] ?>">
-							<input type="hidden" name="fs_<?php echo $p['id'] ?>_<?php echo $fs->get_unique_affix() ?>"
+							<input type="hidden" name="fs_<?php echo $p['id'] ?>_<?php echo $slug ?>"
 							       value="">
 							<?php wp_nonce_field( 'update_' . $p['id'] ) ?>
 							<input type="submit" class="button button-small"
@@ -436,10 +431,10 @@
 			foreach ( $addons_to_show as $addon_id ) : ?>
 				<?php
 				$addon              = $fs->get_addon( $addon_id );
-				$is_addon_activated = $fs->is_addon_activated( $addon_id );
-				$is_addon_connected = $fs->is_addon_connected( $addon_id );
+				$is_addon_activated = $fs->is_addon_activated( $addon->slug );
+				$is_addon_connected = $fs->is_addon_connected( $addon->slug );
 
-				$fs_addon = $is_addon_connected ? freemius( $addon_id ) : false;
+				$fs_addon = $is_addon_connected ? freemius( $addon->slug ) : false;
 				if ( is_object( $fs_addon ) ) {
 					$is_paying                  = $fs_addon->is_paying();
 					$user                       = $fs_addon->get_user();
@@ -531,7 +526,7 @@
 					if ( $is_addon_activated ) {
 						if ( $is_paying ) {
 							$buttons[] = fs_ui_get_action_button(
-								$fs->get_id(),
+								$slug,
 								'account',
 								'deactivate_license',
 								__fs( 'deactivate-license', $slug ),
@@ -544,13 +539,15 @@
 																      $plan->title,
 																	  $human_readable_license_expiration );
 
-							$after_downgrade_message = ! $license->is_block_features ?
-								sprintf( __fs( 'after-downgrade-non-blocking', $slug ), $plan->title, $fs->get_module_type() ) :
-								sprintf( __fs( 'after-downgrade-blocking', $slug ), $plan->title );
+							$after_downgrade_message_id = ( ! $license->is_block_features ?
+								'after-downgrade-non-blocking' :
+								'after-downgrade-blocking' );
+
+							$after_downgrade_message = sprintf( __fs( $after_downgrade_message_id, $slug ), $plan->title );
 
 							if ( ! $license->is_lifetime() && $is_active_subscription ) {
 								$buttons[] = fs_ui_get_action_button(
-									$fs->get_id(),
+									$slug,
 									'account',
 									'downgrade_account',
 									__fs( 'downgrade', $slug ),
@@ -563,7 +560,7 @@
 							}
 						} else if ( $is_paid_trial ) {
 							$buttons[] = fs_ui_get_action_button(
-								$fs->get_id(),
+								$slug,
 								'account',
 								'cancel_trial',
 								__fs( 'cancel-trial', $slug ),
@@ -580,7 +577,7 @@
 								$site = $fs_addon->get_site();
 
 								$buttons[] = fs_ui_get_action_button(
-									$fs->get_id(),
+									$slug,
 									'account',
 									'activate_license',
 									sprintf( __fs( 'activate-x-plan', $slug ), $fs_addon->get_plan_title(), ( $site->is_localhost() && $premium_license->is_free_localhost ) ? '[localhost]' : ( 1 < $premium_license->left() ? $premium_license->left() . ' left' : '' ) ),
@@ -595,9 +592,9 @@
 						if ( 0 == count( $buttons ) ) {
 							// Add sync license only if non of the other CTAs are visible.
 							$buttons[] = fs_ui_get_action_button(
-								$fs->get_id(),
+								$slug,
 								'account',
-								$fs->get_unique_affix() . '_sync_license',
+								$slug . '_sync_license',
 								__fs( 'sync-license', $slug ),
 								array( 'plugin_id' => $addon_id ),
 								false
@@ -605,8 +602,8 @@
 
 						}
 					} else if ( ! $show_upgrade ) {
-						if ( $fs->is_addon_installed( $addon_id ) ) {
-							$addon_file = $fs->get_addon_basename( $addon_id );
+						if ( $fs->is_addon_installed( $addon->slug ) ) {
+							$addon_file = $fs->get_addon_basename( $addon->slug );
 							$buttons[]  = sprintf(
 								'<a class="button button-primary" href="%s" title="%s" class="edit">%s</a>',
 								wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $addon_file, 'activate-plugin_' . $addon_file ),
@@ -660,8 +657,8 @@
 					?>
 					<td colspan="4">
 						<!-- Action -->
-						<?php if ( $fs->is_addon_installed( $addon_id ) ) : ?>
-							<?php $addon_file = $fs->get_addon_basename( $addon_id ) ?>
+						<?php if ( $fs->is_addon_installed( $addon->slug ) ) : ?>
+							<?php $addon_file = $fs->get_addon_basename( $addon->slug ) ?>
 							<a class="button button-primary"
 							   href="<?php echo wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $addon_file, 'activate-plugin_' . $addon_file ) ?>"
 							   title="<?php esc_attr( __fs( 'activate-this-addon', $slug ) ) ?>"
@@ -683,7 +680,7 @@
 						<?php
 							if ( $is_addon_activated ) {
 								fs_ui_action_button(
-									$fs->get_id(), 'account',
+									$slug, 'account',
 									'delete_account',
 									__fs( 'delete', $slug ),
 									array( 'plugin_id' => $addon_id ),

@@ -10,8 +10,8 @@
 		exit;
 	}
 
-	if ( class_exists( 'Freemius_Api_WordPress' ) ) {
-		$logger = Freemius_Api_WordPress::GetLogger();
+	if ( class_exists( 'Freemius_Api' ) ) {
+		$logger = Freemius_Api::GetLogger();
 	} else {
 		$logger = array();
 	}

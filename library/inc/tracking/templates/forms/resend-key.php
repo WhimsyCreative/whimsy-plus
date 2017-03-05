@@ -11,11 +11,10 @@
 	}
 
 	/**
-	 * @var Freemius $fs
+	 * @var array $VARS
 	 */
-	$fs   = freemius( $VARS['id'] );
-
-	$slug = $fs->get_slug();
+	$slug = $VARS['slug'];
+	$fs   = freemius( $slug );
 
 	$message_above_input_field = __fs( 'ask-for-upgrade-email-address', $slug );
 	$send_button_text          = __fs( 'send-license-key', $slug );
@@ -57,7 +56,7 @@ HTML;
 			    $sendLicenseKeyButton = $modal.find('.button-send-license-key'),
 			    $emailAddressInput = $modal.find('input.email-address'),
 			    $licenseResendMessage = $modal.find('.license-resend-message'),
-				moduleID = '<?php echo $fs->get_id() ?>',
+			    moduleSlug = '<?php echo $slug; ?>',
 			    isChild = false;
 
 			$modal.appendTo($('body'));
@@ -65,7 +64,7 @@ HTML;
 			registerEventHandlers();
 
 			function registerEventHandlers() {
-				$('a.show-license-resend-modal-<?php echo $fs->get_unique_affix() ?>').click(function (evt) {
+				$('a.show-license-resend-modal-' + moduleSlug).click(function (evt) {
 					evt.preventDefault();
 
 					showModal();
@@ -119,7 +118,7 @@ HTML;
 						method    : 'POST',
 						data      : {
 							action: '<?php echo $fs->get_action_tag( 'resend_license_key' ) ?>',
-							module_id  : moduleID,
+							slug  : moduleSlug,
 							email : emailAddress
 						},
 						beforeSend: function () {

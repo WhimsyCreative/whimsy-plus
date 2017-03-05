@@ -11,11 +11,13 @@
 	}
 
 	/**
+	 * @var array $VARS
+	 */
+	$slug = $VARS['slug'];
+	/**
 	 * @var Freemius $fs
 	 */
-	$fs = freemius( $VARS['id'] );
-
-	$slug = $fs->get_slug();
+	$fs = freemius( $slug );
 
 	/**
 	 * @var FS_Plugin_Tag $update
@@ -452,10 +454,10 @@
 						url    : ajaxurl,
 						method : 'POST',
 						data   : {
-							action   : '<?php echo $fs->get_action_tag( 'update_billing' ) ?>',
-							security : '<?php echo wp_create_nonce( $fs->get_action_tag( 'update_billing' ) ) ?>',
-							module_id: '<?php echo $fs->get_id() ?>',
-							billing  : billing
+							action  : '<?php echo $fs->get_action_tag( 'update_billing' ) ?>',
+							security: '<?php echo wp_create_nonce( $fs->get_action_tag( 'update_billing' ) ) ?>',
+							slug    : '<?php echo $slug ?>',
+							billing : billing
 						},
 						success: function (resultObj) {
 							if (resultObj.success) {

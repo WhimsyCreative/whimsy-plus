@@ -11,10 +11,10 @@
 	}
 
 	/**
-	 * @var Freemius $fs
+	 * @var array $VARS
 	 */
-	$fs   = freemius( $VARS['id'] );
-	$slug = $fs->get_slug();
+	$slug = $VARS['slug'];
+	$fs   = freemius( $slug );
 
 	$action = $fs->is_tracking_allowed() ?
 		'stop_tracking' :
@@ -22,7 +22,8 @@
 
 	$plugin_title                     = "<strong>{$fs->get_plugin()->title}</strong>";
 	$opt_out_button_text              = __fs( 'opt-out', $slug );
-    $opt_out_message_appreciation     = sprintf( __fs( 'opt-out-message-appreciation', $slug ), $fs->get_module_type() );
+	// @todo Change 'plugin' with module type when migrating with 1.2.2 (themes version).
+    $opt_out_message_appreciation     = sprintf( __fs( 'opt-out-message-appreciation', $slug ), 'plugin' );
     $opt_out_message_usage_tracking   = sprintf( __fs( 'opt-out-message-usage-tracking', $slug ),
 													$plugin_title );
     $opt_out_message_clicking_opt_out = sprintf( __fs( 'opt-out-message-clicking-opt-out', $slug ),
@@ -69,15 +70,15 @@ HTML;
 				+ '		</div>'
 				+ '	</div>'
 				+ '</div>',
-			$modal              = $( modalHtml ),
-			$adminNotice        = $( <?php echo json_encode( $admin_notice_html ) ?> ),
-			action              = '<?php echo $action ?>',
-			optOutActionTag     = '<?php echo $fs->get_action_tag( 'stop_tracking' ) ?>',
-			optInActionTag      = '<?php echo $fs->get_action_tag( 'allow_tracking' ) ?>',
-			$actionLink         = $( 'span.opt-in-or-opt-out.<?php echo $slug ?> a' ),
-			$optOutButton       = $modal.find( '.button-opt-out' ),
-			$optOutErrorMessage = $modal.find( '.opt-out-error-message' ),
-			moduleID            = '<?php echo $fs->get_id() ?>';
+			$modal               = $( modalHtml ),
+			$adminNotice         = $( <?php echo json_encode( $admin_notice_html ) ?> ),
+			action               = '<?php echo $action ?>',
+			optOutActionTag      = '<?php echo $fs->get_action_tag( 'stop_tracking' ) ?>',
+			optInActionTag       = '<?php echo $fs->get_action_tag( 'allow_tracking' ) ?>',
+			$actionLink          = $( 'span.opt-in-or-opt-out.<?php echo $VARS['slug'] ?> a' ),
+			$optOutButton        = $modal.find( '.button-opt-out' ),
+			$optOutErrorMessage  = $modal.find( '.opt-out-error-message' ),
+			pluginSlug           = '<?php echo $slug ?>';
 
 		$actionLink.attr( 'data-action', action );
 		$modal.appendTo( $( 'body' ) );
@@ -149,8 +150,8 @@ HTML;
 				url: ajaxurl,
 				method: 'POST',
 				data: {
-					action   : ( 'stop_tracking' == action ? optOutActionTag : optInActionTag ),
-					module_id: moduleID
+					action: ( 'stop_tracking' == action ? optOutActionTag : optInActionTag ),
+					slug  : pluginSlug
 				},
 				beforeSend: function() {
 					if ( 'opt-in' == action ) {

@@ -14,21 +14,22 @@
 	}
 ?>
 <script type="text/javascript" >
-	jQuery( document ).ready(function( $ ) {
-		$( '.fs-notice.fs-sticky .fs-close' ).click(function() {
+	jQuery(document).ready(function($) {
+		$('.fs-notice.fs-sticky .fs-close').click(function(){
 			var
-				notice           = $( this ).parents( '.fs-notice' ),
-				id               = notice.attr( 'data-id' ),
-				ajaxActionSuffix = notice.attr( 'data-manager-id' ).replace( ':', '-' );
+				notice = $(this).parents('.fs-notice'),
+				id = notice.attr('data-id'),
+				slug = notice.attr('data-slug');
 
-			notice.fadeOut( 'fast', function() {
+			notice.fadeOut('fast', function(){
 				var data = {
-					action    : 'fs_dismiss_notice_action_' + ajaxActionSuffix,
+					action: 'fs_dismiss_notice_action_' + slug,
+					slug: slug,
 					message_id: id
 				};
 
 				// since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
-				$.post( ajaxurl, data, function( response ) {
+				$.post(ajaxurl, data, function(response) {
 
 				});
 

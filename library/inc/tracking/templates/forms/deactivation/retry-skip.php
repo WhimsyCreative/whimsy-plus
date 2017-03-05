@@ -10,10 +10,13 @@
         exit;
     }
 
-    $fs   = freemius( $VARS['id'] );
-    $slug = $fs->get_slug();
+	/**
+	 * @var array $VARS
+	 */
+    $slug = $VARS['slug'];
+    $fs   = freemius( $slug );
 
-    $skip_url  = fs_nonce_url( $fs->_get_admin_page_url( '', array( 'fs_action' => $fs->get_unique_affix() . '_skip_activation' ) ), $fs->get_unique_affix() . '_skip_activation' );
+    $skip_url  = fs_nonce_url( $fs->_get_admin_page_url( '', array( 'fs_action' => $slug . '_skip_activation' ) ), $slug . '_skip_activation' );
     $skip_text = strtolower( __fs( 'skip', $slug ) );
     $use_plugin_anonymously_text = __fs( 'click-here-to-use-plugin-anonymously', $slug );
 

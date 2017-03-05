@@ -6,25 +6,6 @@
 	 * @since       1.0.3
 	 */
 
-	/**
-	 * Note for WordPress.org Theme/Plugin reviewer:
-	 *  Freemius is an SDK for plugin and theme developers. Since the core
-	 *  of the SDK is relevant both for plugins and themes, for obvious reasons,
-	 *  we only develop and maintain one code base.
-	 *
-	 *  This code (and page) will not run for wp.org themes (only plugins)
-	 *  since theme admin settings/options are now only allowed in the customizer.
-	 *
-	 *  In addition, this page loads an i-frame. We intentionally named it 'frame'
-	 *  so it will pass the "Theme Check" that is looking for the string "i" . "frame".
-	 *
-	 * If you have any questions or need clarifications, please don't hesitate
-	 * pinging me on slack, my username is @svovaf.
-	 *
-	 * @author Vova Feldman (@svovaf)
-	 * @since 1.2.2
-	 */
-
 	if ( ! defined( 'ABSPATH' ) ) {
 		exit;
 	}
@@ -34,8 +15,11 @@
 	fs_enqueue_local_script( 'postmessage', 'nojquery.ba-postmessage.min.js' );
 	fs_enqueue_local_script( 'fs-postmessage', 'postmessage.js' );
 
-	$fs        = freemius( $VARS['id'] );
-	$slug 	   = $fs->get_slug();
+	/**
+	 * @var array $VARS
+	 */
+	$slug      = $VARS['slug'];
+	$fs        = freemius( $slug );
 	$timestamp = time();
 
 	$context_params = array(
@@ -73,12 +57,12 @@
 ?>
 	<?php if ( ! $fs->is_registered() ) {
 		$template_data = array(
-			'id' => $fs->get_id(),
+			'slug' => $slug,
 		);
 		fs_require_template( 'forms/trial-start.php', $template_data);
 	} ?>
 	<div id="fs_pricing" class="wrap" style="margin: 0 0 -65px -20px;">
-		<div id="frame"></div>
+		<div id="iframe"></div>
 		<form action="" method="POST">
 			<input type="hidden" name="user_id"/>
 			<input type="hidden" name="user_email"/>
@@ -92,24 +76,24 @@
 			(function ($, undef) {
 				$(function () {
 					var
-					// Keep track of the i-frame height.
-					frame_height = 800,
-					base_url     = '<?php echo WP_FS__ADDRESS ?>',
-					// Pass the parent page URL into the i-frame in a meaningful way (this URL could be
-					// passed via query string or hard coded into the child page, it depends on your needs).
-					src          = base_url + '/pricing/?<?php echo http_build_query( $query_params ) ?>#' + encodeURIComponent(document.location.href),
+						// Keep track of the iframe height.
+						iframe_height = 800,
+						base_url      = '<?php echo WP_FS__ADDRESS ?>',
+						// Pass the parent page URL into the Iframe in a meaningful way (this URL could be
+						// passed via query string or hard coded into the child page, it depends on your needs).
+						src           = base_url + '/pricing/?<?php echo http_build_query( $query_params ) ?>#' + encodeURIComponent(document.location.href),
 
-					// Append the I-frame into the DOM.
-					frame = $('<i' + 'frame " src="' + src + '" width="100%" height="' + frame_height + 'px" scrolling="no" frameborder="0" style="background: transparent;"><\/i' + 'frame>')
-						.appendTo('#frame');
+						// Append the Iframe into the DOM.
+						iframe        = $('<iframe " src="' + src + '" width="100%" height="' + iframe_height + 'px" scrolling="no" frameborder="0" style="background: transparent;"><\/iframe>')
+							.appendTo('#iframe');
 
 					FS.PostMessage.init(base_url);
 
 					FS.PostMessage.receive('height', function (data) {
 						var h = data.height;
-						if (!isNaN(h) && h > 0 && h != frame_height) {
-							frame_height = h;
-							$('#frame i' + 'frame').height(frame_height + 'px');
+						if (!isNaN(h) && h > 0 && h != iframe_height) {
+							iframe_height = h;
+							$("#iframe iframe").height(iframe_height + 'px');
 						}
 					});
 
@@ -117,7 +101,7 @@
 						FS.PostMessage.post('dimensions', {
 							height   : $(document.body).height(),
 							scrollTop: $(document).scrollTop()
-						}, frame[0]);
+						}, iframe[0]);
 					});
 
 					FS.PostMessage.receive('start_trial', function (data) {
@@ -135,3 +119,4 @@
 		'module_version' => $fs->get_plugin_version(),
 	);
 	fs_require_template( 'powered-by.php', $params );
+?>

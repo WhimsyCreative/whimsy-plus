@@ -11,10 +11,10 @@
 	}
 
 	/**
-	 * @var Freemius $fs
+	 * @var array $VARS
 	 */
-	$fs   = freemius( $VARS['id'] );
-	$slug = $fs->get_slug();
+	$slug = $VARS['slug'];
+	$fs   = freemius( $slug );
 
 	$message_header  = sprintf(
 		__fs( 'start-trial-prompt-header', $slug ),
@@ -23,7 +23,6 @@
 	);
 	$message_content = sprintf(
 		__fs( 'start-trial-prompt-message', $slug ),
-		$fs->get_module_type(),
 		'<a href="https://freemius.com" target="_blank">freemius.com</a>'
 	);
 
@@ -52,7 +51,8 @@ HTML;
 				    + '		</div>'
 				    + '	</div>'
 				    + '</div>',
-			    $modal = $( modalHtml ),
+			    $modal           = $(modalHtml),
+			    moduleSlug       = '<?php echo $slug; ?>',
 			    trialData;
 
 			$modal.appendTo($('body'));
@@ -76,10 +76,10 @@ HTML;
 						url       : ajaxurl,
 						method    : 'POST',
 						data      : {
-							action   : '<?php echo $fs->get_action_tag( 'start_trial' ) ?>',
-							security : '<?php echo wp_create_nonce( $fs->get_action_tag( 'start_trial' ) ) ?>',
-							module_id: '<?php echo $fs->get_id() ?>',
-							trial    : trialData
+							action  : '<?php echo $fs->get_action_tag( 'start_trial' ) ?>',
+							security: '<?php echo wp_create_nonce( $fs->get_action_tag( 'start_trial' ) ) ?>',
+							slug    : moduleSlug,
+							trial   : trialData
 						},
 						beforeSend: function () {
 							// Disable all buttons during trial activation.

@@ -5,7 +5,6 @@
 	 * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
 	 * @since       1.0.7
 	 */
-
 	if ( ! defined( 'ABSPATH' ) ) {
 		exit;
 	}
@@ -114,34 +113,6 @@
 		 * @return bool|object
 		 */
 		abstract function allow_tracking();
-
-		#endregion
-
-		#----------------------------------------------------------------------------------
-		#region Module Type
-		#----------------------------------------------------------------------------------
-
-		/**
-		 * Checks if the plugin's type is "plugin". The other type is "theme".
-		 *
-		 * @author Leo Fajardo (@leorw)
-		 * @since  1.2.2
-		 *
-		 * @return bool
-		 */
-		abstract function is_plugin();
-
-		/**
-		 * Checks if the module type is "theme". The other type is "plugin".
-		 *
-		 * @author Leo Fajardo (@leorw)
-		 * @since  1.2.2
-		 *
-		 * @return bool
-		 */
-		function is_theme() {
-			return ( ! $this->is_plugin() );
-		}
 
 		#endregion
 
@@ -256,7 +227,7 @@
 		 *
 		 * @since  1.0.9
 		 *
-		 * @param string $plan  Plan name.
+		 * @param string $plan  Plan name
 		 * @param bool   $exact If true, looks for exact plan. If false, also check "higher" plans.
 		 *
 		 * @return bool
@@ -272,7 +243,7 @@
 		 *
 		 * @since  1.0.9
 		 *
-		 * @param string $plan  Plan name.
+		 * @param string $plan  Plan name
 		 * @param bool   $exact If true, looks for exact plan. If false, also check "higher" plans.
 		 *
 		 * @return bool
@@ -364,7 +335,7 @@
 		/**
 		 * @since  1.0.2
 		 *
-		 * @param string $plan  Plan name.
+		 * @param string $plan  Plan name
 		 * @param bool   $exact If true, looks for exact plan. If false, also check "higher" plans.
 		 *
 		 * @return bool
@@ -376,7 +347,7 @@
 		 *
 		 * @since  1.0.9
 		 *
-		 * @param string $plan  Plan name.
+		 * @param string $plan  Plan name
 		 * @param bool   $exact If true, looks for exact plan. If false, also check "higher" plans.
 		 *
 		 * @return bool
@@ -388,7 +359,7 @@
 		 *
 		 * @since  1.0.9
 		 *
-		 * @param string $plan  Plan name.
+		 * @param string $plan  Plan name
 		 * @param bool   $exact If true, looks for exact plan. If false, also check "higher" plans.
 		 *
 		 * @return bool
@@ -431,31 +402,6 @@
 		 * @return bool
 		 */
 		abstract function is_only_premium();
-
-		/**
-		 * Check if module has a premium code version.
-		 *
-		 * Serviceware module might be freemium without any
-		 * premium code version, where the paid features
-		 * are all part of the service.
-		 *
-		 * @author Vova Feldman (@svovaf)
-		 * @since  1.2.1.6
-		 *
-		 * @return bool
-		 */
-		abstract function has_premium_version();
-
-		/**
-		 * Check if module has any release on Freemius,
-		 * or all plugin's code is on WordPress.org (Serviceware).
-		 *
-		 * @return bool
-		 */
-		function has_release_on_freemius() {
-			return ! $this->is_org_repo_compliant() ||
-			       $this->has_premium_version();
-		}
 
 		/**
 		 * Checks if it's a freemium plugin.
@@ -505,7 +451,7 @@
 		 * @author Vova Feldman (@svovaf)
 		 * @since  1.0.2
 		 *
-		 * @param string $period Billing cycle.
+		 * @param string $period Billing cycle
 		 *
 		 * @return string
 		 */

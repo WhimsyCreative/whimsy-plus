@@ -10,8 +10,11 @@
 		exit;
 	}
 
-	$fs   = freemius( $VARS['id'] );
-	$slug = $fs->get_slug();
+	/**
+	 * @var array $VARS
+	 */
+	$slug = $VARS['slug'];
+	$fs   = freemius( $slug );
 
 	$confirmation_message = $fs->apply_filters( 'uninstall_confirmation_message', '' );
 
@@ -28,14 +31,11 @@
 		} else {
 			$reason_internal_message = '';
 		}
-		
-		$reason_input_type = ( ! empty( $reason['input_type'] ) ? $reason['input_type'] : '' );
-        $reason_input_placeholder = ( ! empty( $reason['input_placeholder'] ) ? $reason['input_placeholder'] : '' );
-			
+
 		$reason_list_item_html = <<< HTML
 			<li class="{$list_item_classes}"
-			 	data-input-type="{$reason_input_type}"
-			 	data-input-placeholder="{$reason_input_placeholder}">
+			 	data-input-type="{$reason['input_type']}"
+			 	data-input-placeholder="{$reason['input_placeholder']}">
 	            <label>
 	            	<span>
 	            		<input type="radio" name="selected-reason" value="{$reason['id']}"/>
@@ -72,7 +72,7 @@ HTML;
 		    + '		</div>'
 		    + '		<div class="fs-modal-body">'
 		    + '			<div class="fs-modal-panel" data-panel-id="confirm"><p><?php echo $confirmation_message; ?></p></div>'
-		    + '			<div class="fs-modal-panel active" data-panel-id="reasons"><h3><strong><?php printf( __fs(  'deactivation-share-reason' , $slug ), __fs(($fs->is_plugin() ? 'deactivating' : 'switching') , $slug) ); ?>:</strong></h3><ul id="reasons-list">' + reasonsHtml + '</ul></div>'
+		    + '			<div class="fs-modal-panel active" data-panel-id="reasons"><h3><strong><?php printf( __fs(  'deactivation-share-reason' , $slug ) ); ?>:</strong></h3><ul id="reasons-list">' + reasonsHtml + '</ul></div>'
 		    + '		</div>'
 		    + '		<div class="fs-modal-footer">'
 			+ '         <?php echo $anonymous_feedback_checkbox_html ?>'
@@ -81,12 +81,11 @@ HTML;
 		    + '		</div>'
 		    + '	</div>'
 		    + '</div>',
-	    $modal = $(modalHtml),
-	    $deactivateLink = $('#the-list .deactivate > [data-module-id=<?php echo $fs->get_id() ?>].fs-module-id').prev(),
-	    selectedReasonID = false,
-	    redirectLink = '',
+	    $modal                = $(modalHtml),
+	    $deactivateLink       = $('#the-list .deactivate > [data-slug=<?php echo $VARS['slug']; ?>].fs-slug').prev(),
 		$anonymousFeedback    = $modal.find( '.anonymous-feedback-label' ),
 		isAnonymous           = <?php echo ( $is_anonymous ? 'true' : 'false' ); ?>,
+		selectedReasonID      = false,
 		otherReasonID         = <?php echo Freemius::REASON_OTHER; ?>,
 		dontShareDataReasonID = <?php echo Freemius::REASON_DONT_LIKE_TO_SHARE_MY_INFORMATION; ?>;
 
@@ -95,34 +94,11 @@ HTML;
 	registerEventHandlers();
 
 	function registerEventHandlers() {
-		<?php
-		if ( $fs->is_plugin() ) { ?>
 		$deactivateLink.click(function (evt) {
 			evt.preventDefault();
 
-			redirectLink = $(this).attr('href');
-
 			showModal();
 		});
-		<?php
-		/**
-		 * For "theme" module type, the modal is shown when the current user clicks on the "Activate" button of any
-		 * other theme. The "Activate" button is actually a link to the "Themes" page (/wp-admin/themes.php) containing query
-		 * params that tell WordPress to deactivate the current theme and activate a different theme.
-		 *
-		 * @author Leo Fajardo (@leorw)
-		 * @since 1.2.2
-		 */
-		} else { ?>
-		$('body').on('click', '.theme-actions .button.activate', function (evt) {
-			evt.preventDefault();
-
-			redirectLink = $(this).attr('href');
-
-			showModal();
-		});
-		<?php
-		} ?>
 
 		$modal.on('input propertychange', '.reason-input input', function () {
 			if (!isOtherReasonSelected()) {
@@ -175,7 +151,7 @@ HTML;
 
 				if (0 === $radio.length) {
 					// If no selected reason, just deactivate the plugin.
-					window.location.href = redirectLink;
+					window.location.href = $deactivateLink.attr('href');
 					return;
 				}
 
@@ -192,7 +168,7 @@ HTML;
 					method    : 'POST',
 					data      : {
 						'action'      : '<?php echo $fs->get_action_tag( 'submit_uninstall_reason' ) ?>',
-						'module_id'   : '<?php echo $fs->get_id() ?>',
+						'slug'        : '<?php echo $slug ?>',
 						'reason_id'   : $radio.val(),
 						'reason_info' : userReason,
 						'is_anonymous': isAnonymousFeedback()
@@ -203,7 +179,7 @@ HTML;
 					},
 					complete  : function () {
 						// Do not show the dialog box, deactivate the plugin.
-						window.location.href = redirectLink;
+						window.location.href = $deactivateLink.attr('href');
 					}
 				});
 			} else if (_this.hasClass('button-deactivate')) {
@@ -235,12 +211,7 @@ HTML;
 
 			$modal.find('.reason-input').remove();
 			$modal.find( '.internal-message' ).hide();
-			$modal.find('.button-deactivate').text('<?php printf(
-				__fs(  'deactivation-modal-button-submit' , $slug ),
-				$fs->is_plugin() ?
-					__fs('deactivate', $slug) :
-					sprintf( __fs( 'activate-x', $slug), __fs( 'theme', $slug) )
-			) ?>');
+			$modal.find('.button-deactivate').text('<?php printf( __fs(  'deactivation-modal-button-submit' , $slug ) ); ?>');
 
 			enableDeactivateButton();
 
@@ -377,19 +348,9 @@ HTML;
 
 		// Reset the deactivate button's text.
 		if ('confirm' === getCurrentPanel()) {
-			$deactivateButton.text('<?php printf(
-				__fs( 'deactivation-modal-button-confirm' , $slug ),
-				$fs->is_plugin() ?
-					__fs('deactivate', $slug ) :
-					sprintf( __fs( 'activate-x', $slug ), __fs( 'theme', $slug ) )
-			) ?>');
+			$deactivateButton.text('<?php printf( __fs( 'deactivation-modal-button-confirm' , $slug ) ); ?>');
 		} else {
-			$deactivateButton.text('<?php printf(
-				__fs('skip-and-x', $slug ),
-				$fs->is_plugin() ?
-					__fs('deactivate', $slug ) :
-					sprintf( __fs( 'activate-x', $slug ), __fs( 'theme', $slug ) )
-			) ?>');
+			$deactivateButton.text('<?php printf( __fs( 'skip-deactivate' , $slug ) ); ?>');
 		}
 	}
 
