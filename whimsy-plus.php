@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Whimsy+
- * Version: 0.2.0
+ * Version: 0.2.4
  * Plugin URI: http://www.whimsycreative.co/framework/plus
  * Description: A plugin packed with awesome features for Whimsy Framework.
  * Author: Whimsy Creative Co.
@@ -19,25 +19,6 @@
 
 // Include tracking 
 require_once plugin_dir_path( __FILE__ ) . '/library/inc/tracking.php';
-
-function whimsy_plus_init() {
-    if ( ! class_exists( 'Whimsy' ) ) {
-        if ( is_admin() ) {
-        }
-
-        return;
-    }
-
-    // Init Freemius.
-    whimsy_plus_sdk();
-
-    // Init add-on.
-    return new WhimsyPlus();
-}
-
-// Init add-on only after all active plugins code
-// was included to make sure the parent plugin loaded first.
-add_action( 'plugins_loaded', 'whimsy_plus_init' );
 
 if ( !class_exists( 'WhimsyPlus' ) ) {
 
@@ -103,6 +84,7 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
 			define( 'WHIMSY_PLUS_EXT',       trailingslashit( WHIMSY_PLUS_PATH     . 'extensions'       ) );
             
 			// Core framework directory URIs.
+			define( 'WHIMSY_PLUS_IMG', trailingslashit( WHIMSY_PLUS_LIB_URI . 'img' ) );
 			define( 'WHIMSY_PLUS_CSS', trailingslashit( WHIMSY_PLUS_LIB_URI . 'css' ) );
 			define( 'WHIMSY_PLUS_JS',  trailingslashit( WHIMSY_PLUS_LIB_URI . 'js'  ) );
         }
@@ -140,9 +122,9 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
             include_once WHIMSY_PLUS_INC . 'twitter-mentions.php';
             
 			// Include admin functions
-            //if ( is_admin() ) {
-            //    include_once WHIMSY_ADMIN . 'options.php';
-            //} 
+            if ( is_admin() ) {
+                include_once WHIMSY_PLUS_ADMIN . 'welcome.php';
+            } 
             
 			// Remove Whimsy Framework actions
             remove_action( 'init', 'whimsy_customize_style_output', 5 );
@@ -184,3 +166,21 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
         }
     }
 }
+
+function whimsy_plus_init() {
+    
+    $theme = wp_get_theme(); // gets the current theme
+    if ( 'Whimsy Framework' == $theme->name || 'Whimsy Framework' == $theme->parent_theme ) {
+        
+        // Init Freemius.
+        whimsy_plus_sdk();
+
+        // Init add-on.
+        return new WhimsyPlus();
+    }
+
+}
+
+// Init add-on only after all active plugins code
+// was included to make sure the parent plugin loaded first.
+add_action( 'plugins_loaded', 'whimsy_plus_init' );
