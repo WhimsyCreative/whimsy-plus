@@ -171,10 +171,6 @@ function whimsy_plus_init() {
     
     $theme = wp_get_theme(); // gets the current theme
     if ( 'Whimsy Framework' == $theme->name || 'Whimsy Framework' == $theme->parent_theme ) {
-        
-        // Init Freemius.
-        whimsy_plus_sdk();
-
         // Init add-on.
         return new WhimsyPlus();
     }
