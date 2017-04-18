@@ -1,13 +1,13 @@
 <?php
 /*
  * Plugin Name: Whimsy+
- * Version: 0.2.4
+ * Version: 0.3.0
  * Plugin URI: http://www.whimsycreative.co/framework/plus
  * Description: A plugin packed with awesome features for Whimsy Framework.
  * Author: Whimsy Creative Co.
  * Author URI: http://www.whimsycreative.co
  * Requires at least: 4.0
- * Tested up to: 4.7.2
+ * Tested up to: 4.7.3
  *
  * Text Domain: whimsy-plus
  * Domain Path: /language/
@@ -65,7 +65,7 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
 		function constants() {
 
 			/* Sets the framework version number. */
-			define( 'WHIMSY_PLUS_VERSION', '0.2.0'            );
+			define( 'WHIMSY_PLUS_VERSION', '0.3.0'            );
 
 			/* Sets the path to the plugin directory. */
             define( 'WHIMSY_PLUS_PATH',      plugin_dir_path( __FILE__ )  );
@@ -123,7 +123,7 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
             
 			// Include admin functions
             if ( is_admin() ) {
-                include_once WHIMSY_PLUS_ADMIN . 'welcome.php';
+                include_once WHIMSY_PLUS_ADMIN . 'admin.php';
             } 
             
 			// Remove Whimsy Framework actions

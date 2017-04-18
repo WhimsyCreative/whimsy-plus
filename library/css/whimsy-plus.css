@@ -45,3 +45,37 @@ Header
 .centered-logo {
     margin: 0 auto;
 }
+/*--------------------------------------------------------------
+Menu
+--------------------------------------------------------------*/
+.whimsy-nav { 
+    display: inline-block;
+    width: auto;
+}
+/*--------------------------------------------------------------
+Menu Site Title
+--------------------------------------------------------------*/
+.menu-site-branding {
+    top: 0;
+    left: 0;
+    margin: 0;
+    z-index: 100000;
+    position: absolute;
+    display: inline-block;
+}
+.menu-site-branding > h1.menu-site-title a {
+    cursor: pointer;
+}
+
+#site-navigation .menu-site-branding > h1.menu-site-title a{
+    padding: 0;
+}
+.menu-site-branding > h1.menu-site-title  {
+    font-size: 1em;
+    line-height: 1;
+    padding: 17px 20px;
+}
+.menu-site-branding img{
+    max-width: 125px;
+    padding: 4px;
+}

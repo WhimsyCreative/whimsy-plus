@@ -5,12 +5,24 @@
  * @return void
  */
 
+/* Menu Branding */
+
+Kirki::add_field( 'whimsy_plus', array(
+    'type'        => 'toggle',
+    'settings'    => 'whimsy_plus_use_site_title_menu',
+    'label'       => __( 'Show Site Title in Menu?', 'whimsy-plus' ),
+    'help'        => __( 'The Site Title will appear to the left of the Primary menu.', 'whimsy-plus' ),
+    'section'     => 'whimsy_plus_menu',
+    'default'     => 0,
+    'priority'    => 10,
+) );
+
 /* Position */
 
 Kirki::add_field( 'whimsy_plus', array(
     'type'        => 'toggle',
     'settings'    => 'switch_primary_menu_position',
-    'label'       => __( 'Show menu below logo?', 'whimsy-plus' ),
+    'label'       => __( 'Show menu below header?', 'whimsy-plus' ),
     'help'        => __( 'The menu will appear beneath your Site Identity and Header.', 'whimsy-plus' ),
     'section'     => 'whimsy_plus_menu',
     'default'     => 0,

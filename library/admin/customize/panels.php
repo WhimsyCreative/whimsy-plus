@@ -7,8 +7,8 @@
  * @return void
  */
 
-Kirki::add_panel( 'whimsy_plus_global', array(
-    'title'          => esc_html__( 'Global', 'whimsy-plus' ),
+Kirki::add_panel( 'whimsy_plus_layout', array(
+    'title'          => esc_html__( 'Layout', 'whimsy-plus' ),
     'priority'       => 30,
     'capability'     => 'edit_theme_options',
 ) ); 

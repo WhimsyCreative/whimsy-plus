@@ -36,12 +36,21 @@ Kirki::add_field( 'whimsy_plus', array(
         ),
     ),
 ) );
+
+/* Header Fonts */
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'custom',
+	'settings'    => 'whimsy_plus_body_font_header_divider',
+	'section'     => 'whimsy_plus_fonts',
+	'default'     => '<div class="customize-divider">' . esc_html__( 'Header Fonts', 'whimsy-plus' ) . '</div>',
+	'priority'    => 10,
+) );
 Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'typography',
 	'settings'    => 'whimsy_plus_site_title_font',
 	'label'       => __( 'Site Title Font', 'whimsy-plus' ),
 	'tooltip' => __( 'The font properties for the Site Title if a logo is not displayed.', 'whimsy-plus' ),
-	'section'     => 'title_tagline',
+	'section'     => 'whimsy_plus_fonts',
 	'default'     => array(
 		'font-family'    => 'Lato',
 		'variant'        => '100',
@@ -70,7 +79,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	'settings'    => 'whimsy_plus_site_desc_font',
 	'label'       => __( 'Site Description Font', 'whimsy-plus' ),
 	'tooltip' => __( 'The font properties for the Site Description if a logo is not displayed.', 'whimsy-plus' ),
-	'section'     => 'title_tagline',
+	'section'     => 'whimsy_plus_fonts',
 	'default'     => array(
 		'font-family'    => 'Lato',
 		'variant'        => 'bold',
@@ -93,6 +102,15 @@ Kirki::add_field( 'whimsy_plus', array(
             'element'  => '.site-branding > h2.site-description, .site-branding > h2.site-description a',
         ),
     ),
+) );
+
+/* Heading Fonts */
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'custom',
+	'settings'    => 'whimsy_plus_body_font_headings_divider',
+	'section'     => 'whimsy_plus_fonts',
+	'default'     => '<div class="customize-divider">' . esc_html__( 'Headings Fonts', 'whimsy-plus' ) . '</div>',
+	'priority'    => 10,
 ) );
 Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'typography',
@@ -274,12 +292,20 @@ Kirki::add_field( 'whimsy_plus', array(
         ),
     ),
 ) );
+/* Post Fonts */
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'custom',
+	'settings'    => 'whimsy_plus_body_font_posts_divider',
+	'section'     => 'whimsy_plus_fonts',
+	'default'     => '<div class="customize-divider">' . esc_html__( 'Post Fonts', 'whimsy-plus' ) . '</div>',
+	'priority'    => 10,
+) );
 Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'typography',
 	'settings'    => 'whimsy_plus_post_title_font',
 	'label'       => __( 'Post Title Font', 'whimsy-plus' ),
 	'tooltip' => __( 'The font properties for .entry-title.', 'whimsy-plus' ),
-	'section'     => 'whimsy_plus_content',
+	'section'     => 'whimsy_plus_fonts',
 	'default'     => array(
 		'font-family'    => 'Lato',
 		'variant'        => 'regular',
@@ -309,7 +335,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	'settings'    => 'whimsy_plus_entry_cat_font',
 	'label'       => __( 'Post Category Font', 'whimsy-plus' ),
 	'tooltip' => __( 'The font properties for .entry-category.', 'whimsy-plus' ),
-	'section'     => 'whimsy_plus_content',
+	'section'     => 'whimsy_plus_fonts',
 	'default'     => array(
 		'font-family'    => 'Lato',
 		'variant'        => 'bold',
@@ -339,7 +365,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	'settings'    => 'whimsy_plus_entry_meta_font',
 	'label'       => __( 'Post Meta Font', 'whimsy-plus' ),
 	'tooltip' => __( 'The font properties for .entry-meta.', 'whimsy-plus' ),
-	'section'     => 'whimsy_plus_content',
+	'section'     => 'whimsy_plus_fonts',
 	'default'     => array(
 		'font-family'    => 'Lato',
 		'variant'        => 'bold',
@@ -361,6 +387,112 @@ Kirki::add_field( 'whimsy_plus', array(
     'js_vars'      => array(
         array(
             'element'  => '.entry-meta',
+        ),
+    ),
+) );
+
+/* Sidebar Fonts */
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'custom',
+	'settings'    => 'whimsy_plus_body_font_sidebar_divider',
+	'section'     => 'whimsy_plus_fonts',
+	'default'     => '<div class="customize-divider">' . esc_html__( 'Sidebar Fonts', 'whimsy-plus' ) . '</div>',
+	'priority'    => 10,
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'typography',
+	'settings'    => 'whimsy_plus_sidebar_widget_title_font',
+	'label'       => __( 'Widget Title Font', 'whimsy-plus' ),
+	'tooltip' => __( 'The font properties for .widget-title.', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_fonts',
+	'default'     => array(
+		'font-family'    => 'Lato',
+		'variant'        => 'bold',
+		'font-size'      => '0.8em',
+		'line-height'    => '1.5',
+		'letter-spacing' => '1px',
+		'subsets'        => array( 'latin-ext' ),
+		'color'          => '#aaaaaa',
+		'text-transform' => 'uppercase',
+		'text-align'     => 'left'
+	),
+	'priority'    => 20,
+	'output'      => array(
+		array(
+			'element' => 'h1.widget-title',
+		),
+	),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+            'element'  => 'h1.widget-title',
+        ),
+    ),
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'typography',
+	'settings'    => 'whimsy_plus_sidebar_widget_text_font',
+	'label'       => __( 'Widget Text', 'whimsy-plus' ),
+	'tooltip' => __( 'The font properties for .widget.', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_fonts',
+	'default'     => array(
+		'font-family'    => 'Lato',
+		'variant'        => 'bold',
+		'font-size'      => '1em',
+		'line-height'    => '2',
+		'letter-spacing' => '0',
+		'subsets'        => array( 'latin-ext' ),
+		'color'          => '#333333',
+		'text-transform' => 'none',
+		'text-align'     => 'left'
+	),
+	'priority'    => 20,
+	'output'      => array(
+		array(
+			'element' => '.widget',
+		),
+	),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+			'element' => '.widget',
+        ),
+    ),
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'custom',
+	'settings'    => 'whimsy_plus_body_font_footer_divider',
+	'section'     => 'whimsy_plus_fonts',
+	'default'     => '<div class="customize-divider">' . esc_html__( 'Footer Fonts', 'whimsy-plus' ) . '</div>',
+	'priority'    => 10,
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'typography',
+	'settings'    => 'whimsy_plus_sidebar_widget_text_font',
+	'label'       => __( 'Footer Text', 'whimsy-plus' ),
+	'tooltip' => __( 'The font properties for #colophon.', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_fonts',
+	'default'     => array(
+		'font-family'    => 'Lato',
+		'variant'        => 'bold',
+		'font-size'      => '1em',
+		'line-height'    => '2',
+		'letter-spacing' => '0',
+		'subsets'        => array( 'latin-ext' ),
+		'color'          => '#333333',
+		'text-transform' => 'none',
+		'text-align'     => 'left'
+	),
+	'priority'    => 20,
+	'output'      => array(
+		array(
+			'element' => '#colophon',
+		),
+	),
+    'transport'    => 'postMessage',
+    'js_vars'      => array(
+        array(
+			'element' => '#colophon',
         ),
     ),
 ) );

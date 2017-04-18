@@ -45,11 +45,8 @@ function whimsy_plus_sdk() {
 
 function whimsy_start_freemius() {
 	$theme = wp_get_theme(); // gets the current theme
-//	if ( 'Whimsy Framework' != $theme->name || '' != $theme->parent_theme ) {
-//		return;
-//	}
 
-// Init Freemius.
+    // Init Freemius.
 	whimsy_plus_sdk();
 }
 
