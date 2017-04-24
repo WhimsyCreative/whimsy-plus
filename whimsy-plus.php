@@ -1,13 +1,13 @@
 <?php
 /*
  * Plugin Name: Whimsy+
- * Version: 0.3.0
+ * Version: 1.0
  * Plugin URI: http://www.whimsycreative.co/framework/plus
  * Description: A plugin packed with awesome features for Whimsy Framework.
  * Author: Whimsy Creative Co.
  * Author URI: http://www.whimsycreative.co
  * Requires at least: 4.0
- * Tested up to: 4.7.3
+ * Tested up to: 4.7.4
  *
  * Text Domain: whimsy-plus
  * Domain Path: /language/
@@ -16,10 +16,6 @@
  * @author Natasha Cozad
  * @since 1.0.0
  */
-
-// Include tracking 
-require_once plugin_dir_path( __FILE__ ) . '/library/inc/tracking.php';
-
 if ( !class_exists( 'WhimsyPlus' ) ) {
 
 	/**
@@ -65,7 +61,7 @@ if ( !class_exists( 'WhimsyPlus' ) ) {
 		function constants() {
 
 			/* Sets the framework version number. */
-			define( 'WHIMSY_PLUS_VERSION', '0.3.0'            );
+			define( 'WHIMSY_PLUS_VERSION', '1.0'            );
 
 			/* Sets the path to the plugin directory. */
             define( 'WHIMSY_PLUS_PATH',      plugin_dir_path( __FILE__ )  );

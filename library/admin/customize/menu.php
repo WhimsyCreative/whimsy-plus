@@ -6,16 +6,16 @@
  */
 
 /* Menu Branding */
-
-Kirki::add_field( 'whimsy_plus', array(
-    'type'        => 'toggle',
-    'settings'    => 'whimsy_plus_use_site_title_menu',
-    'label'       => __( 'Show Site Title in Menu?', 'whimsy-plus' ),
-    'help'        => __( 'The Site Title will appear to the left of the Primary menu.', 'whimsy-plus' ),
-    'section'     => 'whimsy_plus_menu',
-    'default'     => 0,
-    'priority'    => 10,
-) );
+//
+//Kirki::add_field( 'whimsy_plus', array(
+//    'type'        => 'toggle',
+//    'settings'    => 'whimsy_plus_use_site_title_menu',
+//    'label'       => __( 'Show Site Title in Menu?', 'whimsy-plus' ),
+//    'help'        => __( 'The Site Title will appear to the left of the Primary menu.', 'whimsy-plus' ),
+//    'section'     => 'whimsy_plus_menu',
+//    'default'     => 0,
+//    'priority'    => 10,
+//) );
 
 /* Position */
 
@@ -322,28 +322,21 @@ Kirki::add_field( 'whimsy_plus', array(
     ),
 ) );
 Kirki::add_field( 'whimsy_plus', array(
-	'type'        => 'typography',
-	'settings'    => 'primary_menu_font',
-	'label'       => __( 'Primary Menu Font', 'whimsy-plus' ),
-	'tooltip'     => __( 'The font properties for primary menu links.', 'whimsy-plus' ),
+	'type'        => 'color',
+	'settings'    => 'whimsy_plus_nav_link_color',
+	'label'       => __( 'Link Color', 'whimsy-plus' ),
 	'section'     => 'whimsy_plus_menu',
-	'default'     => array(
-		'font-family'    => 'Lato',
-		'variant'        => 'bold',
-		'font-size'      => '1em',
-		'line-height'    => '1.5',
-		'letter-spacing' => '0',
-		'subsets'        => array( 'latin-ext' ),
-		'color'          => '#52b0c1',
-		'text-transform' => 'uppercase',
-		'text-align'     => 'center'
-	),
+	'default'     => '#52b0c1',
 	'priority'    => 20,
-	'output'      => array(
-		array(
-			'element' => '#site-navigation, #site-navigation a',
-		),
+	'choices'     => array(
+		'alpha' => true,
 	),
+    'output'      => array(
+        array(
+            'element'  => '#site-navigation,#site-navigation a',
+            'property' => 'color'
+        ),
+    ),
     'transport'   => 'postMessage',
     'js_vars'     => array(
         array(

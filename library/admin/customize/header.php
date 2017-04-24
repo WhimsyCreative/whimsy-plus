@@ -92,6 +92,7 @@ Kirki::add_field( 'whimsy_plus', array(
             'element'  => '#header-container',
             'property' => 'height',
             'units'    => 'px',
+            'media_query' => '@media screen and (min-width: 980px)',
         ),
     ),
     'transport'    => 'postMessage',

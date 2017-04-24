@@ -21,7 +21,7 @@ function whimsy_plus_social_sharing_icons() {
 
         <?php else : // If no custom text is set, display default text. ?>
 
-            <span class="social-sharing-title">Share This:</span>
+            <span class="social-sharing-title">Share:</span>
 
         <?php endif; // End mobile logo check. ?>
             
