@@ -31,6 +31,7 @@ class Whimsy_Plus_Welcome {
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'admin_menus') );
 		add_action( 'admin_head', array( $this, 'admin_head' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
 		add_action( 'admin_init', array( $this, 'welcome'    ), 11 );
 	}
 
@@ -43,15 +44,15 @@ class Whimsy_Plus_Welcome {
 	 * @return void
 	 */
 	public function admin_menus() {
-		// About Page
+
+		// Whimsy+ Settings
 		add_theme_page(
-			__( 'Whimsy+', 'whimsy-plus' ),
-			__( 'Whimsy+', 'whimsy-plus' ),
+			__( 'Whimsy+ Settings', 'whimsy-plus' ),
+			__( 'Whimsy+ Settings', 'whimsy-plus' ),
 			$this->minimum_capability,
 			'whimsy-plus',
-			array( $this, 'about_screen' )
+			array( $this, 'settings_screen' )
 		);
-
 		// Changelog Page
 		add_theme_page(
 			__( 'Whimsy+ Changelog', 'whimsy-plus' ),
@@ -69,9 +70,19 @@ class Whimsy_Plus_Welcome {
 			'whimsy-plus-getting-started',
 			array( $this, 'getting_started_screen' )
 		);
+
+		// Getting Started Page
+		add_theme_page(
+			__( 'About', 'whimsy-plus' ),
+			__( 'About', 'whimsy-plus' ),
+			$this->minimum_capability,
+			'whimsy-plus-about',
+			array( $this, 'about_screen' )
+		);
 		// Now remove them from the menus so plugins that allow customizing the admin menu don't show them
 		remove_submenu_page( 'themes.php', 'whimsy-plus-changelog' );
 		remove_submenu_page( 'themes.php', 'whimsy-plus-getting-started' );
+		remove_submenu_page( 'themes.php', 'whimsy-plus-about' );
 	}
 
 	/**
@@ -111,6 +122,17 @@ class Whimsy_Plus_Welcome {
 	}
 
 	/**
+	 * Hide Individual Dashboard Pages
+	 *
+	 * @access public
+	 * @since 1.4
+	 * @return void
+	 */
+	public function admin_scripts( ) {
+        wp_enqueue_script( 'whimsy_admin_js', WHIMSY_PLUS_JS . 'admin.js', array( 'jquery' ), '1.0' );
+	}
+
+	/**
 	 * Welcome message
 	 *
 	 * @access public
@@ -142,6 +164,9 @@ class Whimsy_Plus_Welcome {
 		?>
 		<h1 class="nav-tab-wrapper">
 			<a class="nav-tab <?php echo $selected == 'whimsy-plus' ? 'nav-tab-active' : ''; ?>" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'whimsy-plus' ), 'themes.php' ) ) ); ?>">
+				<?php _e( 'Settings', 'whimsy-plus' ); ?>
+			</a>
+			<a class="nav-tab <?php echo $selected == 'whimsy-plus-about' ? 'nav-tab-active' : ''; ?>" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'whimsy-plus-about' ), 'themes.php' ) ) ); ?>">
 				<?php _e( "What's New", 'whimsy-plus' ); ?>
 			</a>
 			<a class="nav-tab <?php echo $selected == 'whimsy-plus-changelog' ? 'nav-tab-active' : ''; ?>" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'whimsy-plus-changelog' ), 'themes.php' ) ) ); ?>">
@@ -176,6 +201,28 @@ class Whimsy_Plus_Welcome {
                         <p><?php _e( ' Easily change background colors, text colors, link and hover colors, for your menu, header, content and posts, sidebar, and footer all from the WordPress Customizer. ', 'whimsy-plus' );?></p>
 					</div>
 				</div>
+			</div>
+		</div>
+		<?php
+	}
+    
+	/**
+	 * Render Settings Screen
+	 *
+	 * @access public
+	 * @since 1.0
+	 * @return void
+	 */
+	public function settings_screen() {
+		?>
+		<div class="wrap about-wrap whimsy-plus-wrap">
+			<?php
+				// load welcome message and content tabs
+				$this->welcome_message();
+				$this->tabs();
+			?>
+			<div class="changelog">
+				<h3><?php _e( 'Activate License Key', 'whimsy-plus' );?></h3>
 			</div>
 		</div>
 		<?php
