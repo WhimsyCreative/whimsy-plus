@@ -7,7 +7,7 @@
  * @return void
  */
 
-add_action( 'whimsy_post_meta_after', 'whimsy_plus_social_sharing_icons', 20 );
+add_action( 'whimsy_post_footer_after', 'whimsy_plus_social_sharing_icons', 20 );
 
 if ( ! function_exists( 'whimsy_plus_social_sharing_icons' ) ) :
 function whimsy_plus_social_sharing_icons() {
@@ -21,7 +21,7 @@ function whimsy_plus_social_sharing_icons() {
 
         <?php else : // If no custom text is set, display default text. ?>
 
-            <span class="social-sharing-title">Share This:</span>
+            <span class="social-sharing-title">Share:</span>
 
         <?php endif; // End mobile logo check. ?>
             

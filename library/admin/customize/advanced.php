@@ -10,31 +10,31 @@
 Kirki::add_field( 'whimsy_plus', array(
     'type'        => 'toggle',
     'settings'    => 'enable_breadcrumbs',
-    'label'       => __( 'Enable breadcrumbs?', 'whimsy-plus' ),
+    'label'       => __( 'Show breadcrumbs?', 'whimsy-plus' ),
     'section'     => 'whimsy_plus_advanced',
-    'default'     => true,
+    'default'     => false,
     'priority'    => 10,
 ) );
 Kirki::add_field( 'whimsy_plus', array(
     'type'        => 'toggle',
     'settings'    => 'whimsy_plus_enable_twitter_mentions',
-    'label'       => __( 'Enable @username Twitter mentions?', 'whimsy-plus' ),
+    'label'       => __( 'Link @username Twitter mentions?', 'whimsy-plus' ),
     'section'     => 'whimsy_plus_advanced',
-    'default'     => true,
+    'default'     => false,
     'priority'    => 10,
 ) );
 Kirki::add_field( 'whimsy_plus', array(
     'type'        => 'toggle',
     'settings'    => 'whimsy_plus_add_social_sharing_icons',
-    'label'       => __( 'Enable social sharing icons on posts?', 'whimsy-plus' ),
+    'label'       => __( 'Show sharing icons on posts?', 'whimsy-plus' ),
     'section'     => 'whimsy_plus_advanced',
-    'default'     => true,
+    'default'     => false,
     'priority'    => 10,
 ) );
 Kirki::add_field( 'whimsy_plus', array(
 	'type'     => 'text',
 	'settings' => 'whimsy_plus_social_sharing_custom',
-	'label'    => __( 'Replace <i>Share This</i> text.', 'whimsy-plus' ),
+	'label'    => __( 'Replace <b>Share</b> text.', 'whimsy-plus' ),
 	'section'  => 'whimsy_plus_advanced',
 	'priority' => 10,
     'active_callback'    => array(
@@ -98,6 +98,13 @@ Kirki::add_field( 'whimsy_plus', array(
 	'choices'     => array(
 		'alpha' => true,
 	),
+    'active_callback'  => array(
+        array(
+        'setting'  => 'whimsy_plus_add_social_sharing_icons',
+        'operator' => '==',
+        'value'    => true
+        ),
+    ),
     'output'      => array(
         array(
             'element'  => '#social-sharing a, #social-sharing a:visited',
@@ -123,6 +130,13 @@ Kirki::add_field( 'whimsy_plus', array(
 	'choices'     => array(
 		'alpha' => true,
 	),
+    'active_callback'  => array(
+        array(
+        'setting'  => 'whimsy_plus_add_social_sharing_icons',
+        'operator' => '==',
+        'value'    => true
+        ),
+    ),
     'output'      => array(
         array(
             'element'  => '#social-sharing a:hover',
@@ -148,6 +162,13 @@ Kirki::add_field( 'whimsy_plus', array(
 	'choices'     => array(
 		'alpha' => true,
 	),
+    'active_callback'  => array(
+        array(
+        'setting'  => 'whimsy_plus_add_social_sharing_icons',
+        'operator' => '==',
+        'value'    => true
+        ),
+    ),
     'output'      => array(
         array(
             'element'  => '#social-sharing a:active,#social-sharing a:focus',

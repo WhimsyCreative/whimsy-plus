@@ -1,12 +1,13 @@
+a, a:-webkit-any-link  { text-decoration: none; }
 .customize-divider {
-    padding: 3px;
-    font-size: 0.8em;
-    font-weight:bold;
-    letter-spacing: 0.7px;
-    text-align:center;
-    text-transform:uppercase;
-    background: #fff;
-    border: 1px solid #ddd;
+    padding: 1em 0;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #555d66;
+    /* letter-spacing: 1px; */
+    text-align: left;
+    /* text-transform: uppercase; */
+    border-bottom: 1px solid #ddd;
     cursor: auto;
 }
 #customize-controls #customize-info .accordion-section-title {
@@ -1593,6 +1594,7 @@ li.customize-control {
     color: #999;
     border: none;
     line-height: 8px;
+    text-decoration: none;
     width: 20px;
     height: 20px;
     z-index: 10; }

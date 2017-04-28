@@ -29,6 +29,7 @@ endif;*/
 add_action( 'whimsy_header', 'whimsy_switch_primary_menu_position', 1 );
 add_action( 'whimsy_header', 'whimsy_plus_is_menu_sticky', 2 );
 add_action( 'whimsy_header', 'whimsy_plus_is_logo_center', 4 );
+add_action( 'whimsy_nav_inside_before', 'whimsy_plus_use_site_title_menu', 10 );
 
 /**
  * Dynamically change menu position.
@@ -87,38 +88,19 @@ endif;
  * @access public
  * @return void
  */
-/*if ( ! function_exists( 'whimsy_plus_use_mobile_logo_sticky_menu' ) ) :
-function whimsy_plus_use_mobile_logo_sticky_menu() {
-    
-    if ( Kirki::get_option( 'whimsy_plus_use_sticky_menu' ) == true ) { 
+if ( ! function_exists( 'whimsy_plus_use_site_title_menu' ) ) :
+function whimsy_plus_use_site_title_menu() {
+   
+    if ( Kirki::get_option( 'whimsy_plus_use_site_title_menu' ) == true ) : ?>
 
-        add_action( 'whimsy_nav_inside_before', 'whimsy_sticky_branding', 10 );
-        
-        if ( ! function_exists( 'whimsy_sticky_branding' ) ) :
-        
-        function whimsy_sticky_branding() {
-            
-        ?>
+                <div class="menu-site-branding"><!-- Does not display if unset in Customizer -->
 
-            <div class="sticky-site-branding"><!-- Does not display if unset in Customizer -->
+                    <h1 class="menu-site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 
-                <?php if ( get_theme_mod( 'whimsy_framework_logo_mobile' ) ) : ?>
+                </div><!-- /.mobile-site-branding -->
 
-                    <div id="sticky-site-logo">
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php echo esc_url( get_theme_mod( 'whimsy_framework_logo_mobile' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"></a>
-                    </div>
-
-                <?php else : // If no logo is set, display title as text. ?>
-
-                    <h1 class="sticky-site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-
-                <?php endif; // End mobile logo check. ?>
-
-            </div><!-- /.mobile-site-branding -->
-
-        <?php }
-        endif; // End function_exists mobile logo check.
-
-    }
+            <?php 
+    endif;
+   
 }
-endif;*/
+endif;
