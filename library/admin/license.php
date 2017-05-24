@@ -13,8 +13,8 @@ class WCWSL {
      * @return bool
      */
     public function __construct() {
-        $this->SL_APP_API_URL = 'https://staging.whimsycreative.co/index.php'; //CHANGE
-        $this->www = 'https://staging.whimsycreative.co/'; //CHANGE
+        $this->SL_APP_API_URL = 'https://whimsycreative.co/index.php'; //CHANGE
+        $this->www = 'https://whimsycreative.co/'; //CHANGE
         $this->SL_PRODUCT_ID = 'whimsy_plus'; //CHANGE
         $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
         $this->SL_INSTANCE = str_replace($protocol, "", get_bloginfo('wpurl'));

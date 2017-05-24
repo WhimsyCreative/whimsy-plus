@@ -1,6 +1,6 @@
 <?php   
            
-    class GET_WHIMSY_LICENSE
+    class WOO_SLT_licence
         {
          
             function __construct()
@@ -30,7 +30,7 @@
             function is_local_instance()
                 {
                     return FALSE; 
-                    $instance   =   trailingslashit(WHIMSY_UPDATER_INSTANCE);
+                    $instance   =   trailingslashit(WOO_SLT_INSTANCE);
                     if(
                             strpos($instance, base64_decode('bG9jYWxob3N0Lw==')) !== FALSE
                         ||  strpos($instance, base64_decode('MTI3LjAuMC4xLw==')) !== FALSE
@@ -64,10 +64,10 @@
                     $args = array(
                                                 'woo_sl_action'         => 'status-check',
                                                 'licence_key'           => $license_key,
-                                                'product_unique_id'     => WHIMSY_UPDATER_PRODUCT_ID,
-                                                'domain'                => WHIMSY_UPDATER_INSTANCE
+                                                'product_unique_id'     => WOO_SLT_PRODUCT_ID,
+                                                'domain'                => WOO_SLT_INSTANCE
                                             );
-                    $request_uri    = WHIMSY_UPDATER_APP_API_URL . '?' . http_build_query( $args , '', '&');
+                    $request_uri    = WOO_SLT_APP_API_URL . '?' . http_build_query( $args , '', '&');
                     $data           = wp_remote_get( $request_uri );
                     
                     if(is_wp_error( $data ) || $data['response']['code'] != 200)
