@@ -21,7 +21,7 @@ class WOO_SLT
 
         $this->interface            =   new WOO_SLT_options_interface();
                     
-        add_action( 'plugins_loaded', array( $this, 'whimsy_plus_init' ), 10 );
+        add_action( 'plugins_loaded', array( $ this, 'whimsy_plus_init' ), 10 );
 
 
     }
