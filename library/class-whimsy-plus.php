@@ -47,30 +47,7 @@
 		 * @return void
 		 */
 		function constants() {
-
-			/* Sets the framework version number. */
-			define( 'WHIMSY_PLUS_VERSION', '1.0.1'            );
-
-			/* Sets the path to the plugin directory. */
-            define( 'WHIMSY_PLUS_PATH',      plugin_dir_path( __DIR__ )  );
             
-			/* Sets the url to the plugin directory. */
-            define( 'WHIMSY_PLUS_URI',       plugin_dir_url( __DIR__ )   );
-            
-            // Sets the paths to the Whimsy library.
-			define( 'WHIMSY_PLUS_LIB_PATH',       trailingslashit( WHIMSY_PLUS_PATH .  'library'   ) );
-			define( 'WHIMSY_PLUS_LIB_URI',        trailingslashit( WHIMSY_PLUS_URI  .   'library'  ) );
-            
-			// Core framework directory paths.
-			define( 'WHIMSY_PLUS_ADMIN',     trailingslashit( WHIMSY_PLUS_LIB_PATH . 'admin'            ) );
-			define( 'WHIMSY_PLUS_CUSTOMIZE', trailingslashit( WHIMSY_PLUS_LIB_PATH . 'admin/customize'  ) );
-			define( 'WHIMSY_PLUS_INC',       trailingslashit( WHIMSY_PLUS_LIB_PATH . 'inc'              ) );
-			define( 'WHIMSY_PLUS_EXT',       trailingslashit( WHIMSY_PLUS_PATH     . 'extensions'       ) );
-            
-			// Core framework directory URIs.
-			define( 'WHIMSY_PLUS_IMG', trailingslashit( WHIMSY_PLUS_LIB_URI . 'img' ) );
-			define( 'WHIMSY_PLUS_CSS', trailingslashit( WHIMSY_PLUS_LIB_URI . 'css' ) );
-			define( 'WHIMSY_PLUS_JS',  trailingslashit( WHIMSY_PLUS_LIB_URI . 'js'  ) );
 
 			// Sets the paths to the Whimsy Updater 
         }
@@ -81,13 +58,7 @@
 		 * @return void
 		 */
         function includes() {
-
-//            include_once WHIMSY_PLUS_ADMIN . 'updater/class.license.php';
-//            include_once WHIMSY_PLUS_ADMIN . 'updater/class.options.php';
-//            include_once WHIMSY_PLUS_ADMIN . 'updater/class.updater.php';
-//            include_once WHIMSY_PLUS_ADMIN . 'updater/class.interface.php';
-//            include_once WHIMSY_PLUS_ADMIN . 'license.php';
-
+			
             // Include Whimsy Customizer extensions
             include_once WHIMSY_PLUS_CUSTOMIZE . 'kirki/kirki.php';
             include_once WHIMSY_PLUS_CUSTOMIZE . 'config.php';

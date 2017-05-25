@@ -10,13 +10,13 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * Whimsy_Plus_Welcome Class
+ * WhimsyPlusAdmin Class
  *
  * A general class for About and Credits page.
  *
  * @since 1.4
  */
-class Whimsy_Plus_Welcome {
+class WhimsyPlusAdmin {
 
 	/**
 	 * @var string The capability users should have to view the page
@@ -83,6 +83,7 @@ class Whimsy_Plus_Welcome {
 		remove_submenu_page( 'themes.php', 'whimsy-plus-changelog' );
 		remove_submenu_page( 'themes.php', 'whimsy-plus-getting-started' );
 		remove_submenu_page( 'themes.php', 'whimsy-plus-about' );
+		remove_submenu_page( 'themes.php', 'whimsy-plus-license' );
 	}
 
 	/**
@@ -92,7 +93,7 @@ class Whimsy_Plus_Welcome {
 	 * @since 1.4
 	 * @return void
 	 */
-	public function admin_head() {
+	static function admin_head() {
 		?>
 		<style type="text/css" media="screen">
 			/*<![CDATA[*/
@@ -128,7 +129,7 @@ class Whimsy_Plus_Welcome {
 	 * @since 1.4
 	 * @return void
 	 */
-	public function admin_scripts( ) {
+	static function admin_scripts( ) {
         wp_enqueue_script( 'whimsy_admin_js', WHIMSY_PLUS_JS . 'admin.js', array( 'jquery' ), '1.0' );
 	}
 
@@ -171,6 +172,9 @@ class Whimsy_Plus_Welcome {
 			</a>
 			<a class="nav-tab <?php echo $selected == 'whimsy-plus-changelog' ? 'nav-tab-active' : ''; ?>" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'whimsy-plus-changelog' ), 'themes.php' ) ) ); ?>">
 				<?php _e( 'Changelog', 'whimsy-plus' ); ?>
+			</a>
+			<a class="nav-tab <?php echo $selected == 'whimsy-plus-license' ? 'nav-tab-active' : ''; ?>" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'whimsy-plus-license' ), 'themes.php' ) ) ); ?>">
+				<?php _e( 'License', 'whimsy-plus' ); ?>
 			</a>
 		</h1>
 		<?php
@@ -313,4 +317,6 @@ class Whimsy_Plus_Welcome {
 		}
 	}
 }
-new Whimsy_Plus_Welcome();
+
+global $WhimsyPlusAdmin;
+$WhimsyPlusAdmin = new WhimsyPlusAdmin();

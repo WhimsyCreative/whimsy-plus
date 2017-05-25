@@ -1,6 +1,6 @@
 <?php   
            
-    class WOO_SLT_licence
+    class WhimsyPlusLicense
         {
          
             function __construct()
@@ -16,7 +16,7 @@
             public function licence_key_verify()
                 {
                     
-                    $license_data = get_site_option('slt_license');
+                    $license_data = get_site_option('whimsy_plus_license');
                     
                     if($this->is_local_instance())
                         return TRUE;
@@ -30,7 +30,7 @@
             function is_local_instance()
                 {
                     return FALSE; 
-                    $instance   =   trailingslashit(WOO_SLT_INSTANCE);
+                    $instance   =   trailingslashit(WHIMSYPLUS_INSTANCE);
                     if(
                             strpos($instance, base64_decode('bG9jYWxob3N0Lw==')) !== FALSE
                         ||  strpos($instance, base64_decode('MTI3LjAuMC4xLw==')) !== FALSE
@@ -50,7 +50,7 @@
                     if(!$this->licence_key_verify() ||  $this->is_local_instance()  === TRUE)
                         return;
                     
-                    $license_data = get_site_option('slt_license');
+                    $license_data = get_site_option('whimsy_plus_license');
                     
                     if(isset($license_data['last_check']))
                         {
@@ -64,10 +64,10 @@
                     $args = array(
                                                 'woo_sl_action'         => 'status-check',
                                                 'licence_key'           => $license_key,
-                                                'product_unique_id'     => WOO_SLT_PRODUCT_ID,
-                                                'domain'                => WOO_SLT_INSTANCE
+                                                'product_unique_id'     => WHIMSYPLUS_PRODUCT_ID,
+                                                'domain'                => WHIMSYPLUS_INSTANCE
                                             );
-                    $request_uri    = WOO_SLT_APP_API_URL . '?' . http_build_query( $args , '', '&');
+                    $request_uri    = WHIMSYPLUS_APP_API_URL . '?' . http_build_query( $args , '', '&');
                     $data           = wp_remote_get( $request_uri );
                     
                     if(is_wp_error( $data ) || $data['response']['code'] != 200)
@@ -95,7 +95,7 @@
                         }
                     
                     $license_data['last_check']   = time();    
-                    update_site_option('slt_license', $license_data);
+                    update_site_option('whimsy_plus_license', $license_data);
                     
                 }
             
