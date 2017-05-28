@@ -1,0 +1,19 @@
+{
+    "name": "WhimsyCreative/whimsy-plus",
+    "type": "wordpress-plugin",
+    "description": "Extending the Whimsy Framework customizer",
+    "homepage": "https://whimsycreative.co",
+    "license": "GPLv2 or later",
+    "authors": [{
+        "name": "natashacozad",
+        "email": "hello@whimsycreative.co",
+        "homepage": "https://whimsycreative.co"
+    }],
+    "require": {
+        "php": ">=5.2",
+        "composer/installers": "~1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    }
+}

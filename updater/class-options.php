@@ -27,6 +27,8 @@ class WhimsyPlusOptions
 		
 		add_action( 'admin_head', array( 'WhimsyPlusAdmin', 'admin_head' ) );
 		add_action( 'admin_enqueue_scripts', array( 'WhimsyPlusAdmin', 'admin_scripts' ) );
+
+		//add_filter( 'plugin_action_links',  array($this, 'whimsy_plus_settings_link'), 10, 2 );
     }
                 
     function __destruct()
@@ -336,7 +338,7 @@ class WhimsyPlusOptions
 				WhimsyPlusAdmin::welcome_message();
 				WhimsyPlusAdmin::tabs();
 			?>
-            <div id="form_data">
+            <div id="form_data" class="wrap">
                 <form id="form_data" name="form" method="post">    
                     <?php wp_nonce_field('whimsy_plus_license', 'whimsy_plus_license_nonce'); ?>
                     <input type="hidden" name="slt_licence_form_submit" value="true" />
@@ -344,7 +346,7 @@ class WhimsyPlusOptions
 
                      <div class="section section-text ">
                         <div class="option">
-                            <div class="controls">
+                            <div class="controls postbox">
                                 <?php
                                 if ($this->licence->is_local_instance()) {
                                     ?>
@@ -363,7 +365,7 @@ class WhimsyPlusOptions
 									</table>
                                     <?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             } ?>
                                     </div>
-                                    <div class="explain"><?php _e( "You can generate more license keys from", 'whimsy-plus' ) ?> <a href="https://whimsycreative.co/my-account/" target="_blank">My Account</a> 
+                                    <div class="explain"><?php _e( "Generate more license keys", 'whimsy-plus' ) ?> <a href="https://whimsycreative.co/my-account/" target="_blank">here</a>.
                                     </div>
                                     </div> 
                                 </div>
@@ -398,7 +400,12 @@ class WhimsyPlusOptions
                 <?php
     }
 }
-
-                                   
-
-?>
+	function whimsy_plus_settings_link($links, $file) {
+	
+		if ( $file == 'whimsy-plus/whimsy-plus.php' ) {
+			/* Insert the link at the end*/
+			$links['settings'] = sprintf( '<a href="%s"> %s </a>', admin_url( 'themes.php?page=whimsy-plus' ), __( 'Settings', 'whimsy-plus' ) );
+		}
+		return $links;
+	
+	}
