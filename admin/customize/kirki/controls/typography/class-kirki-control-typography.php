@@ -138,7 +138,7 @@ class Kirki_Control_Typography extends WP_Customize_Control {
 			$this->json['default'] = $this->default;
 		}
 		$this->json['output']  = $this->output;
-		$this->json['value']   = $this->value();
+		$this->json['value']   = Kirki_Field_Typography::sanitize( $this->value() );
 		$this->json['choices'] = $this->choices;
 		$this->json['link']    = $this->get_link();
 		$this->json['id']      = $this->id;
@@ -195,6 +195,12 @@ class Kirki_Control_Typography extends WP_Customize_Control {
 					<h5>{{ data.l10n['font-family'] }}</h5>
 					<select {{{ data.inputAttrs }}} id="kirki-typography-font-family-{{{ data.id }}}" placeholder="{{ data.l10n['select-font-family'] }}"></select>
 				</div>
+				<# if ( ! _.isUndefined( data.choices['font-backup'] ) && true === data.choices['font-backup'] ) { #>
+					<div class="font-backup hide-on-standard-fonts kirki-font-backup-wrapper">
+						<h5>{{ data.l10n['font-backup'] }}</h5>
+						<select {{{ data.inputAttrs }}} id="kirki-typography-font-backup-{{{ data.id }}}" placeholder="{{ data.l10n['select-font-family'] }}"></select>
+					</div>
+				<# } #>
 				<# if ( true === data.show_variants || false !== data.default.variant ) { #>
 					<div class="variant kirki-variant-wrapper">
 						<h5>{{ data.l10n['variant'] }}</h5>
@@ -204,7 +210,7 @@ class Kirki_Control_Typography extends WP_Customize_Control {
 				<# if ( true === data.show_subsets ) { #>
 					<div class="subsets hide-on-standard-fonts kirki-subsets-wrapper">
 						<h5>{{ data.l10n['subsets'] }}</h5>
-						<select {{{ data.inputAttrs }}} class="subset" id="kirki-typography-subsets-{{{ data.id }}}" multiple>
+						<select {{{ data.inputAttrs }}} class="subset" id="kirki-typography-subsets-{{{ data.id }}}"<# if ( _.isUndefined( data.choices['disable-multiple-variants'] ) || false === data.choices['disable-multiple-variants'] ) { #> multiple<# } #>>
 							<# _.each( data.value.subsets, function( subset ) { #>
 								<option value="{{ subset }}" selected="selected">{{ data.languages[ subset ] }}</option>
 							<# } ); #>
@@ -320,6 +326,7 @@ class Kirki_Control_Typography extends WP_Customize_Control {
 		$translation_strings = array(
 			'inherit'        => esc_attr__( 'Inherit', 'kirki' ),
 			'font-family'    => esc_attr__( 'Font Family', 'kirki' ),
+			'font-backup'    => esc_attr__( 'Backup Font', 'kirki' ),
 			'font-size'      => esc_attr__( 'Font Size', 'kirki' ),
 			'line-height'    => esc_attr__( 'Line Height', 'kirki' ),
 			'letter-spacing' => esc_attr__( 'Letter Spacing', 'kirki' ),

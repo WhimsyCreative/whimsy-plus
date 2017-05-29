@@ -69,7 +69,7 @@ Kirki::add_field( 'whimsy_plus', array(
 	'priority'    => 90,
 	'output'      => array(
 		array(
-			'element' => '#site-navigation, #site-navigation a',
+			'element' => '#site-navigation', '#site-navigation a',
 		),
 	),
     'transport'   => 'auto',

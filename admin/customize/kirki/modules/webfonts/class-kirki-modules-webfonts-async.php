@@ -79,12 +79,18 @@ final class Kirki_Modules_Webfonts_Async {
 
 		$fonts_to_load = array();
 		foreach ( $this->googlefonts->fonts as $font => $weights ) {
-			$fonts_to_load[] = esc_attr( $font ) . ':' . esc_attr( join( ',', $weights ) );
+			foreach ( $weights as $key => $value ) {
+				$weights[ $key ] = str_replace( array( 'regular', 'bold', 'italic' ), array( '400', '', 'i' ), $value );
+				if ( 'i' === $value ) {
+					$weights[ $key ] = '400i';
+				}
+			}
+			$fonts_to_load[] = $font . ':' . join( ',', $weights );
 		}
 		wp_enqueue_script( 'webfont-loader', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js' );
 		wp_add_inline_script(
 			'webfont-loader',
-			'WebFont.load({google:{families:[\'' . esc_attr( join( '\', \'', $fonts_to_load ) ) . '\']}});',
+			'WebFont.load({google:{families:[\'' . join( '\', \'', $fonts_to_load ) . '\']}});',
 			'after'
 		);
 	}

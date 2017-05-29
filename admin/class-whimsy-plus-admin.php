@@ -32,6 +32,7 @@ class WhimsyPlusAdmin {
 		add_action( 'admin_menu', array( $this, 'admin_menus') );
 		add_action( 'admin_head', array( $this, 'admin_head' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
+		add_action( 'customize_controls_print_footer_scripts', array( $this, 'customizer_enqueue' ) );
 		add_action( 'admin_init', array( $this, 'init_settings'  ) );
 		add_action( 'admin_init', array( $this, 'welcome'    ), 11 );
 	}
@@ -347,6 +348,13 @@ class WhimsyPlusAdmin {
 		} else { // Update
 			wp_safe_redirect( admin_url( 'themes.php?page=whimsy-plus' ) ); exit;
 		}
+	}
+
+	public function customizer_enqueue() {
+		
+            // Enqueue custom stylesheet
+            wp_enqueue_style( 'whimsy-plus-customizer-style', WHIMSY_PLUS_CSS . 'admin.css', WHIMSY_PLUS_VERSION );
+
 	}
 
 }

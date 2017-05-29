@@ -1,69 +1,101 @@
-.tooltip-wrapper .tooltip-content #form_data label {
-    font-size: 12px
-}
-
-#form_data .postbox {
-    padding: 15px 20px
-}
-
-#form_data .postbox h4.heading {
-    margin: 0px;
-    padding-bottom: 10px
-}
-
-#form_data .postbox .text-input {
-    width: 100%;
-    padding: 5px 5px;
-    margin: 0px;
-}
-
-#form_data .postbox .explain {
-    padding-top: 10px;
-    color: gray;
-    font-style: italic;
-    font-size: 11px;
-    line-height: 17px;
-}
-
-h2.subtitle {
-    font-size: 15px;
-    font-style: italic;
-    font-weight: bold
-}
-
-#wooslt_data {
-    padding: 0 10px
-}
-
-#wooslt_data .no_label {
-    padding-left: 0px !important
-}
-
-#wooslt_data .form-field.inline span {
-    display: inline;
-    padding-left: 10px
-}
-
-#wooslt .column-order_actions {
-    width: 50px;
-}
-
-i.mce-i-icon {
-    font: 400 20px/1 dashicons;
-    padding: 0;
-    vertical-align: top;
-    speak: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    margin-left: -2px;
-    padding-right: 2px
-}
-
-.mce-menu .mce-menu-item.mce-selected,
-.mce-menu .mce-menu-item:focus,
-.mce-menu .mce-menu-item:hover {
-    color: #000;
-    background-color: rgba(31, 180, 202, 0.9);
-    background-image: none;
-    filter: none;
-}
+            #form_data label {
+                font-size: 12px
+            }
+            
+            #form_data .postbox {
+                padding: 15px 20px
+            }
+            
+            #form_data .postbox h4.heading {
+                margin: 0px;
+                padding-bottom: 10px
+            }
+            
+            #form_data .postbox .text-input {
+                width: 100%;
+                padding: 5px 5px;
+                margin: 0px;
+            }
+            
+            #form_data .postbox .explain {
+                padding-top: 10px;
+                color: gray;
+                font-style: italic;
+                font-size: 11px;
+                line-height: 17px;
+            }
+            
+            h2.subtitle {
+                font-size: 15px;
+                font-style: italic;
+                font-weight: bold
+            }
+            
+            #wooslt_data {
+                padding: 0 10px
+            }
+            
+            #wooslt_data .no_label {
+                padding-left: 0px !important
+            }
+            
+            #wooslt_data .form-field.inline span {
+                display: inline;
+                padding-left: 10px
+            }
+            
+            #wooslt .column-order_actions {
+                width: 50px;
+            }
+            
+            i.mce-i-icon {
+                font: 400 20px/1 dashicons;
+                padding: 0;
+                vertical-align: top;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                margin-left: -2px;
+                padding-right: 2px
+            }
+            
+            .mce-menu .mce-menu-item.mce-selected,
+            .mce-menu .mce-menu-item:focus,
+            .mce-menu .mce-menu-item:hover {
+                color: #000;
+                background-color: rgba(31, 180, 202, 0.9);
+                background-image: none;
+                filter: none;
+            }
+            
+            a,
+            a:-webkit-any-link {
+                text-decoration: none;
+            }
+            
+            .customize-divider {
+                padding: 1em 0;
+                font-size: 1.3em;
+                font-weight: bold;
+                color: #555d66;
+                /* letter-spacing: 1px; */
+                text-align: left;
+                /* text-transform: uppercase; */
+                border-bottom: 1px solid #ddd;
+                cursor: auto;
+            }
+            
+            .tooltip-wrapper .tooltip-content {
+                color: #fff;
+                background-color: rgba(31, 180, 202, 0.9);
+            }
+            
+            .tooltip-wrapper .tooltip-content:after {
+                color: rgba(31, 180, 202, 0.9);
+            }
+            
+            .customize-control-kirki-toggle input:checked+.switch:after,
+            .customize-control-kirki-slider input[type=range]::-webkit-slider-thumb,
+            .customize-control-kirki-slider input[type=range]::-moz-range-thumb,
+            .customize-control-kirki-slider input[type=range]::-ms-thumb {
+                background: rgba(31, 180, 202, 0.9);
+            }

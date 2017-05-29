@@ -55,13 +55,19 @@ Kirki::add_field( 'whimsy_plus', array(
 	'priority'    => 10,
 	'output'      => array(
 		array(
-			'element' => '.site-branding h2.site-description, .site-branding h2.site-description a',
+			'element' => array(
+				'.site-branding h2.site-description', 
+				'.site-branding h2.site-description a',
+			),
 		),
 	),
     'transport'    => 'auto',
     'js_vars'      => array(
         array(
-            'element'  => '.site-branding h2.site-description, .site-branding h2.site-description a',
+			'element' => array(
+				'.site-branding h2.site-description', 
+				'.site-branding h2.site-description a',
+			),
         ),
     ),
 ) );
