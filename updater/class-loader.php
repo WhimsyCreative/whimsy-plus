@@ -19,7 +19,7 @@ class WhimsyPlusInit
         $this->licence = new WhimsyPlusLicense();
 		$this->interface = new WhimsyPlusOptions();                    
 		/* Define framework, parent theme, and child theme constants. */
-		add_action( 'init', array( $this, 'constants' ), 1 );
+		//add_action( 'init', array( $this, 'constants' ), 1 );
 		/* Make sure Whimsy Framework is the active theme and init the plugin. */
         add_action( 'plugins_loaded', array( $this, 'whimsy_plus_init' ), 10 );
 		/* Register each module as its own plugin. */
@@ -27,27 +27,6 @@ class WhimsyPlusInit
     }
         
 	function constants() {
-
-		define( 'WHIMSY_PLUS_VERSION',  '0.4.0' );
-		define( 'WHIMSY_PLUS_PATH', 	plugin_dir_path( __FILE__ ) );
-		define( 'WHIMSY_PLUS_URI', 		plugin_dir_url( __FILE__ ) );
-
-		// Core framework directory paths.
-		define( 'WHIMSY_PLUS_ASSETS',    trailingslashit( WHIMSY_PLUS_URI . 'assets' ) );
-		define( 'WHIMSY_PLUS_ADMIN',     trailingslashit( WHIMSY_PLUS_PATH . 'admin' ) );
-		define( 'WHIMSY_PLUS_CUSTOMIZE', trailingslashit( WHIMSY_PLUS_PATH . 'admin/customize' ) );
-		define( 'WHIMSY_PLUS_MODS',      trailingslashit( WHIMSY_PLUS_PATH . 'admin/customize/modules' ) );
-		define( 'WHIMSY_PLUS_INC',       trailingslashit( WHIMSY_PLUS_PATH . 'assets/inc' ) );
-		
-		// Core framework directory URIs.
-		define( 'WHIMSY_PLUS_IMG', trailingslashit( WHIMSY_PLUS_ASSETS . 'img' ) );
-		define( 'WHIMSY_PLUS_CSS', trailingslashit( WHIMSY_PLUS_ASSETS . 'css' ) );
-		define( 'WHIMSY_PLUS_JS',  trailingslashit( WHIMSY_PLUS_ASSETS . 'js'  ) );
-
-		// Updater and licensing constants.
-		define( 'WHIMSYPLUS_APP_API_URL', 'https://whimsycreative.co/index.php' );
-		define( 'WHIMSYPLUS_PRODUCT_ID', 'whimsy_plus' );
-		define( 'WHIMSYPLUS_INSTANCE', str_replace(array ("https://" , "http://"), "", network_site_url()) );
 
 	}     
 

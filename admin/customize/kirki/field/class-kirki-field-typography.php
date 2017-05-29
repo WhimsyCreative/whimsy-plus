@@ -70,7 +70,6 @@ class Kirki_Field_Typography extends Kirki_Field {
 
 			// Start going through each item in the $output array.
 			foreach ( $this->output as $output ) {
-				$output['function'] = 'css';
 
 				// If 'element' or 'property' are not defined, skip this.
 				if ( ! isset( $output['element'] ) ) {
@@ -78,9 +77,6 @@ class Kirki_Field_Typography extends Kirki_Field {
 				}
 				if ( is_array( $output['element'] ) ) {
 					$output['element'] = implode( ',', $output['element'] );
-				}
-				if ( false !== strpos( $output['element'], ':' ) ) {
-					$output['function'] = 'style';
 				}
 
 				// If we got this far, it's safe to add this.
@@ -128,7 +124,7 @@ class Kirki_Field_Typography extends Kirki_Field {
 				unset( $value['font-weight'] );
 			}
 			$valid_variants = Kirki_Fonts::get_all_variants();
-			if ( ! array_key_exists( $value['variant'], $valid_variants ) ) {
+			if ( ! isset( $value['variant'] ) || empty( $value['variant'] ) || ! array_key_exists( $value['variant'], $valid_variants ) ) {
 				$value['variant'] = 'regular';
 			}
 		}

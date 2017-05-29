@@ -32,6 +32,7 @@ class WhimsyPlusAdmin {
 		add_action( 'admin_menu', array( $this, 'admin_menus') );
 		add_action( 'admin_head', array( $this, 'admin_head' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
+		add_action( 'admin_init', array( $this, 'init_settings'  ) );
 		add_action( 'admin_init', array( $this, 'welcome'    ), 11 );
 	}
 
@@ -47,8 +48,8 @@ class WhimsyPlusAdmin {
 
 		// Whimsy+ Settings
 		add_theme_page(
-			__( 'Whimsy+ Settings', 'whimsy-plus' ),
-			__( 'Whimsy+ Settings', 'whimsy-plus' ),
+			__( 'Whimsy+', 'whimsy-plus' ),
+			__( 'Whimsy+', 'whimsy-plus' ),
 			$this->minimum_capability,
 			'whimsy-plus',
 			array( $this, 'settings_screen' )
@@ -209,7 +210,22 @@ class WhimsyPlusAdmin {
 		</div>
 		<?php
 	}
-    
+
+	public function init_settings() {
+
+		register_setting(
+			'theme_options_group',
+			'advanced_options'
+		);
+
+		add_settings_section(
+			'advanced_options_section',
+			'',
+			false,
+			'advanced_options'
+		);
+
+	}
 	/**
 	 * Render Settings Screen
 	 *
@@ -221,10 +237,28 @@ class WhimsyPlusAdmin {
 		?>
 		<div class="wrap about-wrap whimsy-plus-wrap">
 			<?php
+				// Check required user capability
+				if ( !current_user_can( 'manage_options' ) )  {
+					wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'whimsy-plus' ) );
+				}
+
 				// load welcome message and content tabs
 				$this->welcome_message();
-				$this->tabs();
-			?>
+				$this->tabs();				
+
+				// Create an instance of our package class.
+				$test_list_table = new TT_Example_List_Table();
+				// Fetch, prepare, sort, and filter our data.
+				$test_list_table->prepare_items();
+
+				?>
+
+				<form id="movies-filter" method="get">
+					<!-- For plugins, we also need to ensure that the form posts back to our current page -->
+					<input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>" />
+					<!-- Now we can render the completed list table -->
+					<?php $test_list_table->display() ?>
+				</form>
 			
 		</div>
 		<?php

@@ -50,27 +50,3 @@ Kirki::add_field( 'whimsy_plus', array(
     ),
 
 ) );
-
-Kirki::add_field( 'whimsy_plus', array(
-	'type'        => 'typography',
-	'settings'    => 'body_font',
-	'label'       => __( 'Body Font', 'whimsy-plus' ),
-	'description' => __( 'The font properties for the body text.', 'whimsy-plus' ),
-	'section'     => 'whimsy_plus_typography',
-	'default'     => array(
-		'font-family'    => 'Ubuntu',
-		'variant'        => 'regular',
-		'font-size'      => '18px',
-		'line-height'    => '1.5',
-		'letter-spacing' => '0',
-		'subsets'        => array( 'latin-ext' ),
-		'color'          => '#333333',
-		'text-transform' => 'none',
-		'text-align'     => 'left'
-	),
-	'output'      => array(
-		array(
-			'element' => 'body','button','input','select','textarea',
-		),
-	),
-) );

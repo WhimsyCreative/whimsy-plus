@@ -39,11 +39,11 @@
     define( 'WHIMSYPLUS_INSTANCE', str_replace(array ("https://" , "http://"), "", network_site_url()) );
    
     require_once(WHIMSY_PLUS_PATH . 'updater/class-activator.php');
-    include_once(WHIMSY_PLUS_PATH . 'updater/class-loader.php');
-    include_once(WHIMSY_PLUS_PATH . 'updater/class-license.php');
-    include_once(WHIMSY_PLUS_PATH . 'updater/class-options.php');
-    include_once(WHIMSY_PLUS_PATH . 'updater/class-updater.php');
-	include_once(WHIMSY_PLUS_PATH . 'class-whimsy-plus.php');
+    require_once(WHIMSY_PLUS_PATH . 'updater/class-loader.php');
+    require_once(WHIMSY_PLUS_PATH . 'updater/class-license.php');
+    require_once(WHIMSY_PLUS_PATH . 'updater/class-options.php');
+    require_once(WHIMSY_PLUS_PATH . 'updater/class-updater.php');
+	require_once(WHIMSY_PLUS_PATH . 'class-whimsy-plus.php');
 		
     global $WhimsyPlusInit;
     $WhimsyPlusInit = new WhimsyPlusInit();

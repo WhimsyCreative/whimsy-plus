@@ -59,28 +59,30 @@
 		 */
         function includes() {
 			
+    		require_once WHIMSY_PLUS_CUSTOMIZE . 'kirki/kirki.php';
             // Include Whimsy Customizer extensions
-            include_once WHIMSY_PLUS_CUSTOMIZE . 'kirki/kirki.php';
-            include_once WHIMSY_PLUS_CUSTOMIZE . 'config.php';
-            include_once WHIMSY_PLUS_CUSTOMIZE . 'panels.php';
-            include_once WHIMSY_PLUS_CUSTOMIZE . 'sections.php';
-            //include_once WHIMSY_PLUS_MODS . 'colors/colors.php';
-            // include_once WHIMSY_PLUS_MODS . 'fonts/fonts.php';
-            //include_once WHIMSY_PLUS_MODS . 'layout/layout.php';
-            //include_once WHIMSY_PLUS_MODS . 'header/header.php';
-            // include_once WHIMSY_PLUS_MODS . 'menu/menu.php';
-            //include_once WHIMSY_PLUS_MODS . 'posts/posts.php';
-            //include_once WHIMSY_PLUS_MODS . 'sidebar/sidebar.php';
-            //include_once WHIMSY_PLUS_MODS . 'footer/footer.php';
-            //include_once WHIMSY_PLUS_MODS . 'mosaic/mosaic.php';
-            //include_once WHIMSY_PLUS_MODS . 'forms/forms.php';
+            require_once WHIMSY_PLUS_CUSTOMIZE . 'config.php';
+            require_once WHIMSY_PLUS_CUSTOMIZE . 'panels.php';
+            require_once WHIMSY_PLUS_CUSTOMIZE . 'sections.php';
+
+            // Include Whimsy Customizer modules
+            require_once WHIMSY_PLUS_MODS . 'colors/colors.php';
+            require_once WHIMSY_PLUS_MODS . 'fonts/fonts.php';
+            require_once WHIMSY_PLUS_MODS . 'layout/layout.php';
+            require_once WHIMSY_PLUS_MODS . 'header/header.php';
+            require_once WHIMSY_PLUS_MODS . 'menu/menu.php';
+            require_once WHIMSY_PLUS_MODS . 'posts/posts.php';
+            require_once WHIMSY_PLUS_MODS . 'sidebar/sidebar.php';
+            require_once WHIMSY_PLUS_MODS . 'footer/footer.php';
+            require_once WHIMSY_PLUS_MODS . 'mosaic/mosaic.php';
+            require_once WHIMSY_PLUS_MODS . 'forms/forms.php';
 
             // Include Whimsy Framework modifications
             include_once WHIMSY_PLUS_INC . 'whimsy-header.php';
             include_once WHIMSY_PLUS_INC . 'whimsy-footer.php';
 
             // Include advanced extensions
-            //include_once WHIMSY_PLUS_MODS . 'advanced/advanced.php';
+            require_once WHIMSY_PLUS_MODS . 'advanced/advanced.php';
             include_once WHIMSY_PLUS_MODS . 'advanced/sharing.php';
             include_once WHIMSY_PLUS_MODS . 'advanced/twitter-mentions.php';
 
@@ -89,7 +91,8 @@
             
 			// Include admin functions
             if ( is_admin() ) {
-                include_once WHIMSY_PLUS_ADMIN . 'admin.php';
+                include_once WHIMSY_PLUS_ADMIN . 'class-whimsy-plus-table.php';
+                include_once WHIMSY_PLUS_ADMIN . 'class-whimsy-plus-admin.php';
             } 
             
         }
