@@ -67,7 +67,7 @@
 
             // Include Whimsy Customizer modules
             require_once WHIMSY_PLUS_MODS . 'fonts/fonts.php';
-            require_once WHIMSY_PLUS_MODS . 'colors/colors.php';
+            //require_once WHIMSY_PLUS_MODS . 'colors/colors.php';
             require_once WHIMSY_PLUS_MODS . 'layout/layout.php';
             require_once WHIMSY_PLUS_MODS . 'header/header.php';
             require_once WHIMSY_PLUS_MODS . 'menu/menu.php';

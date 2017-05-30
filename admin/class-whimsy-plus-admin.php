@@ -238,29 +238,23 @@ class WhimsyPlusAdmin {
 		?>
 		<div class="wrap about-wrap whimsy-plus-wrap">
 			<?php
+        		$this->licence = new WhimsyPlusLicense();
+
 				// Check required user capability
 				if ( !current_user_can( 'manage_options' ) )  {
 					wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'whimsy-plus' ) );
 				}
 
-				// load welcome message and content tabs
-				$this->welcome_message();
-				$this->tabs();				
+        		if ($this->licence->licence_key_verify()) {
+					// load welcome message and content tabs
+					$this->welcome_message();
+					$this->tabs();				
+				}
 
-				// Create an instance of our package class.
-				$test_list_table = new TT_Example_List_Table();
-				// Fetch, prepare, sort, and filter our data.
-				$test_list_table->prepare_items();
-
-				?>
-
-				<form id="movies-filter" method="get">
-					<!-- For plugins, we also need to ensure that the form posts back to our current page -->
-					<input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>" />
-					<!-- Now we can render the completed list table -->
-					<?php $test_list_table->display() ?>
-				</form>
-			
+				if ( true == TGM_Plugin_Activation::get_instance()->is_tgmpa_complete() ) {
+						TGM_Plugin_Activation::get_instance()->install_plugins_page();
+				}
+				?>	
 		</div>
 		<?php
 	}

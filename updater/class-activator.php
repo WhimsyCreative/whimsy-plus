@@ -913,7 +913,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 					}
 				}
 
-				$this->show_tgmpa_version();
+				//$this->show_tgmpa_version();
 
 				// Display message based on if all plugins are now active or not.
 				if ( $this->is_tgmpa_complete() ) {
@@ -2068,15 +2068,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		 * @since 2.5.0
 		 */
 		public function show_tgmpa_version() {
-			echo '<p style="float: right; padding: 0em 1.5em 0.5em 0;"><strong><small>',
-				esc_html(
-					sprintf(
-						/* translators: %s: version number */
-						__( 'TGMPA v%s', 'tgmpa' ),
-						self::TGMPA_VERSION
-					)
-				),
-				'</small></strong></p>';
+	
 		}
 
 		/**
@@ -2623,7 +2615,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 		 * @since 2.2.0
 		 */
 		public function no_items() {
-			echo esc_html__( 'No plugins to install, update or activate.', 'tgmpa' ) . ' <a href="' . esc_url( self_admin_url() ) . '"> ' . esc_html__( 'Return to the Dashboard', 'tgmpa' ) . '</a>';
+			echo esc_html__( 'No add-ons to install, update or activate.', 'tgmpa' ) . ' <a href="' . esc_url( self_admin_url('plugins.php') ) . '"> ' . esc_html__( 'Deactivate Whimsy+ add-ons from the Plugins page.', 'tgmpa' ) . '</a>';
 			echo '<style type="text/css">#adminmenu .wp-submenu li.current { display: none !important; }</style>';
 		}
 
@@ -2638,12 +2630,9 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 			$columns = array(
 				'cb'     => '<input type="checkbox" />',
 				'plugin' => __( 'Plugin', 'tgmpa' ),
-				'source' => __( 'Source', 'tgmpa' ),
-				'type'   => __( 'Type', 'tgmpa' ),
 			);
 
 			if ( 'all' === $this->view_context || 'update' === $this->view_context ) {
-				$columns['version'] = __( 'Version', 'tgmpa' );
 				$columns['status']  = __( 'Status', 'tgmpa' );
 			}
 
@@ -3660,7 +3649,7 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
 						// Flush plugins cache so we can make sure that the installed plugins list is always up to date.
 						wp_clean_plugins_cache();
 
-						$this->tgmpa->show_tgmpa_version();
+						//$this->tgmpa->show_tgmpa_version();
 
 						// Display message based on if all plugins are now active or not.
 						$update_actions = array();

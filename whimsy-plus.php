@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Whimsy+
- * Version: 0.4.0
+ * Version: 0.5.0
  * Plugin URI: http://www.whimsycreative.co/framework/plus
  * Description: A plugin packed with awesome features for Whimsy Framework.
  * Author: Whimsy Creative Co.
@@ -17,7 +17,7 @@
  * @since 1.0.0
  */
 
-	define( 'WHIMSY_PLUS_VERSION',  '0.4.0' );
+	define( 'WHIMSY_PLUS_VERSION',  '0.5.0' );
 	define( 'WHIMSY_PLUS_PATH', 	plugin_dir_path( __FILE__ ) );
 	define( 'WHIMSY_PLUS_URI', 		plugin_dir_url( __FILE__ ) );
 
