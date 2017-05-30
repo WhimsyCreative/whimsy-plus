@@ -9,19 +9,24 @@
 
 Kirki::add_section( 'whimsy_plus_colors', array(
     'title'          => __( 'Colors', 'whimsy-plus' ),
-    'priority'       => 60,
+    'priority'       => 30,
     'capability'     => 'edit_theme_options',
 ) );
 Kirki::add_section( 'whimsy_plus_fonts', array(
     'title'          => __( 'Fonts', 'whimsy-plus' ),
-    'priority'       => 70,
+    'priority'       => 40,
     'capability'     => 'edit_theme_options',
 ) );    
 Kirki::add_section( 'whimsy_plus_content', array(
     'title'          => esc_html__( 'Posts & Pages', 'whimsy-plus' ),
-    'priority'       => 80,
+    'priority'       => 50,
     'capability'     => 'edit_theme_options',
 ) );
+Kirki::add_section( 'whimsy_plus_advanced', array(
+    'title'          => __( 'Advanced', 'whimsy-plus' ),
+    'priority'       => 60,
+    'capability'     => 'edit_theme_options',
+) );  
 Kirki::add_section( 'whimsy_plus_global_fonts', array(
     'title'          => esc_html__( 'Global Fonts', 'whimsy-plus' ),
     'panel'          => 'whimsy_plus_panel_fonts',
@@ -88,9 +93,3 @@ Kirki::add_section( 'whimsy_plus_footer', array(
     'priority'       => 33,
     'capability'     => 'edit_theme_options',
 ) );
-Kirki::add_section( 'whimsy_plus_advanced', array(
-    'title'          => __( 'Advanced', 'whimsy-plus' ),
-
-    'priority'       => 39,
-    'capability'     => 'edit_theme_options',
-) );  
