@@ -29,7 +29,7 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => 'h1.site-title, h1.site-title a',
 		),
 	),
-    'transport'    => 'auto',
+    'transport'    => 'refresh',
     'js_vars'      => array(
         array(
 			'element' => 'h1.site-title, h1.site-title a',
@@ -61,7 +61,7 @@ Kirki::add_field( 'whimsy_plus', array(
 			),
 		),
 	),
-    'transport'    => 'auto',
+    'transport'    => 'refresh',
     'js_vars'      => array(
         array(
 			'element' => array(

@@ -24,7 +24,7 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => '#colophon',
 		),
 	),
-    'transport'    => 'auto',
+    'transport'    => 'refresh',
     'js_vars'      => array(
         array(
 			'element' => '#colophon',

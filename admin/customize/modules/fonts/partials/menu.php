@@ -23,7 +23,7 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => '#site-navigation, #site-navigation a',
 		),
 	),
-    'transport'   => 'auto',
+    'transport'   => 'refresh',
 ) );
 Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'typography',
@@ -48,7 +48,7 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => '#site-navigation ul.sub-menu, #site-navigation ul.sub-menu a',
 		),
 	),
-    'transport'   => 'auto',
+    'transport'   => 'refresh',
 ) );
 Kirki::add_field( 'whimsy_plus', array(
 	'type'        => 'typography',
@@ -72,5 +72,5 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => '#site-navigation', '#site-navigation a',
 		),
 	),
-    'transport'   => 'auto',
+    'transport'   => 'refresh',
 ) );

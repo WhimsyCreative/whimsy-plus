@@ -64,14 +64,17 @@
         function includes() {
 
             // Include Whimsy Customizer modules
-            //include_once WHIMSY_PLUS_FONTS . 'partials/advanced.php';
-            //include_once WHIMSY_PLUS_FONTS . 'partials/global.php';
-            //include_once WHIMSY_PLUS_FONTS . 'partials/header.php';
-            //include_once WHIMSY_PLUS_FONTS . 'partials/menu.php';
-            //include_once WHIMSY_PLUS_FONTS . 'partials/posts.php';
-            //include_once WHIMSY_PLUS_FONTS . 'partials/sidebar.php';
-            //include_once WHIMSY_PLUS_FONTS . 'partials/footer.php';
-			
+            include_once WHIMSY_PLUS_FONTS . 'partials/advanced.php';
+            include_once WHIMSY_PLUS_FONTS . 'partials/global.php';
+            include_once WHIMSY_PLUS_FONTS . 'partials/header.php';
+            include_once WHIMSY_PLUS_FONTS . 'partials/menu.php';
+            include_once WHIMSY_PLUS_FONTS . 'partials/posts.php';
+            include_once WHIMSY_PLUS_FONTS . 'partials/sidebar.php';
+            include_once WHIMSY_PLUS_FONTS . 'partials/footer.php';
+
+			/**
+			 * @todo Add options for mosaic page template, and default form styling.
+			 */
             //include_once WHIMSY_PLUS_FONTS . 'partials/mosaic.php';
             //include_once WHIMSY_PLUS_FONTS . 'partials/forms.php';
             

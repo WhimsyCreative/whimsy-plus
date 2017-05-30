@@ -5,6 +5,30 @@
  * @return void
  */
 Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'toggle',
+	'settings'    => 'whimsy_framework_hide_page_date',
+	'label'       => __( 'Show page date?', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_content',
+	'default'     => true,
+	'priority'    => 10,
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'toggle',
+	'settings'    => 'whimsy_framework_hide_page_title_link',
+	'label'       => __( 'Show link on page titles?', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_content',
+	'default'     => true,
+	'priority'    => 10,
+) );
+Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'toggle',
+	'settings'    => 'whimsy_framework_hide_page_comments',
+	'label'       => __( 'Show comments on pages?', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_content',
+	'default'     => true,
+	'priority'    => 10,
+) );
+Kirki::add_field( 'whimsy_plus', array(
     'type'        => 'slider',
     'settings'    => 'content_container_size',
     'label'       => __( 'Content Container Width', 'whimsy-plus' ),

@@ -31,7 +31,7 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => '.social-sharing-title',
 		),
 	),
-    'transport'    => 'auto',
+    'transport'    => 'refresh',
     'js_vars'      => array(
         array(
             'element'  => '.social-sharing-title',

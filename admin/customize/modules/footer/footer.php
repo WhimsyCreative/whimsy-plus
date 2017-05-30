@@ -6,6 +6,19 @@
  */
 
 Kirki::add_field( 'whimsy_plus', array(
+	'type'        => 'radio-image',
+	'settings'    => 'whimsy_framework_layout_footer',
+	'label'       => __( 'Widget Layout', 'whimsy-plus' ),
+	'section'     => 'whimsy_plus_footer',
+	'default'     => 'footer-3',
+	'priority'    => 10,
+	'choices'     => array(
+		'footer-1'   => get_template_directory_uri() . '/library/img/footer-1.png',
+		'footer-2' => get_template_directory_uri() . '/library/img/footer-2.png',
+		'footer-3'  => get_template_directory_uri() . '/library/img/footer-3.png',
+	),
+) );
+Kirki::add_field( 'whimsy_plus', array(
     'type'        => 'toggle',
     'settings'    => 'whimsy_plus_add_custom_footer_text',
     'label'       => __( 'Add custom footer text.', 'whimsy-plus' ),

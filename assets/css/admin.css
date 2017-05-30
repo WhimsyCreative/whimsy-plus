@@ -93,9 +93,15 @@
                 color: rgba(31, 180, 202, 0.9);
             }
             
-            .customize-control-kirki-toggle input:checked+.switch:after,
+            .customize-control-kirki-toggle input:checked + .switch:after,
             .customize-control-kirki-slider input[type=range]::-webkit-slider-thumb,
             .customize-control-kirki-slider input[type=range]::-moz-range-thumb,
             .customize-control-kirki-slider input[type=range]::-ms-thumb {
                 background: rgba(31, 180, 202, 0.9);
+            }
+            
+            #customize-control-whimsy_framework_layout_footer img,
+            #customize-control-whimsy_framework_layout img {
+                max-width: 100px;
+                display: inline-block;
             }

@@ -22,7 +22,7 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => 'body','button','input','select','textarea',
 		),
 	),
-    'transport'   => 'auto',
+    'transport'   => 'refresh',
     'js_vars'     => array(
         array(
 			'element' => 'body','button','input','select','textarea',
@@ -53,7 +53,7 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => 'h1',
 		),
 	),
-    'transport'    => 'auto',
+    'transport'    => 'refresh',
     'js_vars'      => array(
         array(
             'element'  => 'h1',
@@ -83,7 +83,7 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => 'h2',
 		),
 	),
-    'transport'    => 'auto',
+    'transport'    => 'refresh',
     'js_vars'      => array(
         array(
             'element'  => 'h2',
@@ -113,7 +113,7 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => 'h3',
 		),
 	),
-    'transport'    => 'auto',
+    'transport'    => 'refresh',
     'js_vars'      => array(
         array(
             'element'  => 'h3',
@@ -143,7 +143,7 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => 'h4',
 		),
 	),
-    'transport'    => 'auto',
+    'transport'    => 'refresh',
     'js_vars'      => array(
         array(
             'element'  => 'h4',
@@ -173,7 +173,7 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => 'h5',
 		),
 	),
-    'transport'    => 'auto',
+    'transport'    => 'refresh',
     'js_vars'      => array(
         array(
             'element'  => 'h5',
@@ -203,7 +203,7 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => 'h6',
 		),
 	),
-    'transport'    => 'auto',
+    'transport'    => 'refresh',
     'js_vars'      => array(
         array(
             'element'  => 'h6',

@@ -24,7 +24,7 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => 'h1.widget-title, #wp-calendar caption, .widget h3',
 		),
 	),
-    'transport'    => 'auto',
+    'transport'    => 'refresh',
     'js_vars'      => array(
         array(
             'element'  => 'h1.widget-title, #wp-calendar caption, .widget h3',
@@ -54,7 +54,7 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => '.widget',
 		),
 	),
-    'transport'    => 'auto',
+    'transport'    => 'refresh',
     'js_vars'      => array(
         array(
 			'element' => '.widget',

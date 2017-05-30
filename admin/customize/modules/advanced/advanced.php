@@ -20,9 +20,9 @@
 function whimsy_plus_advanced_init() {
 	
 	// Include advanced extensions
-	//include_once WHIMSY_PLUS_MODS . 'advanced/advanced.php';
 	include_once WHIMSY_PLUS_MODS . 'advanced/sharing.php';
 	include_once WHIMSY_PLUS_MODS . 'advanced/twitter-mentions.php';
+	
 	if( class_exists( 'Kirki' ) ) {
 		Kirki::add_config( 'whimsy_plus_advanced', array( //customize config name
 			'option_type' => 'theme_mod',

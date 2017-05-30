@@ -25,7 +25,7 @@ function whimsy_plus_header_init() {
 			'settings'    => 'whimsy_plus_header_desktop_logo_size',
 			'label'       => __( 'Desktop Logo Width', 'whimsy-plus' ),
 			'description' => __( 'Change the width of your logo on large screens.', 'whimsy-plus' ),
-			'section'     => 'title_tagline',
+			'section'     => 'whimsy_plus_header',
 			'default'     => '400px',
 			'priority'    => 11,
 			'output'      => array(
@@ -48,7 +48,7 @@ function whimsy_plus_header_init() {
 			'settings'    => 'whimsy_plus_header_mobile_logo_size',
 			'label'       => __( 'Mobile Logo Width', 'whimsy-plus' ),
 			'description' => __( 'Change the width of your logo on large screens.', 'whimsy-plus' ),
-			'section'     => 'title_tagline',
+			'section'     => 'whimsy_plus_header',
 			'default'     => '200px',
 			'priority'    => 25,
 			'output'      => array(
@@ -70,7 +70,7 @@ function whimsy_plus_header_init() {
 			'type'        => 'dimension',
 			'settings'    => 'header_as_bg_width',
 			'label'       => __( 'Header Width', 'whimsy-plus' ),
-			'help'        => __( 'Specify width of your header in %, px, or em.', 'whimsy-plus' ),
+			'help'        => __( 'Specify width of your header in %, px, vw, or em.', 'whimsy-plus' ),
 			'section'     => 'whimsy_plus_header',
 			'default'     => '100%',
 			'priority'    => 10,

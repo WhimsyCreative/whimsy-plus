@@ -24,7 +24,7 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => 'h1.entry-title',
 		),
 	),
-    'transport'    => 'auto',
+    'transport'    => 'refresh',
     'js_vars'      => array(
         array(
             'element'  => 'h1.entry-title',
@@ -54,7 +54,7 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => '.entry-category, entry-category a',
 		),
 	),
-    'transport'    => 'auto',
+    'transport'    => 'refresh',
     'js_vars'      => array(
         array(
 			'element' => '.entry-category, entry-category a',
@@ -84,7 +84,7 @@ Kirki::add_field( 'whimsy_plus', array(
 			'element' => '.entry-meta',
 		),
 	),
-    'transport'    => 'auto',
+    'transport'    => 'refresh',
     'js_vars'      => array(
         array(
             'element'  => '.entry-meta',
