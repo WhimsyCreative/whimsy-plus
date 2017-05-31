@@ -5,5 +5,5 @@ Whimsy+
 
 == Changelog ==
 
-= 1.0.0, April 23, 2017 =
+= 1.0.0, June 1, 2017 =
 * Initial release.

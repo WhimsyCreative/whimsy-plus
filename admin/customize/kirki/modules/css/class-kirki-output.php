@@ -116,7 +116,16 @@ class Kirki_Output {
 						$replacement = '';
 						switch ( $option_type ) {
 							case 'option':
-								$replacement = ( is_array( $options ) && isset( $options[ $replace ] ) ) ? $options[ $replace ] : get_option( $replace );
+								if ( is_array( $options ) ) {
+									if ( $option_name ) {
+										$subkey = str_replace( array( $option_name, '[', ']' ), '', $replace );
+										$replacement = ( isset( $options[ $subkey ] ) ) ? $options[ $subkey ] : '';
+										break;
+									}
+									$replacement = ( isset( $options[ $replace ] ) ) ? $options[ $replace ] : '';
+									break;
+								}
+								$replacement = get_option( $replace );
 								break;
 							case 'site_option':
 								$replacement = ( is_array( $options ) && isset( $options[ $replace ] ) ) ? $options[ $replace ] : get_site_option( $replace );
@@ -217,6 +226,19 @@ class Kirki_Output {
 		$output['units']       = ( isset( $output['units'] ) )       ? $output['units']       : '';
 		$output['suffix']      = ( isset( $output['suffix'] ) )      ? $output['suffix']      : '';
 
+		// Properties that can accept multiple values.
+		// Useful for example for gradients where all browsers use the "background-image" property
+		// and the browser prefixes go in the value_pattern arg.
+		$accepts_multiple = array(
+			'background-image',
+		);
+		if ( in_array( $output['property'], $accepts_multiple ) ) {
+			if ( isset( $this->styles[ $output['media_query'] ][ $output['element'] ][ $output['property'] ] ) && ! is_array( $this->styles[ $output['media_query'] ][ $output['element'] ][ $output['property'] ] ) ) {
+				$this->styles[ $output['media_query'] ][ $output['element'] ][ $output['property'] ] = (array) $this->styles[ $output['media_query'] ][ $output['element'] ][ $output['property'] ];
+			}
+			$this->styles[ $output['media_query'] ][ $output['element'] ][ $output['property'] ][] = $output['prefix'] . $value . $output['units'] . $output['suffix'];
+			return;
+		}
 		$this->styles[ $output['media_query'] ][ $output['element'] ][ $output['property'] ] = $output['prefix'] . $value . $output['units'] . $output['suffix'];
 	}
 

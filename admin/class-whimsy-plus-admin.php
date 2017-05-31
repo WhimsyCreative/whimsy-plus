@@ -132,9 +132,15 @@ class WhimsyPlusAdmin {
 	 * @return void
 	 */
 	static function admin_scripts( ) {
-        wp_enqueue_script( 'whimsy_admin_js', WHIMSY_PLUS_JS . 'admin.js', array( 'jquery' ), '1.0' );
+        wp_enqueue_script( 'whimsy-plus-admin', WHIMSY_PLUS_JS . 'admin.js', array( 'jquery' ), WHIMSY_PLUS_VERSION );
+		wp_enqueue_style( 'whimsy-plus-admin', WHIMSY_PLUS_CSS . 'admin.css', WHIMSY_PLUS_VERSION );
 	}
 
+
+	static public function customizer_enqueue() {
+		// Enqueue custom stylesheet
+		wp_enqueue_style( 'whimsy-plus-customizer-style', WHIMSY_PLUS_CSS . 'admin.css', WHIMSY_PLUS_VERSION );
+	}
 	/**
 	 * Welcome message
 	 *
@@ -251,14 +257,12 @@ class WhimsyPlusAdmin {
 					$this->tabs();				
 				}
 
-				if ( true == TGM_Plugin_Activation::get_instance()->is_tgmpa_complete() ) {
-						TGM_Plugin_Activation::get_instance()->install_plugins_page();
-				}
 				?>	
 		</div>
-		<?php
+		<?php if ( true == TGM_Plugin_Activation::get_instance()->is_tgmpa_complete() ) {
+			TGM_Plugin_Activation::get_instance()->install_plugins_page();
+		}
 	}
-
 	/**
 	 * Render Changelog Screen
 	 *
@@ -281,7 +285,7 @@ class WhimsyPlusAdmin {
 					<?php echo $this->parse_readme(); ?>
 				</div>
 			</div>
-            
+			
 		</div>
 		<?php
 	}
@@ -293,7 +297,7 @@ class WhimsyPlusAdmin {
 	 * @return string $readme HTML formatted readme file
 	 */
 	public function parse_readme() {         
-        
+		
 		$file = file_exists( WHIMSY_PLUS_PATH . 'readme.txt' ) ? WHIMSY_PLUS_PATH . 'readme.txt' : null;
 
 		if ( ! $file ) {
@@ -312,8 +316,8 @@ class WhimsyPlusAdmin {
 		}
 
 		return $readme;
-        
-    }    
+		
+	}    
 
 	/**
 	 * Sends user to the Welcome page on first activation of Whimsy Framework as well as each
@@ -343,14 +347,6 @@ class WhimsyPlusAdmin {
 			wp_safe_redirect( admin_url( 'themes.php?page=whimsy-plus' ) ); exit;
 		}
 	}
-
-	public function customizer_enqueue() {
-		
-            // Enqueue custom stylesheet
-            wp_enqueue_style( 'whimsy-plus-customizer-style', WHIMSY_PLUS_CSS . 'admin.css', WHIMSY_PLUS_VERSION );
-
-	}
-
 }
 
 global $WhimsyPlusAdmin;

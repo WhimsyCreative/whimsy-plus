@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Whimsy+ | Fonts
- * Version: 0.0.1
+ * Version: 0.0.2
  * Plugin URI: http://www.whimsycreative.co/framework/plus
  * Description: A plugin packed with awesome features for Whimsy Framework.
  * Author: Whimsy Creative Co.

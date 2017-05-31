@@ -38,6 +38,9 @@
             
 			/* Enqueue necessary scripts and CSS files for the skins . */
             add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ), 200 );
+
+			// for developers
+			//add_action( 'init', array( $this, 'devmode' ), 1 ); // Deactivate add-on plugins in WordPress before using dev mode.
             
         }
    
@@ -60,31 +63,11 @@
         function includes() {
 			
     		require_once WHIMSY_PLUS_CUSTOMIZE . 'kirki/kirki.php';
+
             // Include Whimsy Customizer extensions
             require_once WHIMSY_PLUS_CUSTOMIZE . 'config.php';
             require_once WHIMSY_PLUS_CUSTOMIZE . 'panels.php';
             require_once WHIMSY_PLUS_CUSTOMIZE . 'sections.php';
-
-            // Include Whimsy Customizer modules
-            require_once WHIMSY_PLUS_MODS . 'fonts/fonts.php';
-            //require_once WHIMSY_PLUS_MODS . 'colors/colors.php';
-            require_once WHIMSY_PLUS_MODS . 'layout/layout.php';
-            require_once WHIMSY_PLUS_MODS . 'header/header.php';
-            require_once WHIMSY_PLUS_MODS . 'menu/menu.php';
-            require_once WHIMSY_PLUS_MODS . 'posts/posts.php';
-            require_once WHIMSY_PLUS_MODS . 'sidebar/sidebar.php';
-            require_once WHIMSY_PLUS_MODS . 'footer/footer.php';
-            //require_once WHIMSY_PLUS_MODS . 'mosaic/mosaic.php';
-            //require_once WHIMSY_PLUS_MODS . 'forms/forms.php';
-
-            // Include Whimsy Framework modifications
-            include_once WHIMSY_PLUS_INC . 'whimsy-header.php';
-            include_once WHIMSY_PLUS_INC . 'whimsy-footer.php';
-
-            // Include advanced extensions
-            require_once WHIMSY_PLUS_MODS . 'advanced/advanced.php';
-            include_once WHIMSY_PLUS_MODS . 'advanced/sharing.php';
-            include_once WHIMSY_PLUS_MODS . 'advanced/twitter-mentions.php';
 
             // Remove Whimsy Framework actions
             remove_action( 'init', 'whimsy_customize_style_output', 5 );
@@ -124,14 +107,35 @@
          * Include additional styles when in admin.
          */
         function enqueue() {
-
-            // Enqueue live preview js.
-            //wp_enqueue_script( 'whimsy-plus', WHIMSY_PLUS_JS . 'whimsy-plus.js', array( 'customize-preview' ), WHIMSY_PLUS_VERSION , true );
-            
-            // Enqueue custom stylesheet
+			
             wp_enqueue_style( 'whimsy-plus', WHIMSY_PLUS_CSS . 'whimsy-plus.css', array('whimsy-style'), WHIMSY_PLUS_VERSION );
-            
 
         }
+		
+        /**
+         * Include additional styles when in admin.
+         */
+        function devmode() {
+            // Include Whimsy Customizer modules
+            require_once WHIMSY_PLUS_MODS . 'fonts/fonts.php';
+            require_once WHIMSY_PLUS_MODS . 'colors/colors.php';
+            require_once WHIMSY_PLUS_MODS . 'layout/layout.php';
+            require_once WHIMSY_PLUS_MODS . 'header/header.php';
+            require_once WHIMSY_PLUS_MODS . 'menu/menu.php';
+            require_once WHIMSY_PLUS_MODS . 'posts/posts.php';
+            require_once WHIMSY_PLUS_MODS . 'sidebar/sidebar.php';
+            require_once WHIMSY_PLUS_MODS . 'footer/footer.php';
+            //require_once WHIMSY_PLUS_MODS . 'mosaic/mosaic.php';
+            //require_once WHIMSY_PLUS_MODS . 'forms/forms.php';
+
+            // Include Whimsy Framework modifications
+            include_once WHIMSY_PLUS_INC . 'whimsy-header.php';
+            include_once WHIMSY_PLUS_INC . 'whimsy-footer.php';
+
+            // Include advanced extensions
+            require_once WHIMSY_PLUS_MODS . 'advanced/advanced.php';
+            include_once WHIMSY_PLUS_MODS . 'advanced/sharing.php';
+            include_once WHIMSY_PLUS_MODS . 'advanced/twitter-mentions.php';
+		}
     }
 }

@@ -45,17 +45,6 @@ class WhimsyPlusInit
 		*/
 		$plugins = array(
 			array(
-				'name'               => 'Layout', // The plugin name.
-				'slug'               => 'whimsy-plus-layout', // The plugin slug (typically the folder name).
-				'source'             => WHIMSY_PLUS_MODS . 'layout.zip', // The plugin source.
-				'required'           => false, // If false, the plugin is only 'recommended' instead of required.
-				'version'            => '0.0.1', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
-				'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-				'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-				'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-				'is_callable'        => 'WhimsyPlus', // If set, this callable will be be checked for availability to determine if a plugin is active.
-			),
-			array(
 				'name'               => 'Colors', // The plugin name.
 				'slug'               => 'whimsy-plus-colors', // The plugin slug (typically the folder name).
 				'source'             => WHIMSY_PLUS_MODS . 'colors.zip', // The plugin source.
@@ -78,6 +67,39 @@ class WhimsyPlusInit
 				'is_callable'        => 'WhimsyPlus', // If set, this callable will be be checked for availability to determine if a plugin is active.
 			),
 			array(
+				'name'               => 'Layout', // The plugin name.
+				'slug'               => 'whimsy-plus-layout', // The plugin slug (typically the folder name).
+				'source'             => WHIMSY_PLUS_MODS . 'layout.zip', // The plugin source.
+				'required'           => false, // If false, the plugin is only 'recommended' instead of required.
+				'version'            => '0.0.1', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+				'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+				'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+				'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+				'is_callable'        => 'WhimsyPlus', // If set, this callable will be be checked for availability to determine if a plugin is active.
+			),
+			array(
+				'name'               => 'Header', // The plugin name.
+				'slug'               => 'whimsy-plus-header', // The plugin slug (typically the folder name).
+				'source'             => WHIMSY_PLUS_MODS . 'header.zip', // The plugin source.
+				'required'           => false, // If false, the plugin is only 'recommended' instead of required.
+				'version'            => '0.0.1', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+				'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+				'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+				'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+				'is_callable'        => 'WhimsyPlus', // If set, this callable will be be checked for availability to determine if a plugin is active.
+			),
+			array(
+				'name'               => 'Menu', // The plugin name.
+				'slug'               => 'whimsy-plus-menu', // The plugin slug (typically the folder name).
+				'source'             => WHIMSY_PLUS_MODS . 'menu.zip', // The plugin source.
+				'required'           => false, // If false, the plugin is only 'recommended' instead of required.
+				'version'            => '0.0.1', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+				'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+				'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+				'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+				'is_callable'        => 'WhimsyPlus', // If set, this callable will be be checked for availability to determine if a plugin is active.
+			),
+			array(
 				'name'               => 'Posts & Pages', // The plugin name.
 				'slug'               => 'whimsy-plus-content', // The plugin slug (typically the folder name).
 				'source'             => WHIMSY_PLUS_MODS . 'content.zip', // The plugin source.
@@ -88,6 +110,74 @@ class WhimsyPlusInit
 				'external_url'       => '', // If set, overrides default API URL and points to an external URL.
 				'is_callable'        => 'WhimsyPlus', // If set, this callable will be be checked for availability to determine if a plugin is active.
 			),
+			array(
+				'name'               => 'Sidebar', // The plugin name.
+				'slug'               => 'whimsy-plus-sidebar', // The plugin slug (typically the folder name).
+				'source'             => WHIMSY_PLUS_MODS . 'sidebar.zip', // The plugin source.
+				'required'           => false, // If false, the plugin is only 'recommended' instead of required.
+				'version'            => '0.0.1', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+				'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+				'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+				'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+				'is_callable'        => 'WhimsyPlus', // If set, this callable will be be checked for availability to determine if a plugin is active.
+			),
+			array(
+				'name'               => 'Footer', // The plugin name.
+				'slug'               => 'whimsy-plus-footer', // The plugin slug (typically the folder name).
+				'source'             => WHIMSY_PLUS_MODS . 'footer.zip', // The plugin source.
+				'required'           => false, // If false, the plugin is only 'recommended' instead of required.
+				'version'            => '0.0.1', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+				'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+				'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+				'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+				'is_callable'        => 'WhimsyPlus', // If set, this callable will be be checked for availability to determine if a plugin is active.
+			),
+			array(
+				'name'               => 'Mosaic', // The plugin name.
+				'slug'               => 'whimsy-plus-mosaic', // The plugin slug (typically the folder name).
+				'source'             => WHIMSY_PLUS_MODS . 'mosaic.zip', // The plugin source.
+				'required'           => false, // If false, the plugin is only 'recommended' instead of required.
+				'version'            => '0.0.1', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+				'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+				'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+				'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+				'is_callable'        => 'WhimsyPlus', // If set, this callable will be be checked for availability to determine if a plugin is active.
+			),
+			
+			// Coming Soon
+			// array(
+			// 	'name'               => 'Forms', // The plugin name.
+			// 	'slug'               => 'whimsy-plus-forms', // The plugin slug (typically the folder name).
+			// 	'source'             => WHIMSY_PLUS_MODS . 'forms.zip', // The plugin source.
+			// 	'required'           => false, // If false, the plugin is only 'recommended' instead of required.
+			// 	'version'            => '0.0.1', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+			// 	'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+			// 	'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+			// 	'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+			// 	'is_callable'        => 'WhimsyPlus', // If set, this callable will be be checked for availability to determine if a plugin is active.
+			// ),
+			// array(
+			// 	'name'               => 'Elementor', // The plugin name.
+			// 	'slug'               => 'whimsy-plus-elementor', // The plugin slug (typically the folder name).
+			// 	'source'             => WHIMSY_PLUS_MODS . 'elementor.zip', // The plugin source.
+			// 	'required'           => false, // If false, the plugin is only 'recommended' instead of required.
+			// 	'version'            => '0.0.1', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+			// 	'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+			// 	'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+			// 	'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+			// 	'is_callable'        => 'WhimsyPlus', // If set, this callable will be be checked for availability to determine if a plugin is active.
+			// ),
+			// array(
+			// 	'name'               => 'WooCommerce', // The plugin name.
+			// 	'slug'               => 'whimsy-plus-woocommerce', // The plugin slug (typically the folder name).
+			// 	'source'             => WHIMSY_PLUS_MODS . 'woocommerce.zip', // The plugin source.
+			// 	'required'           => false, // If false, the plugin is only 'recommended' instead of required.
+			// 	'version'            => '0.0.1', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+			// 	'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+			// 	'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+			// 	'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+			// 	'is_callable'        => 'WhimsyPlus', // If set, this callable will be be checked for availability to determine if a plugin is active.
+			// ),
 
 		);
 

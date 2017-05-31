@@ -2631,11 +2631,6 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 				'cb'     => '<input type="checkbox" />',
 				'plugin' => __( 'Plugin', 'tgmpa' ),
 			);
-
-			if ( 'all' === $this->view_context || 'update' === $this->view_context ) {
-				$columns['status']  = __( 'Status', 'tgmpa' );
-			}
-
 			return apply_filters( 'tgmpa_table_columns', $columns );
 		}
 
