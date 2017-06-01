@@ -79,7 +79,7 @@ function whimsy_plus_colors_init() {
 					'property' => 'background'
 				),
 				array(
-					'element'  => 'a.btn-shortcode:hover, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover',
+					'element'  => 'a.btn-shortcode:hover, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover',
 					'property' => 'border-color'
 				),
 			),
@@ -88,6 +88,11 @@ function whimsy_plus_colors_init() {
 				array(
 					'element'  => '::selection,.collapse-button:hover, .collapse-button:focus',
 					'property' => 'background',
+					'function' => 'style',
+				),
+				array(
+					'element'  => 'a.btn-shortcode:hover, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover',
+					'property' => 'border-color',
 					'function' => 'style',
 				),
 			)
@@ -104,15 +109,14 @@ function whimsy_plus_colors_init() {
 			),
 			'output'      => array(
 				array(
-					'element'  => 'a:hover, a:focus, a:active, .collapse-button, #site-navigation ul.sub-menu a:hover, ul.whimsy-nav li a, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover,.entry-posted-on a:hover,.entry-posted-on a:focus,.entry-posted-on a:active',
+					'element'  => 'a:hover, a:focus, a:active, .collapse-button, #site-navigation ul.sub-menu a:hover, ul.whimsy-nav li a, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover, .entry-posted-on a:hover, .entry-posted-on a:focus, .entry-posted-on a:active',
 					'property' => 'color'
 				),
 			),
 			'transport'    => 'postMessage',
 			'js_vars'      => array(
 				array(
-					'element'  => 'a:hover, a:focus, a:active, .collapse-button, #site-navigation ul.sub-menu a:hover, ul.whimsy-nav li a, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover,
-		.entry-posted-on a:hover,.entry-posted-on a:focus,.entry-posted-on a:active',
+					'element'  => 'a:hover, a:focus, a:active, .collapse-button, #site-navigation ul.sub-menu a:hover, ul.whimsy-nav li a, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover, .entry-posted-on a:hover, .entry-posted-on a:focus, .entry-posted-on a:active',
 					'property' => 'color',
 					'function' => 'style',
 				),

@@ -183,7 +183,7 @@ function whimsy_plus_header_init() {
 			'output'      => array(
 				array(
 					'element'  => '#header-container',
-					'property' => 'background-image'
+					'property' => 'background-image',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -208,7 +208,7 @@ function whimsy_plus_header_init() {
 				'normal'    => __( 'Normal', 'whimsy-plus' ),
 				'contain'   => __( 'Contain', 'whimsy-plus' ),
 				'cover'     => __( 'Cover', 'whimsy-plus' ),
-				'100%'    => __( '100%', 'whimsy_plus' )
+				'100%'    => __( '100%', 'whimsy_plus' ),
 			),
 			'active_callback'    => array(
 				array(
@@ -220,7 +220,7 @@ function whimsy_plus_header_init() {
 			'output'      => array(
 				array(
 					'element'  => '#header-container',
-					'property' => 'background-size'
+					'property' => 'background-size',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -262,7 +262,7 @@ function whimsy_plus_header_init() {
 			'output'      => array(
 				array(
 					'element'  => '#header-container',
-					'property' => 'background-position'
+					'property' => 'background-position',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -298,7 +298,7 @@ function whimsy_plus_header_init() {
 			'output'      => array(
 				array(
 					'element'  => '#header-container',
-					'property' => 'background-attachment'
+					'property' => 'background-attachment',
 				),
 			),
 			'transport'    => 'postMessage',

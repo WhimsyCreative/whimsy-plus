@@ -268,4 +268,4 @@ function whimsy_plus_content_init() {
 		) );
 	}
 }
-add_action( 'init', 'whimsy_content_forms_init', 50 );
+add_action( 'init', 'whimsy_plus_content_init', 50 );

@@ -40,7 +40,7 @@
             add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ), 200 );
 
 			// for developers
-			//add_action( 'init', array( $this, 'devmode' ), 1 ); // Deactivate add-on plugins in WordPress before using dev mode.
+			add_action( 'init', array( $this, 'devmode' ), 10 ); // Deactivate add-on plugins in WordPress before using dev mode.
             
         }
    
@@ -74,7 +74,6 @@
             
 			// Include admin functions
             if ( is_admin() ) {
-                include_once WHIMSY_PLUS_ADMIN . 'class-whimsy-plus-table.php';
                 include_once WHIMSY_PLUS_ADMIN . 'class-whimsy-plus-admin.php';
             } 
             
@@ -122,11 +121,11 @@
             require_once WHIMSY_PLUS_MODS . 'layout/layout.php';
             require_once WHIMSY_PLUS_MODS . 'header/header.php';
             require_once WHIMSY_PLUS_MODS . 'menu/menu.php';
-            require_once WHIMSY_PLUS_MODS . 'posts/posts.php';
+            require_once WHIMSY_PLUS_MODS . 'content/content.php';
             require_once WHIMSY_PLUS_MODS . 'sidebar/sidebar.php';
             require_once WHIMSY_PLUS_MODS . 'footer/footer.php';
-            //require_once WHIMSY_PLUS_MODS . 'mosaic/mosaic.php';
-            //require_once WHIMSY_PLUS_MODS . 'forms/forms.php';
+            // require_once WHIMSY_PLUS_MODS . 'mosaic/mosaic.php';
+            // require_once WHIMSY_PLUS_MODS . 'forms/forms.php';
 
             // Include Whimsy Framework modifications
             include_once WHIMSY_PLUS_INC . 'whimsy-header.php';

@@ -118,7 +118,7 @@
 					'output'      => array(
 						array(
 							'element'  => '#social-sharing a, #social-sharing a:visited',
-							'property' => 'color'
+							'property' => 'color',
 						),
 					),
 					'transport'    => 'postMessage',
@@ -150,7 +150,7 @@
 					'output'      => array(
 						array(
 							'element'  => '#social-sharing a:hover',
-							'property' => 'color'
+							'property' => 'color',
 						),
 					),
 					'transport'    => 'postMessage',
@@ -181,14 +181,14 @@
 					),
 					'output'      => array(
 						array(
-							'element'  => '#social-sharing a:active,#social-sharing a:focus',
+							'element'  => '#social-sharing a:active, #social-sharing a:focus',
 							'property' => 'color'
 						),
 					),
 					'transport'    => 'postMessage',
 					'js_vars'      => array(
 						array(
-							'element'  => '#social-sharing a:active,#social-sharing a:focus',
+							'element'  => '#social-sharing a:active, #social-sharing a:focus',
 							'property' => 'color',
 							'function' => 'style',
 						),

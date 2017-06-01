@@ -19,6 +19,15 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Adds styles to the customizer.
  */
 class Kirki_Modules_PostMessage {
+	/**
+	 * The object instance.
+	 *
+	 * @static
+	 * @access private
+	 * @since 3.0.0
+	 * @var object
+	 */
+	private static $instance;
 
 	/**
 	 * The script.
@@ -32,11 +41,27 @@ class Kirki_Modules_PostMessage {
 	/**
 	 * Constructor.
 	 *
-	 * @access public
+	 * @access protected
 	 * @since 3.0.0
 	 */
-	public function __construct() {
+	protected function __construct() {
 		add_action( 'customize_preview_init', array( $this, 'postmessage' ) );
+	}
+
+	/**
+	 * Gets an instance of this object.
+	 * Prevents duplicate instances which avoid artefacts and improves performance.
+	 *
+	 * @static
+	 * @access public
+	 * @since 3.0.0
+	 * @return object
+	 */
+	public static function get_instance() {
+		if ( ! self::$instance ) {
+			self::$instance = new self();
+		}
+		return self::$instance;
 	}
 
 	/**
@@ -101,6 +126,7 @@ class Kirki_Modules_PostMessage {
 		}
 		$text = ( 'css' === $combo_css_script ) ? 'css' : '\'' . $combo_css_script . '\'';
 		$script .= $combo_extra_script . 'jQuery(\'#' . $style_id . '\').text(' . $text . ');';
+		$script .= 'jQuery(\'#' . $style_id . '\').appendTo(\'head\');';
 		$script .= '});});';
 		return $script;
 	}
@@ -177,12 +203,11 @@ class Kirki_Modules_PostMessage {
 	 */
 	protected function script_var_array( $args ) {
 
-		$script = 'css=\'\';';
+		$script = ( 0 === $args['index_key'] ) ? 'css=\'\';' : '';
 		$property_script = '';
 
 		// Define choice.
 		$choice  = ( isset( $args['choice'] ) && '' !== $args['choice'] ) ? $args['choice'] : '';
-		$script .= ( '' !== $choice ) ? 'choice=\'' . $choice . '\';' : '';
 
 		$value_key = 'newval' . $args['index_key'];
 		$property_script .= $value_key . '=newval;';
@@ -219,7 +244,6 @@ class Kirki_Modules_PostMessage {
 		// Allows us to apply this just for a specific choice in the array of the values.
 		if ( '' !== $choice ) {
 			$choice_is_direction = ( false !== strpos( $choice, 'top' ) || false !== strpos( $choice, 'bottom' ) || false !== strpos( $choice, 'left' ) || false !== strpos( $choice, 'right' ) );
-			$script .= 'choice=\'' . $choice . '\';';
 			$script .= 'if(\'' . $choice . '\'===subKey){';
 			$script .= ( $choice_is_direction ) ? $direction_script . 'else{' : '';
 			$script .= 'css+=\'' . $args['element'] . '{' . $args['property'] . ':\'+subValue+\';}\';';
@@ -280,7 +304,12 @@ class Kirki_Modules_PostMessage {
 				continue;
 			}
 			$script .= ( $choice_condition && 'font-family' === $args['choice'] ) ? $webfont_loader : '';
-			$css .= 'css+=(\'\'!==' . $var . ')?\'' . $args['element'] . '\'+\'{' . $property . ':\'+' . $var . '+\'}\':\'\';';
+
+			if ( ! isset( $args['choice'] ) || 'font-family' === $args['choice'] ) {
+				$css .= 'fontFamilyCSS=fontFamily;if(0<fontFamily.indexOf(\' \')&&-1===fontFamily.indexOf(\'"\')){fontFamilyCSS=\'"\'+fontFamily+\'"\';}';
+				$var = 'fontFamilyCSS';
+			}
+			$css .= 'css+=(\'\'!==' . $var . ')?\'' . $args['element'] . '\'+\'{' . $property . ':\'+' . $var . '+\';}\':\'\';';
 		}
 
 		$script .= $css;

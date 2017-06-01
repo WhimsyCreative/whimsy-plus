@@ -38,10 +38,10 @@
 			$whimsyplusfonts = new stdClass;
 
 			/* Define framework, parent theme, and child theme constants. */
-			add_action( 'init', array( $this, 'constants' ), 60 );
+			add_action( 'init', array( $this, 'constants' ), 20 );
 
 			/* Load the core functions/classes required by the rest of the framework. */
-			add_action( 'init', array( $this, 'includes' ), 60 );
+			add_action( 'init', array( $this, 'includes' ), 20 );
             
         }
    

@@ -107,7 +107,7 @@ class WhimsyPlusOptions
     function options_update()
     {
                     
-        if (isset($_POST['slt_licence_form_submit'])) {
+        if (isset($_POST['whimsy_plus_form_submit'])) {
             $this->licence_form_submit();
             return;
         }
@@ -171,7 +171,7 @@ class WhimsyPlusOptions
         global $slt_form_submit_messages;
                     
         //check for de-activation
-        if (isset($_POST['slt_licence_form_submit']) && isset($_POST['slt_licence_deactivate']) && wp_verify_nonce($_POST['whimsy_plus_license_nonce'], 'whimsy_plus_license')) {
+        if (isset($_POST['whimsy_plus_form_submit']) && isset($_POST['whimsy_plus_deactivate']) && wp_verify_nonce($_POST['whimsy_plus_license_nonce'], 'whimsy_plus_license')) {
             global $slt_form_submit_messages;
                             
             $license_data = get_site_option('whimsy_plus_license');
@@ -239,7 +239,7 @@ class WhimsyPlusOptions
                     
                     
                     
-        if (isset($_POST['slt_licence_form_submit']) && wp_verify_nonce($_POST['whimsy_plus_license_nonce'], 'whimsy_plus_license')) {
+        if (isset($_POST['whimsy_plus_form_submit']) && wp_verify_nonce($_POST['whimsy_plus_license_nonce'], 'whimsy_plus_license')) {
             $license_key = isset($_POST['license_key'])? sanitize_key(trim($_POST['license_key'])) : '';
 
             if ($license_key == '') {
@@ -304,7 +304,7 @@ class WhimsyPlusOptions
                 <form id="form_data" name="form" method="post">
                     <div class="postbox">                                    
                             <?php wp_nonce_field('whimsy_plus_license', 'whimsy_plus_license_nonce'); ?>
-                            <input type="hidden" name="slt_licence_form_submit" value="true" />
+                            <input type="hidden" name="whimsy_plus_form_submit" value="true" />
 
                              <div class="section section-text ">
                                 <h4 class="heading"><?php _e( "License Key", 'whimsy-plus' ) ?></h4>
@@ -341,8 +341,8 @@ class WhimsyPlusOptions
             <div id="form_data" class="wrap">
                 <form id="form_data" name="form" method="post">    
                     <?php wp_nonce_field('whimsy_plus_license', 'whimsy_plus_license_nonce'); ?>
-                    <input type="hidden" name="slt_licence_form_submit" value="true" />
-                    <input type="hidden" name="slt_licence_deactivate" value="true" />
+                    <input type="hidden" name="whimsy_plus_form_submit" value="true" />
+                    <input type="hidden" name="whimsy_plus_deactivate" value="true" />
 
                      <div class="section section-text ">
                         <div class="option">
