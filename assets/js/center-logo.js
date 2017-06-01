@@ -1,0 +1,1 @@
+jQuery('#desktop-site-logo').addClass("center-logo");

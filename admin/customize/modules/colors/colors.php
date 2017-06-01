@@ -1,13 +1,13 @@
 <?php
 /*
  * Plugin Name: Whimsy+ | Colors
- * Version: 0.0.1
+ * Version: 0.0.2
  * Plugin URI: http://www.whimsycreative.co/framework/plus
  * Description: A plugin packed with awesome features for Whimsy Framework.
  * Author: Whimsy Creative Co.
  * Author URI: http://www.whimsycreative.co
  * Requires at least: 4.0
- * Tested up to: 4.7.4
+ * Tested up to: 4.8
  *
  * Text Domain: whimsy-plus
  * Domain Path: /language/
@@ -76,11 +76,11 @@ function whimsy_plus_colors_init() {
 			'output'      => array(
 				array(
 					'element'  => '::selection,.collapse-button:hover, .collapse-button:focus',
-					'property' => 'background'
+					'property' => 'background',
 				),
 				array(
 					'element'  => 'a.btn-shortcode:hover, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover',
-					'property' => 'border-color'
+					'property' => 'border-color',
 				),
 			),
 			'transport'    => 'refresh',
@@ -110,7 +110,7 @@ function whimsy_plus_colors_init() {
 			'output'      => array(
 				array(
 					'element'  => 'a:hover, a:focus, a:active, .collapse-button, #site-navigation ul.sub-menu a:hover, ul.whimsy-nav li a, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover, .entry-posted-on a:hover, .entry-posted-on a:focus, .entry-posted-on a:active',
-					'property' => 'color'
+					'property' => 'color',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -135,7 +135,7 @@ function whimsy_plus_colors_init() {
 			'output'      => array(
 				array(
 					'element'  => 'a:active,a:focus',
-					'property' => 'color'
+					'property' => 'color',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -160,7 +160,7 @@ function whimsy_plus_colors_init() {
 			'output'      => array(
 				array(
 					'element'  => 'body',
-					'property' => 'background-color'
+					'property' => 'background-color',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -191,7 +191,7 @@ function whimsy_plus_colors_init() {
 			'output'      => array(
 				array(
 					'element'  => '#header-container',
-					'property' => 'background-color'
+					'property' => 'background-color',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -222,7 +222,7 @@ function whimsy_plus_colors_init() {
 			'output'      => array(
 				array(
 					'element'  => '#content-container',
-					'property' => 'background-color'
+					'property' => 'background-color',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -253,7 +253,7 @@ function whimsy_plus_colors_init() {
 			'output'      => array(
 				array(
 					'element'  => '#secondary',
-					'property' => 'background-color'
+					'property' => 'background-color',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -279,7 +279,7 @@ function whimsy_plus_colors_init() {
 			'output'      => array(
 				array(
 					'element'  => '.widget a, .widget a:visited',
-					'property' => 'color'
+					'property' => 'color',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -304,7 +304,7 @@ function whimsy_plus_colors_init() {
 			'output'      => array(
 				array(
 					'element'  => '.widget a:hover',
-					'property' => 'color'
+					'property' => 'color',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -329,7 +329,7 @@ function whimsy_plus_colors_init() {
 			'output'      => array(
 				array(
 					'element'  => '.widget a:active,.widget a:focus',
-					'property' => 'color'
+					'property' => 'color',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -360,7 +360,7 @@ function whimsy_plus_colors_init() {
 			'output'      => array(
 				array(
 					'element'  => '#footer-container',
-					'property' => 'background-color'
+					'property' => 'background-color',
 				),
 			),
 			'transport'    => 'postMessage',

@@ -16,7 +16,7 @@ Kirki::add_field( 'whimsy_plus', array(
 		'subsets'        => array( 'latin-ext' ),
 		'color'          => '#333333',
 		'text-transform' => 'none',
-		'text-align'     => 'center'
+		'text-align'     => 'center',
 	),
 	'priority'    => 10,
 	'output'      => array(
@@ -46,7 +46,7 @@ Kirki::add_field( 'whimsy_plus', array(
 		'subsets'        => array( 'latin-ext' ),
 		'color'          => '#52b0c1',
 		'text-transform' => 'uppercase',
-		'text-align'     => 'center'
+		'text-align'     => 'center',
 	),
 	'priority'    => 10,
 	'output'      => array(
@@ -76,7 +76,7 @@ Kirki::add_field( 'whimsy_plus', array(
 		'subsets'        => array( 'latin-ext' ),
 		'color'          => '#333333',
 		'text-transform' => 'none',
-		'text-align'     => 'center'
+		'text-align'     => 'center',
 	),
 	'priority'    => 10,
 	'output'      => array(

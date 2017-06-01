@@ -11,7 +11,7 @@ Kirki::add_field( 'whimsy_plus', array(
         array(
         'setting'  => 'whimsy_plus_add_social_sharing_icons',
         'operator' => '==',
-        'value'    => true
+        'value'    => true,
         ),
     ),
 	'default'     => array(
@@ -23,7 +23,7 @@ Kirki::add_field( 'whimsy_plus', array(
 		'subsets'        => array( 'latin-ext' ),
 		'color'          => '#333333',
 		'text-transform' => 'uppercase',
-		'text-align'     => 'center'
+		'text-align'     => 'center',
 	),
 	'priority'    => 10,
 	'output'      => array(

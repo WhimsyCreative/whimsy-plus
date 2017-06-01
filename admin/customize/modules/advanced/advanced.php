@@ -7,7 +7,7 @@
  * Author: Whimsy Creative Co.
  * Author URI: http://www.whimsycreative.co
  * Requires at least: 4.0
- * Tested up to: 4.7.4
+ * Tested up to: 4.8
  *
  * Text Domain: whimsy-plus
  * Domain Path: /language/
@@ -112,7 +112,7 @@
 						array(
 						'setting'  => 'whimsy_plus_add_social_sharing_icons',
 						'operator' => '==',
-						'value'    => true
+						'value'    => true,
 						),
 					),
 					'output'      => array(
@@ -144,7 +144,7 @@
 						array(
 						'setting'  => 'whimsy_plus_add_social_sharing_icons',
 						'operator' => '==',
-						'value'    => true
+						'value'    => true,
 						),
 					),
 					'output'      => array(
@@ -176,13 +176,13 @@
 						array(
 						'setting'  => 'whimsy_plus_add_social_sharing_icons',
 						'operator' => '==',
-						'value'    => true
+						'value'    => true,
 						),
 					),
 					'output'      => array(
 						array(
 							'element'  => '#social-sharing a:active, #social-sharing a:focus',
-							'property' => 'color'
+							'property' => 'color',
 						),
 					),
 					'transport'    => 'postMessage',

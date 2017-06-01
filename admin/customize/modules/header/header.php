@@ -7,7 +7,7 @@
  * Author: Whimsy Creative Co.
  * Author URI: http://www.whimsycreative.co
  * Requires at least: 4.0
- * Tested up to: 4.7.4
+ * Tested up to: 4.8
  *
  * Text Domain: whimsy-plus
  * Domain Path: /language/
@@ -125,7 +125,7 @@ function whimsy_plus_header_init() {
 			'type'        => 'toggle',
 			'settings'    => 'whimsy_plus_header_desktop_logo_center',
 			'label'       => __( 'Center desktop logo?', 'whimsy-plus' ),
-			'section'     => 'title_tagline',
+			'section'     => 'whimsy_plus_header',
 			'default'     => true,
 			'priority'    => 11,
 		) );
@@ -167,150 +167,34 @@ function whimsy_plus_header_init() {
 			'priority'    => 30,
 		) );
 		Kirki::add_field( 'whimsy_plus', array(
-			'type'        => 'image',
+			'type'        => 'background',
 			'settings'    => 'header_background_image',
 			'label'       => __( 'Header Background Image', 'whimsy-plus' ),
 			'section'     => 'whimsy_plus_header',
-			'default'     => '',
 			'priority'    => 30,
 			'active_callback'    => array(
 				array(
 					'setting'  => 'header_as_bg',
 					'operator' => '==',
-					'value'    => 1,
+					'value'    => true,
 				),
+			),
+			'default'     => array(
+				'background-color'    => '#ffffff',
+				'background-image'    => '',
+				'background-repeat'   => 'no-repeat',
+				'background-size'     => 'cover',
+				'background-attach'   => 'fixed',
+				'background-position' => 'left-top',
+				'background-opacity'  => 90,
 			),
 			'output'      => array(
 				array(
 					'element'  => '#header-container',
-					'property' => 'background-image',
 				),
 			),
 			'transport'    => 'postMessage',
-			'js_vars'      => array(
-				array(
-					'element'  => '#header-container',
-					'property' => 'background-image',
-					'function' => 'css',
-				),
-			)
-		) );
-
-		Kirki::add_field( 'whimsy_plus', array(
-			'type'        => 'radio-buttonset',
-			'settings'    => 'header_as_bg_size',
-			'label'       => __( 'Background-Size', 'whimsy-plus' ),
-			'description' => __( 'This controls how the background is sized.', 'whimsy-plus' ),
-			'section'     => 'whimsy_plus_header',
-			'default'     => 'cover',
-			'priority'    => 30,
-			'choices'     => array(
-				'normal'    => __( 'Normal', 'whimsy-plus' ),
-				'contain'   => __( 'Contain', 'whimsy-plus' ),
-				'cover'     => __( 'Cover', 'whimsy-plus' ),
-				'100%'    => __( '100%', 'whimsy_plus' ),
-			),
-			'active_callback'    => array(
-				array(
-					'setting'  => 'header_as_bg',
-					'operator' => '==',
-					'value'    => 1,
-				),
-			),
-			'output'      => array(
-				array(
-					'element'  => '#header-container',
-					'property' => 'background-size',
-				),
-			),
-			'transport'    => 'postMessage',
-			'js_vars'      => array(
-				array(
-					'element'  => '#header-container',
-					'property' => 'background-size',
-					'function' => 'css',
-				),
-			)
-		) );
-
-		Kirki::add_field( 'whimsy_plus', array(
-			'type'        => 'radio-buttonset',
-			'settings'    => 'header_as_bg_position',
-			'label'       => __( 'Background-Position', 'whimsy-plus' ),
-			'description' => __( 'This controls where the background is positioned.', 'whimsy-plus' ),
-			'section'     => 'whimsy_plus_header',
-			'default'     => 'center center',
-			'priority'    => 30,
-			'choices'     => array(
-				'center top'        => __( 'center top', 'whimsy-plus' ),
-				'center center'     => __( 'center center', 'whimsy-plus' ),
-				'center bottom'     => __( 'center bottom', 'whimsy-plus' ),
-				'left top'          => __( 'left top', 'whimsy-plus' ),
-				'left center'       => __( 'left center', 'whimsy-plus' ),
-				'left bottom'       => __( 'left bottom', 'whimsy-plus' ),
-				'right top'         => __( 'right top', 'whimsy-plus' ),
-				'right center'      => __( 'right center', 'whimsy-plus' ),
-				'right bottom'      => __( 'right bottom', 'whimsy-plus' ),
-			),
-			'active_callback'    => array(
-				array(
-					'setting'  => 'header_as_bg',
-					'operator' => '==',
-					'value'    => 1,
-				),
-			),
-			'output'      => array(
-				array(
-					'element'  => '#header-container',
-					'property' => 'background-position',
-				),
-			),
-			'transport'    => 'postMessage',
-			'js_vars'      => array(
-				array(
-					'element'  => '#header-container',
-					'property' => 'background-position',
-					'function' => 'css',
-				),
-			)
-		) );
-
-		Kirki::add_field( 'whimsy_plus', array(
-			'type'        => 'radio-buttonset',
-			'settings'    => 'header_as_bg_attachment',
-			'label'       => __( 'Background-Attachment', 'whimsy-plus' ),
-			'description' => __( 'This can be used to create a paralax effect.', 'whimsy-plus' ),
-			'section'     => 'whimsy_plus_header',
-			'default'     => 'scroll',
-			'priority'    => 30,
-			'choices'     => array(
-				'scroll'    => __( 'scroll', 'whimsy-plus' ),
-				'fixed'   => __( 'fixed', 'whimsy-plus' ),
-				'initial'     => __( 'initial', 'whimsy-plus' ),
-			),
-			'active_callback'    => array(
-				array(
-					'setting'  => 'header_as_bg',
-					'operator' => '==',
-					'value'    => 1,
-				),
-			),
-			'output'      => array(
-				array(
-					'element'  => '#header-container',
-					'property' => 'background-attachment',
-				),
-			),
-			'transport'    => 'postMessage',
-			'js_vars'      => array(
-				array(
-					'element'  => '#header-container',
-					'property' => 'background-attachment',
-					'function' => 'css',
-				),
-			)
-		) );
-		
+		) );		
 	}
 }
 add_action( 'init', 'whimsy_plus_header_init', 50 );

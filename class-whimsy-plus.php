@@ -40,7 +40,7 @@
             add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ), 200 );
 
 			// for developers
-			add_action( 'init', array( $this, 'devmode' ), 10 ); // Deactivate add-on plugins in WordPress before using dev mode.
+			//add_action( 'init', array( $this, 'devmode' ), 10 ); // Deactivate add-on plugins in WordPress before using dev mode.
             
         }
    
@@ -109,6 +109,10 @@
 			
             wp_enqueue_style( 'whimsy-plus', WHIMSY_PLUS_CSS . 'whimsy-plus.css', array('whimsy-style'), WHIMSY_PLUS_VERSION );
 
+			if ( Kirki::get_option( 'whimsy_plus_sticky_menu' ) == true ) { 
+				wp_enqueue_script( 'whimsy-plus-sticky-menu', WHIMSY_PLUS_JS . 'sticky-menu.js', array('jquery'), WHIMSY_PLUS_VERSION );
+
+			}
         }
 		
         /**

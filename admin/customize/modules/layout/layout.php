@@ -1,13 +1,13 @@
 <?php
 /*
  * Plugin Name: Whimsy+ | Layout
- * Version: 0.0.1
+ * Version: 0.0.2
  * Plugin URI: http://www.whimsycreative.co/framework/plus
  * Description: A plugin packed with awesome features for Whimsy Framework.
  * Author: Whimsy Creative Co.
  * Author URI: http://www.whimsycreative.co
  * Requires at least: 4.0
- * Tested up to: 4.7.4
+ * Tested up to: 4.8
  *
  * Text Domain: whimsy-plus
  * Domain Path: /language/
@@ -54,7 +54,6 @@
 		function fields() {
 			if( class_exists( 'Kirki' ) ) {
 				/* Layout */
-
 				Kirki::add_field( 'whimsy_plus', array(
 					'type'        => 'slider',
 					'settings'    => 'layout_size',
@@ -80,7 +79,6 @@
 						),
 					),
 				) );
-
 				Kirki::add_field( 'whimsy_plus', array(
 					'type'        => 'radio-image',
 					'settings'    => 'whimsy_framework_layout',
@@ -96,9 +94,30 @@
 				) );
 
 				Kirki::add_field( 'whimsy_plus', array(
+					'type'        => 'background',
+					'settings'    => 'whimsy_plus_basic_bg_color',
+					'label'       => __( 'Background', 'whimsy-plus' ),
+					'section'     => 'whimsy_plus_layout',
+					'default'     => array(
+						'background-color'    => '#ffffff',
+						'background-image'    => '',
+						'background-repeat'   => 'no-repeat',
+						'background-size'     => 'cover',
+						'background-attach'   => 'fixed',
+						'background-position' => 'left-top',
+						'background-opacity'  => 90,
+					),
+					'output'      => array(
+						array(
+							'element'  => 'body',
+						),
+					),
+				) );
+				
+				Kirki::add_field( 'whimsy_plus', array(
 					'type'        => 'toggle',
 					'settings'    => 'box_layout',
-					'label'       => __( 'Enable Box-Style layout?', 'whimsy-plus' ),
+					'label'       => __( 'Enable Box layout?', 'whimsy-plus' ),
 					'section'     => 'whimsy_plus_layout',
 					'default'     => false,
 					'priority'    => 10,
@@ -107,8 +126,8 @@
 				Kirki::add_field( 'whimsy_plus', array(
 					'type'        => 'background',
 					'settings'    => 'boxed_website_background',
-					'label'       => __( 'Boxed Layout Content Background', 'kirki' ),
-					'description' => __( 'Content area background for boxed layout.', 'kirki' ),
+					'label'       => __( 'Box Layout Content Background', 'kirki' ),
+					'description' => __( 'Content area background for #page.', 'kirki' ),
 					'section'     => 'whimsy_plus_layout',
 					'default'     => array(
 						'background-color'    => '#ffffff',
@@ -133,39 +152,6 @@
 						),
 					),
 				) );
-				// Kirki::add_field( 'whimsy_plus', array(
-				// 	'type'        => 'color',
-				// 	'settings'    => 'color_box_bg',
-				// 	'label'       => __( 'Box Background Color', 'whimsy-plus' ),
-				// 	'section'     => 'whimsy_plus_layout',
-				// 	'default'     => '#ffffff',
-				// 	'priority'    => 11,
-				// 	'choices'     => array(
-				// 		'alpha' => true,
-				// 	),
-				// 	'active_callback'  => array(
-				// 		array(
-				// 		'setting'  => 'box_layout',
-				// 		'operator' => '==',
-				// 		'value'    => true
-				// 		),
-				// 	),
-				// 	'output'      => array(
-				// 		array(
-				// 			'element'  => '#page',
-				// 			'property' => 'background-color',
-				// 		),
-				// 	),
-				// 	'transport'   => 'postMessage',
-				// 	'js_vars'     => array(
-				// 		array(
-				// 			'element'  => '#page',
-				// 			'function' => 'css',
-				// 			'property' => 'background-color',
-				// 		),
-				// 	),
-				// ) );
-
 				Kirki::add_field( 'whimsy_plus', array(
 					'type'        => 'dimension',
 					'settings'    => 'box_layout_margin',
@@ -196,7 +182,6 @@
 						),
 					),
 				) );
-
 				Kirki::add_field( 'whimsy_plus', array(
 					'type'        => 'dimension',
 					'settings'    => 'box_layout_border_radius',
@@ -209,7 +194,7 @@
 						array(
 						'setting'  => 'box_layout',
 						'operator' => '==',
-						'value'    => true
+						'value'    => true,
 						),
 					),
 					'output'      => array(
@@ -227,22 +212,8 @@
 						),
 					)
 				) );
-				
-				Kirki::add_field( 'whimsy_plus', array(
-					'type'        => 'background',
-					'settings'    => 'whimsy_plus_basic_bg_color',
-					'label'       => __( 'Background', 'whimsy-plus' ),
-					'section'     => 'whimsy_plus_layout',
-					'output'      => array(
-						array(
-							'element'  => 'body',
-						),
-					),
-				) );
-				
 			}
 		}
-        
         /**
          * Include additional styles when in admin.
          */

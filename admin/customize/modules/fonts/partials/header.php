@@ -21,7 +21,7 @@ Kirki::add_field( 'whimsy_plus', array(
 		'letter-spacing' => '0',
 		'color'          => '#52b0c1',
 		'text-transform' => 'none',
-		'text-align'     => 'center'
+		'text-align'     => 'center',
 	),
 	'priority'    => 10,
 	'output'      => array(
@@ -50,7 +50,7 @@ Kirki::add_field( 'whimsy_plus', array(
 		'letter-spacing' => '1px',
 		'color'          => '#333333',
 		'text-transform' => 'uppercase',
-		'text-align'     => 'center'
+		'text-align'     => 'center',
 	),
 	'priority'    => 10,
 	'output'      => array(

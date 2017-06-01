@@ -7,7 +7,7 @@
  * Author: Whimsy Creative Co.
  * Author URI: http://www.whimsycreative.co
  * Requires at least: 4.0
- * Tested up to: 4.7.4
+ * Tested up to: 4.8
  *
  * Text Domain: whimsy-plus
  * Domain Path: /language/

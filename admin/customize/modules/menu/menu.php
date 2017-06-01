@@ -7,7 +7,7 @@
  * Author: Whimsy Creative Co.
  * Author URI: http://www.whimsycreative.co
  * Requires at least: 4.0
- * Tested up to: 4.7.4
+ * Tested up to: 4.8
  *
  * Text Domain: whimsy-plus
  * Domain Path: /language/
@@ -57,13 +57,13 @@ function whimsy_plus_menu_init() {
 				array(
 					'setting'  => 'whimsy_plus_sticky_menu',
 					'operator' => '==',
-					'value'    => 1,
+					'value'    => true,
 				),
 			),
 			'output'      => array(
 				array(
 					'element'  => '#site-navigation.sticky-menu',
-					'property' => 'background-color'
+					'property' => 'background-color',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -84,7 +84,7 @@ function whimsy_plus_menu_init() {
 				array(
 					'setting'  => 'whimsy_plus_sticky_menu',
 					'operator' => '==',
-					'value'    => 1,
+					'value'    => true,
 				),
 			),
 			'default'     => array(
@@ -123,13 +123,13 @@ function whimsy_plus_menu_init() {
 				array(
 					'setting'  => 'whimsy_plus_sticky_menu',
 					'operator' => '==',
-					'value'    => 1,
+					'value'    => true,
 				),
 			),
 			'output'      => array(
 				array(
 					'element'  => '#site-navigation.sticky-menu ul.sub-menu a',
-					'property' => 'background'
+					'property' => 'background',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -156,13 +156,13 @@ function whimsy_plus_menu_init() {
 				array(
 					'setting'  => 'whimsy_plus_sticky_menu',
 					'operator' => '==',
-					'value'    => 1,
+					'value'    => true,
 				),
 			),
 			'output'      => array(
 				array(
 					'element'  => '#site-navigation.sticky-menu ul.sub-menu a:hover',
-					'property' => 'background'
+					'property' => 'background',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -188,13 +188,13 @@ function whimsy_plus_menu_init() {
 				array(
 					'setting'  => 'whimsy_plus_sticky_menu',
 					'operator' => '==',
-					'value'    => 1,
+					'value'    => true,
 				),
 			),
 			'output'      => array(
 				array(
 					'element'  => '#site-navigation.sticky-menu ul.sub-menu a:hover',
-					'property' => 'color'
+					'property' => 'color',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -220,13 +220,13 @@ function whimsy_plus_menu_init() {
 				array(
 					'setting'  => 'whimsy_plus_sticky_menu',
 					'operator' => '==',
-					'value'    => 1,
+					'value'    => true,
 				),
 			),
 			'output'      => array(
 				array(
 					'element'  => '#site-navigation.sticky-menu ul.sub-menu a:active,#site-navigation.sticky-menu ul.sub-menu a:focus',
-					'property' => 'color'
+					'property' => 'color',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -254,7 +254,7 @@ function whimsy_plus_menu_init() {
 			'output'      => array(
 				array(
 					'element'  => '#site-navigation',
-					'property' => 'background-color'
+					'property' => 'background-color',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -307,7 +307,7 @@ function whimsy_plus_menu_init() {
 			'output'      => array(
 				array(
 					'element'  => '#site-navigation,#site-navigation a',
-					'property' => 'color'
+					'property' => 'color',
 				),
 			),
 			'transport'   => 'postMessage',
@@ -331,7 +331,7 @@ function whimsy_plus_menu_init() {
 			'output'      => array(
 				array(
 					'element'  => '#site-navigation a:hover',
-					'property' => 'color'
+					'property' => 'color',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -356,7 +356,7 @@ function whimsy_plus_menu_init() {
 			'output'      => array(
 				array(
 					'element'  => '#site-navigation a:active,#site-navigation a:focus',
-					'property' => 'color'
+					'property' => 'color',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -398,7 +398,7 @@ function whimsy_plus_menu_init() {
 				array(
 					'setting'  => 'whimsy_plus_add_border_primary_links',
 					'operator' => '==',
-					'value'    => 1,
+					'value'    => true,
 				),
 			),
 			'output'      => array(
@@ -429,7 +429,7 @@ function whimsy_plus_menu_init() {
 				array(
 					'setting'  => 'whimsy_plus_add_border_primary_links',
 					'operator' => '==',
-					'value'    => 1,
+					'value'    => true,
 				),
 			),
 			'output'      => array(
@@ -462,7 +462,7 @@ function whimsy_plus_menu_init() {
 				array(
 					'setting'  => 'whimsy_plus_add_border_primary_links',
 					'operator' => '==',
-					'value'    => 1,
+					'value'    => true,
 				),
 			),
 			'output'      => array(
@@ -507,7 +507,7 @@ function whimsy_plus_menu_init() {
 				array(
 					'setting'  => 'whimsy_plus_add_bg_primary_links',
 					'operator' => '==',
-					'value'    => 1,
+					'value'    => true,
 				),
 			),
 			'output'      => array(
@@ -541,13 +541,13 @@ function whimsy_plus_menu_init() {
 				array(
 					'setting'  => 'whimsy_plus_add_bg_primary_links',
 					'operator' => '==',
-					'value'    => 1,
+					'value'    => true,
 				),
 			),
 			'output'      => array(
 				array(
 					'element'  => '#site-navigation a:hover',
-					'property' => 'background-color'
+					'property' => 'background-color',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -573,13 +573,13 @@ function whimsy_plus_menu_init() {
 				array(
 					'setting'  => 'whimsy_plus_add_bg_primary_links',
 					'operator' => '==',
-					'value'    => 1,
+					'value'    => true,
 				),
 			),
 			'output'      => array(
 				array(
 					'element'  => '#site-navigation a:hover',
-					'property' => 'background-color'
+					'property' => 'background-color',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -614,7 +614,7 @@ function whimsy_plus_menu_init() {
 			'output'      => array(
 				array(
 					'element'  => '#site-navigation ul.sub-menu a',
-					'property' => 'background'
+					'property' => 'background',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -639,7 +639,7 @@ function whimsy_plus_menu_init() {
 			'output'      => array(
 				array(
 					'element'  => '#site-navigation ul.sub-menu a:hover',
-					'property' => 'background'
+					'property' => 'background',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -664,7 +664,7 @@ function whimsy_plus_menu_init() {
 			'output'      => array(
 				array(
 					'element'  => '#site-navigation ul.sub-menu a:hover',
-					'property' => 'color'
+					'property' => 'color',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -689,7 +689,7 @@ function whimsy_plus_menu_init() {
 			'output'      => array(
 				array(
 					'element'  => '#site-navigation ul.sub-menu a:active,#site-navigation ul.sub-menu a:focus',
-					'property' => 'color'
+					'property' => 'color',
 				),
 			),
 			'transport'    => 'postMessage',
@@ -703,4 +703,4 @@ function whimsy_plus_menu_init() {
 		) );
 	}
 }
-add_action( 'init', 'whimsy_plus_menu_init', 50 );
+add_action( 'init', 'whimsy_plus_menu_init', 10 );
